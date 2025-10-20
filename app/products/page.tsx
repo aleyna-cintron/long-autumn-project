@@ -1,7 +1,8 @@
+import { getStripeProducts } from "../lib/getStripeProducts";
 import ProductsList from "../ProductsList";
-import { products } from "../product-data";
 
-export default function ProductsPage() {
+export default async function ProductsPage() {
+  const products = await getStripeProducts(); // runs on server only
   return (
     <div>
       <h1>Products</h1>

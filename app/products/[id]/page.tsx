@@ -1,25 +1,53 @@
 import NotFound from "@/app/not-found";
-import { products } from "@/app/product-data";
 import Image from "next/image";
+import { getStripeProducts } from "../../lib/getStripeProducts"; // adjust path if different
 
-export default function ProductDetailPage({ params }: { params: { id: string } }) {
+// Mark the component as async so we can await Stripe data
+export default async function ProductDetailPage({ params }: { params: { id: string } }) {
+  // Fetch products from Stripe
+  const products = await getStripeProducts();
+
+  // Find the one matching the product ID in the URL
   const product = products.find((p) => p.id === params.id);
 
+  // If not found, render Next.js's NotFound page
   if (!product) {
-    return <NotFound/>
+    return <NotFound />;
   }
 
+  // Display the product details
   return (
-    <div>
-      <h1>{product.name}</h1>
-      <Image alt={"tee-shirt"} src={"/"+product.imageUrl} width={150} height={150}></Image>
-      <p>${product.price}</p>
-      <h3>Description</h3>
-      <p>{product.description}</p>
-      <p>quantity: <span>0</span></p>
-      <button  className="px-6 py-2 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition-colors">+</button>
-      <button  className="px-6 py-2 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition-colors">-</button>
-      <button>Checkout</button>
+    <div className="max-w-md mx-auto p-6 space-y-4">
+      <h1 className="text-2xl font-bold">{product.name}</h1>
+
+      <Image
+        alt={product.name}
+        src={product.imageUrl}
+        width={300}
+        height={300}
+        className="rounded-lg shadow"
+      />
+
+      <p className="text-xl font-semibold">${product.price.toFixed(2)}</p>
+
+      <h3 className="text-lg font-medium">Description</h3>
+      <p className="text-gray-700">{product.description || "No description available."}</p>
+
+      <div className="flex items-center gap-4">
+        <p>
+          Quantity: <span className="font-semibold">0</span>
+        </p>
+        <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition">
+          +
+        </button>
+        <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition">
+          -
+        </button>
+      </div>
+
+      <button className="w-full mt-4 py-3 bg-green-600 text-white font-medium rounded-md hover:bg-green-700 transition">
+        Checkout
+      </button>
     </div>
   );
 }

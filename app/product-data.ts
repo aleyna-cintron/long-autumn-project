@@ -6,10 +6,10 @@ export interface Product {
     price: number;
 }
 
-export const products: Product[] = [{
-    id: "1",
-    imageUrl: "long-autumn-shirt-front.webp",
-    name: "Long Autumn Tee",
-    description: "A teeshirt with Long Autumn logo.",
-    price: 20,
-}]
+// export const products: Product[] = [{
+//     id: "1",
+//     imageUrl: "long-autumn-shirt-front.webp",
+//     name: "Long Autumn Tee",
+//     description: "A teeshirt with Long Autumn logo.",
+//     price: 20,
+// }]

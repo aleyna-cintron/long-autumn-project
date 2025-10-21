@@ -1,7 +1,7 @@
 import NotFound from "@/app/not-found";
 import Image from "next/image";
+import AddToCart from "../../component/AddToCart"
 import { getStripeProducts } from "../../lib/getStripeProducts"; // adjust path if different
-import { useCartStore } from "@/app/store/cart-store-provider";
 // Mark the component as async so we can await Stripe data
 export default async function ProductDetailPage({ params }: { params: { id: string } }) {
   // Fetch products from Stripe
@@ -14,8 +14,6 @@ export default async function ProductDetailPage({ params }: { params: { id: stri
   if (!product) {
     return <NotFound />;
   }
-  const { items, addItem, removeItem } = useCartStore (state => state)
-
   // Display the product details
   return (
     <div className="max-w-md mx-auto p-6 space-y-4">
@@ -38,7 +36,13 @@ export default async function ProductDetailPage({ params }: { params: { id: stri
         <p>
           Quantity: <span className="font-semibold">0</span>
         </p>
-        <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition">
+        <AddToCart 
+          item={{
+            id: product.id,
+            name: product.name,
+            quantity: 1
+          }}
+/>        <button type="button" className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition">
           +
         </button>
         <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition">

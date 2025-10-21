@@ -1,7 +1,7 @@
 import NotFound from "@/app/not-found";
 import Image from "next/image";
 import { getStripeProducts } from "../../lib/getStripeProducts"; // adjust path if different
-
+import { useCartStore } from "@/app/store/cart-store-provider";
 // Mark the component as async so we can await Stripe data
 export default async function ProductDetailPage({ params }: { params: { id: string } }) {
   // Fetch products from Stripe
@@ -14,6 +14,7 @@ export default async function ProductDetailPage({ params }: { params: { id: stri
   if (!product) {
     return <NotFound />;
   }
+  const { items, addItem, removeItem } = useCartStore (state => state)
 
   // Display the product details
   return (

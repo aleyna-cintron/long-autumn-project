@@ -1,17 +1,34 @@
-// imports
+// stores/cart-store.ts
+import { createStore } from 'zustand/vanilla'
 
-// DEFINE the what a cart item is
+export type CartItem = {
+  id: string;
+  name: string;
+  quantity: number;
+}
 
-// define what an item is: it requires the defined cart item, it also requires a function
+export type CartStore = {
+  items: CartItem[]
+  addItem: (item: CartItem) => void
+  removeItem: (id: string) => void
+}
 
-import { create } from 'zustand'
-
-const useCartStore = create((set) => ({
-  items: 0,
-
-  addItem: () => set((state: Product: product) => ({ item: state.item + 1 })),
-
-//   removeAllItems: () => set({ item: 0 }),
-
-//   updateBears: (newBears) => set({ bears: newBears }),
-}))
+export const createCartStore = () =>
+  createStore<CartStore>((set) => ({
+    items: [],
+    addItem: (item) =>
+      set((state) => {
+        const existing = state.items.find((i) => i.id === item.id);
+        if (existing) {
+          return {
+            items: state.items.map((i) =>
+              i.id === item.id ? { ...i, quantity: i.quantity + item.quantity } : i
+            ),
+          };
+        } else {
+          return { items: [...state.items, item] };
+        }
+      }),
+    removeItem: (id) =>
+      set((state) => ({ items: state.items.filter((i) => i.id !== id) })),
+  }))

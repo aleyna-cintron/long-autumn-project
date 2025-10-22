@@ -1,8 +1,7 @@
 'use client'
 
-import { useCartStore } from "../store/cart-store-provider";
-import { Button } from "./Button";
-import { toast } from 'sonner'
+import { useCartStore } from "../../store/cart-store-provider";
+import { Button } from "../ui/Button";
 
 export default function Cart() {
   const items = useCartStore((state) => state.items);

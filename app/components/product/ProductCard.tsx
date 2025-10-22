@@ -5,7 +5,7 @@ import Image from "next/image"
 import Link from 'next/link'
 import { useCartStore, useCartStoreRaw } from '../store/cart-store-provider'
 import { Product } from '../product-data'
-import AddToCartButton from './AddToCartButton'
+import AddToCartButton from './cart/AddToCartButton'
 
 export default function ProductCard({ product }: { product: Product }) {
   const [quantity, setQuantity] = useState(1)

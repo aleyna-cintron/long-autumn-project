@@ -1,5 +1,5 @@
 'use server'
-import {stripe} from '../lib/stripe'
+import {stripe} from './stripe'
 import { CartItem } from '../store/cart-store'
 
 // Creates a Stripe Checkout session and returns the session URL

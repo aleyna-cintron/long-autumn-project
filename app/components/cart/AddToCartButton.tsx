@@ -1,8 +1,8 @@
 'use client'
 
-import { Button } from "./Button";
-import { useCartStore } from "../store/cart-store-provider";
-import { CartItem } from "../store/cart-store";
+import { Button } from "../ui/Button";
+import { useCartStore } from "../../store/cart-store-provider";
+import { CartItem } from "../../store/cart-store";
 import { toast } from 'sonner'
 
 

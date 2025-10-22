@@ -14,7 +14,7 @@ export default function NavBar() {
                     <li>
                         <Link href={"/contact"}>contact</Link></li>
                     <li>
-                    <Link href={"/checkout"}>checkout</Link></li>
+                    <Link href={"/cart"}>checkout</Link></li>
                 </ul>
             </div>
         </nav>

@@ -1,4 +1,4 @@
-import { createCheckoutSession } from '../../actions/stripe'
+import { createCheckoutSession } from '../../lib/createStrpeSession'
 
 export async function POST(req: Request) {
   try {

@@ -1,5 +1,5 @@
 import { getStripeProducts } from "../lib/getStripeProducts";
-import ProductsList from "../ProductsList";
+import ProductsList from "../components/product/ProductsList";
 
 export default async function ProductsPage() {
   const products = await getStripeProducts(); // runs on server only

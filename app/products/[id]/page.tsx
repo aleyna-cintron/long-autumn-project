@@ -1,7 +1,8 @@
 import NotFound from "@/app/not-found";
 import Image from "next/image";
-import AddToCartButton from "../../component/AddToCartButton"
+import AddToCartButton from "../../components/cart/AddToCartButton"
 import { getStripeProducts } from "../../lib/getStripeProducts"; // adjust path if different
+
 // Mark the component as async so we can await Stripe data
 export default async function ProductDetailPage({ params }: { params: { id: string } }) {
 // Await params before using properties (Next.js requirement)

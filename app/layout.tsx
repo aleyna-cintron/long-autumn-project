@@ -4,7 +4,7 @@ import "./globals.css";
 
 import { CartStoreProvider } from "./store/cart-store-provider";
 
-import NavBar from "./Navbar";
+import NavBar from "./components/layout/Navbar";
 
 
 const geistSans = Geist({

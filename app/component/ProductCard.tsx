@@ -1,18 +1,36 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useLayoutEffect } from 'react'
 import Image from "next/image"
-import { useCartStore } from '../store/cart-store-provider'
+import Link from 'next/link'
+import { useCartStore, useCartStoreRaw } from '../store/cart-store-provider'
 import { Product } from '../product-data'
 import AddToCartButton from './AddToCartButton'
 
 export default function ProductCard({ product }: { product: Product }) {
   const [quantity, setQuantity] = useState(1)
-  
+  const cartStore = useCartStoreRaw()
+
   // Get quantity from cart store (if item is in cart)
-  const quantityInCart = useCartStore(state => 
-    state.items.find(item => item.id === product.id)?.quantity || 0
+  const quantityInCart = useCartStore(
+    (state) => state.items.find((item) => item.id === product.id)?.quantity || 0
   )
+
+  const handleIncrement = () => {
+    setQuantity((q) => q + 1)
+  }
+
+  const handleDecrement = () => {
+    setQuantity((q) => Math.max(1, q - 1))
+  }
+
+  useLayoutEffect(() => {
+    cartStore.persist?.rehydrate()
+  }, [cartStore])
+
+  if (!cartStore.persist?.hasHydrated()) {
+    return <p>Loading...</p>
+  }
 
   return (
     <div className="max-w-md mx-auto p-6 space-y-4">
@@ -33,43 +51,48 @@ export default function ProductCard({ product }: { product: Product }) {
         {product.description || "No description available."}
       </p>
 
-      <div className="flex items-center gap-4">
-        <p>
-          Quantity: <span className="font-semibold">{quantity}</span>
-        </p>
-        
-        <button 
-          type="button" 
-          className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition"
+      {/* Quantity Selector */}
+      <div className="flex items-center justify-center gap-4 py-4">
+        <button
+          onClick={handleDecrement}
+          type="button"
+          className="w-12 h-12 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors flex items-center justify-center text-gray-700 font-bold text-xl"
+        >
+          −
+        </button>
+        <span className="text-3xl font-bold text-gray-800 min-w-[60px] text-center">
+          {quantity}
+        </span>
+        <button
+          onClick={handleIncrement}
+          type="button"
+          className="w-12 h-12 rounded-full bg-blue-500 hover:bg-blue-600 transition-colors flex items-center justify-center text-white font-bold text-xl"
         >
           +
-        </button>
-        
-        <button 
-          type="button"
-          className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition"
-        >
-          -
         </button>
       </div>
 
       {quantityInCart > 0 && (
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-gray-600 text-center">
           Currently in cart: {quantityInCart}
         </p>
       )}
 
-      <AddToCartButton 
+      <AddToCartButton
         item={{
           id: product.id,
           name: product.name,
-          quantity: quantity
+          quantity: quantity,
+          price: product.price,
         }}
       />
 
-      <button className="w-full mt-4 py-3 bg-green-600 text-white font-medium rounded-md hover:bg-green-700 transition">
+      <Link
+        href="/checkout"
+        className="block w-full mt-4 py-3 bg-green-600 text-white font-medium rounded-md hover:bg-green-700 transition text-center"
+      >
         Checkout
-      </button>
+      </Link>
     </div>
   )
 }

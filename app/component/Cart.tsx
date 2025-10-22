@@ -1,6 +1,8 @@
 'use client'
 
 import { useCartStore } from "../store/cart-store-provider";
+import { Button } from "./Button";
+import { toast } from 'sonner'
 
 export default function Cart() {
   const items = useCartStore((state) => state.items);
@@ -17,6 +19,19 @@ export default function Cart() {
 
   const total = items.reduce((sum, item) => sum + item.quantity, 0);
 
+  const handleCheckout = async () => {
+    // Send your cart data to your API
+    const res = await fetch('/api/checkout-session', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ items: items }),
+    })
+    
+    const data = await res.json()
+
+    // Redirect the user to Stripe-hosted checkout
+    window.location.href = data.url
+  }
   return (
     <div className="p-4 border rounded">
       <h2 className="text-xl font-bold mb-4">Cart ({total} items)</h2>
@@ -35,6 +50,10 @@ export default function Cart() {
             </button>
           </div>
         ))}
+        
+          <Button variant="primary" onClick={handleCheckout}>
+            Checkout
+          </Button>        
       </div>
     </div>
   );

@@ -1,15 +1,17 @@
 import NotFound from "@/app/not-found";
 import Image from "next/image";
-import AddToCart from "../../component/AddToCart"
+import AddToCartButton from "../../component/AddToCartButton"
 import { getStripeProducts } from "../../lib/getStripeProducts"; // adjust path if different
 // Mark the component as async so we can await Stripe data
 export default async function ProductDetailPage({ params }: { params: { id: string } }) {
+// Await params before using properties (Next.js requirement)
+  const { id } =  params
+
   // Fetch products from Stripe
   const products = await getStripeProducts();
 
   // Find the one matching the product ID in the URL
-  const product = products.find((p) => p.id === params.id);
-
+  const product = products.find((p) => p.id === id);
   // If not found, render Next.js's NotFound page
   if (!product) {
     return <NotFound />;
@@ -36,11 +38,12 @@ export default async function ProductDetailPage({ params }: { params: { id: stri
         <p>
           Quantity: <span className="font-semibold">0</span>
         </p>
-        <AddToCart 
+        <AddToCartButton 
           item={{
             id: product.id,
             name: product.name,
-            quantity: 1
+            quantity: 1,
+            price: product.price,
           }}
 />        <button type="button" className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition">
           +

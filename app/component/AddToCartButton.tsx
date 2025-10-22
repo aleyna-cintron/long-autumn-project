@@ -21,9 +21,9 @@ export default function AddToCartButton({ item }: {item : CartItem}) {
   const sum = quantity * price;
   return (
     <div>
- <Button onClick={handleAddToCart}>
+  <Button onClick={handleAddToCart}>
   Add to Cart {quantity}
-</Button>
+  </Button>
       <p>{sum}</p>
     </div>
    

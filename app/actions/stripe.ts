@@ -1,26 +1,33 @@
 'use server'
+import {stripe} from '../lib/stripe'
+import { CartItem } from '../store/cart-store'
 
-import { headers } from 'next/headers'
-
-import { stripe } from '../lib/stripe'
-
-export async function fetchClientSecret() {
-  const origin = (await headers()).get('origin')
-
-  // Create Checkout Sessions from body params.
-  const session = await stripe.checkout.sessions.create({
-    ui_mode: 'embedded',
-    line_items: [
-      {
-        // Provide the exact Price ID (for example, price_1234) of
-        // the product you want to sell
-        price: '{{PRICE_ID}}',
-        quantity: 1
-      }
-    ],
-    mode: 'payment',
-    return_url: `${origin}/return?session_id={CHECKOUT_SESSION_ID}`,
-  })
-
-  return session.client_secret
+// Creates a Stripe Checkout session and returns the session URL
+export async function createCheckoutSession(cartItems: CartItem[]) {
+  // cartItems shape: [{ id, name, price, quantity }, ...]
+  console.log('Creating checkout session with items:', cartItems);
+  const line_items = cartItems.map((item) => ({
+    price_data: {
+      currency: 'usd',
+      product_data: { name: item.name },
+      unit_amount: Math.round(item.price * 100), // in cents
+    },
+    quantity: item.quantity,
+  }))
+  console.log('Line items for Stripe:', line_items);
+  try {
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
+      mode: 'payment',
+      line_items,
+      success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/success`,
+      cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL}/cart`,
+    });
+    console.log('Created Stripe session:', session);
+    console.log('Checkout URL:', session.url);
+    return session.url;
+  } catch (err) {
+    console.error('Stripe session creation failed:', err);
+    throw err; // or handle it gracefully
+  }
 }

@@ -5,6 +5,7 @@ export type CartItem = {
   id: string;
   name: string;
   quantity: number;
+  price: number;
 }
 
 export type CartStore = {
@@ -16,7 +17,7 @@ export type CartStore = {
 export const createCartStore = () =>
   createStore<CartStore>((set) => ({
     items: [],
-    addItem: (item) =>
+    addItem: (item: CartItem) =>
       set((state) => {
         const existing = state.items.find((i) => i.id === item.id);
         if (existing) {
@@ -32,3 +33,5 @@ export const createCartStore = () =>
     removeItem: (id) =>
       set((state) => ({ items: state.items.filter((i) => i.id !== id) })),
   }))
+
+  

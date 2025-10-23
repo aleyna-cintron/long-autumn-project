@@ -11,7 +11,6 @@ export default function NavBar() {
             <Image src="/LA_Logo_Clean_White.png" alt="Logo" width={250} height={250} />
           </Link>
         </div>
-
         {/* Navigation Links */}
         <ul className="flex flex-row gap-6 justify-center">
           <li><Link href={"/"}>Home</Link></li>

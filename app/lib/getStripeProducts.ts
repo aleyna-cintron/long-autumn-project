@@ -1,5 +1,5 @@
 import { stripe } from "./stripe";
-import type { Product } from "../types/product-data"
+import type { Product } from "../../types/product-data"
 
 /** simple cents -> dollars helper (assumes 2-decimal currency like USD) */
 function centsToMajor(cents: number | null | undefined) {

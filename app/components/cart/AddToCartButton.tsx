@@ -22,7 +22,7 @@ export default function AddToCartButton({ item }: {item : CartItem}) {
   return (
     <div>
   <Button onClick={handleAddToCart}>
-  Add to Cart {quantity}
+  +
   </Button>
       <p>{sum}</p>
     </div>

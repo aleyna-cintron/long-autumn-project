@@ -34,6 +34,13 @@ export default function AudioPlayer() {
       setIsPlaying(true);
     }
   }
+  function formatTime(seconds: number): string {
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    // padStart ensures two digits for seconds
+    return `${mins}:${secs.toString().padStart(2, "0")}`;
+  } 
+
 
   // Update currentTime while audio is playing
   useEffect(() => {
@@ -60,7 +67,7 @@ export default function AudioPlayer() {
         <source src={songPlaying} type={getAudioType(songPlaying)} />
       </audio>
 
-      <p>Current Time: {currentTime}s</p>
+      <p>Current Time: {formatTime(currentTime)}s</p>
 
       <ul className="flex flex-col gap-4 mt-4">
         {change.tracks.map((track, i) => (

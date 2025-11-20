@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from 'next/image';
+import { ShoppingCart } from 'lucide-react';
 
 export default function NavBar() {
   return (
@@ -23,7 +24,7 @@ export default function NavBar() {
           {/* create cart link but have a cart icon downloaded from online */}
           <li>
             <Link href={"/cart"}>
-              <Image src="/cart-icon-white.png" alt="Cart" width={30} height={30} />
+              <ShoppingCart></ShoppingCart>
             </Link>
           </li>
         </ul>

@@ -1,15 +1,15 @@
 "use server";
 const nodemailer = require("nodemailer");
+
 // Create a Nodemailer test account
-const testAccount = await nodemailer.createTestAccount();
+// const testAccount = await nodemailer.createTestAccount();
+
 // Create a test account or replace with real credentials.
 const transporter = nodemailer.createTransport({
-  host: "smtp.ethereal.email",
-  port: 587,
-  secure: false, // true for 465, false for other ports
+  service: "gmail",
   auth: {
-    user: testAccount.user,
-    pass: testAccount.pass,
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS,
   },
 });
 
@@ -19,10 +19,14 @@ export async function sendEmail(formData: FormData): Promise<void> {
     const message = formData.get('message')
 
   const info = await transporter.sendMail({
-    from: email,
-    to: testAccount.user, // sending to the test inbox
-    subject: "Hello ✔",
+    from: `${name} <${process.env.SMTP_USER}>`,
+    to: process.env.BAND_EMAIL, // sending to the test inbox
+    subject: name,
     text: message, // plain‑text body
+    replyTo: email,
+    html: `<p><strong>Name:</strong> ${name}</p>
+       <p><strong>Email:</strong> ${email}</p>
+       <p><strong>Message:</strong><br/>${message}</p>`
   });
 
   console.log("Message sent:", info);

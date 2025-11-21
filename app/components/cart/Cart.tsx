@@ -36,7 +36,7 @@ export default function Cart() {
         {items.map((item) => (
           <div key={item.id} className="flex justify-between items-center p-2 bg-gray-50 rounded">
             <div>
-              <p className="font-semibold">{item.name}</p>
+              <p className="font-semibold text-gray-600">{item.name}</p>
               <p className="text-sm text-gray-600">Quantity: {item.quantity}</p>
             </div>
             <button

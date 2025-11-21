@@ -1,4 +1,4 @@
-import { EP } from '../types/ep'
+import { EP } from '../types/music-data'
 const basePath = "/audio/change/";
 
 export const change: EP = {

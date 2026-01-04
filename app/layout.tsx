@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-
+import { Geist, Geist_Mono, Permanent_Marker, Roboto_Condensed, Courier_Prime } from "next/font/google";
+import "./styles.css";
 import { CartStoreProvider } from "./store/cart-store-provider";
-
 import NavBar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 
@@ -14,6 +12,24 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const permanentMarker = Permanent_Marker({
+  variable: "--font-permanent-marker",
+  weight: "400",
+  subsets: ["latin"],
+});
+
+const robotoCondensed = Roboto_Condensed({
+  variable: "--font-roboto-condensed",
+  weight: ["700", "900"],
+  subsets: ["latin"],
+});
+
+const courierPrime = Courier_Prime({
+  variable: "--font-courier-prime",
+  weight: ["400", "700"],
   subsets: ["latin"],
 });
 
@@ -29,11 +45,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${permanentMarker.variable} ${robotoCondensed.variable} ${courierPrime.variable} antialiased`}>
         <CartStoreProvider>
-          <NavBar/>
+          <div className="text-cold-blue">hi</div>
+          <NavBar />
           {children}
-          <Footer/>
+          <Footer />
         </CartStoreProvider>
       </body>
     </html>

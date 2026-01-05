@@ -25,7 +25,7 @@ function formatDate(isoDate: string) {
 export default async function shows() {
     const bandData = await getBand();
     return (
-        <div>
+        <div className='pt-44'>
             {bandData.map((event: BandEvent) => (
             <pre key={event.id} className="border border-indigo-600 p-10 mb-2">
                     {/* <div> {JSON.stringify(event, null, 2)}</div> */}

@@ -7,65 +7,70 @@ import { usePathname } from "next/navigation";
 
 export default function NavBar() {
   const pathname = usePathname();
+  const isHomePage = pathname === "/";
 
   // Nav links stored in array
   const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
-    { name: "Music", href: "/music" },
-    { name: "Shows", href: "/shows" },
-    { name: "Merch", href: "/products" },
-    { name: "Gallery", href: "/gallery" },
-    { name: "Contact", href: "/contact" },
+    { name: "HOME", href: "/" },
+    { name: "ABOUT", href: "/about" },
+    { name: "MUSIC", href: "/music" },
+    { name: "SHOWS", href: "/shows" },
+    { name: "MERCH", href: "/products" },
+    { name: "GALLERY", href: "/gallery" },
+    { name: "CONTACT", href: "/contact" },
   ];
 
   return (
-    <nav className="mx-auto p-5 w-full">
-      <div className="flex flex-col items-center p-4 text-2xl">
-        {/* Logo */}
-        <div className="mb-4">
-          <Link href="/">
-            <Image
-              src="/LA_Logo_Clean_White.png"
-              alt="Logo"
-              width={250}
-              height={250}
-              className="font-logo" // your custom logo font
-            />
-          </Link>
-        </div>
+    <nav className="w-full bg-deep-black border-b border-white fixed top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4">
+        {/* Logo - Only show on non-home pages, centered above nav */}
+        {!isHomePage && (
+          <div className="flex justify-center">
+            <Link href="/">
+              <Image
+                src="/LA_Logo_Clean_White.png"
+                alt="Long Autumn Logo"
+                width={80}
+                height={80}
+                className="font-logo"
+              />
+            </Link>
+          </div>
+        )}
 
-        {/* Navigation Links */}
-        <ul className="flex flex-row gap-1 justify-center items-center">
-          {navLinks.map((link) => (
-            <li key={link.href}>
+        <div className="flex justify-center items-center h-16">
+          {/* Navigation Links */}
+          <ul className="flex flex-row gap-8 justify-center items-center">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className={`font-body text-sm font-bold tracking-wider transition-colors uppercase ${
+                    pathname === link.href
+                      ? "text-brutal-red" // active: brutal red
+                      : "text-neutral-400 hover:text-brutal-red" // inactive: gray, hover brutal red
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              </li>
+            ))}
+
+            {/* Cart Icon */}
+            <li>
               <Link
-                href={link.href}
-                className={`font-feature ${
-                  pathname === link.href
-                    ? "text-primary font-medium" // active: red, medium weight
-                    : "text-secondary hover:text-primary" // inactive: black/secondary, hover red
+                href="/cart"
+                className={`transition-colors ${
+                  pathname === "/cart"
+                    ? "text-brutal-red"
+                    : "text-neutral-400 hover:text-brutal-red"
                 }`}
               >
-                {link.name}
+                <ShoppingCart size={20} />
               </Link>
             </li>
-          ))}
-
-          {/* Cart Icon */}
-          <li>
-            <Link
-              href="/cart"
-              className={`${
-                pathname === "/cart"
-                  ? "text-primary font-medium"
-                  : "text-secondary hover:text-primary"
-              }`}
-            >
-              <ShoppingCart size={24} />
-            </Link>
-          </li>
-        </ul>
+          </ul>
+        </div>
       </div>
     </nav>
   );

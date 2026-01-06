@@ -1,10 +1,11 @@
-import { EP } from '../types/music-data'
+import { EP } from '@/types/music-data'
+
 const basePath = "/audio/change/";
 
 export const change: EP = {
-  title: "change",
-  year: 2023,
-  coverArt: "/ChangeEP_Art.png",
+  title: "Change",
+  year: 2022,
+  coverArt: "/epArt/change.png",
   tracks: [
     { title: "Hard One", src: `${basePath}HardOne.mp3`, duration: "3:45" },
     { title: "Carry You Home", src: `${basePath}CarryYouHome.mp3`, duration: "4:20" },
@@ -13,18 +14,39 @@ export const change: EP = {
   ],
 };
 
-
 export const tooMinded: EP = {
-  title: "Second EP",
-  year: 2024,
-  coverArt: "/ChangeEP_Art.png",
-   tracks: [
-    { title: "Hard One", src: "/audio/HardOne.mp3", duration: "3:45" },
-    { title: "Carry You Home", src: "/audio/CarryYouHome.mp3", duration: "4:20" },
-    { title: "Balloon", src: "/audio/Balloon.mp3", duration: "5:10" },
-    { title: "Them", src: "/audio/Them.wav", duration: "5:10" },
+  title: "Too Minded",
+  year: 2021,
+  coverArt: "/epArt/tooMinded.jpg",
+  tracks: [
+    { title: "Track 1", src: "/audio/placeholder.mp3", duration: "3:38" },
+    { title: "Track 2", src: "/audio/placeholder.mp3", duration: "4:22" },
+    { title: "Track 3", src: "/audio/placeholder.mp3", duration: "3:48" },
   ],
 };
 
-// Export all EPs together
-export const allEPs: EP[] = [change, tooMinded];
+export const coldSun: EP = {
+  title: "Cold Sun",
+  year: 2023,
+  coverArt: "/epArt/coldSun.jpg",
+  tracks: [
+    { title: "Track 1", src: "/audio/placeholder.mp3", duration: "3:30" },
+    { title: "Track 2", src: "/audio/placeholder.mp3", duration: "4:05" },
+    { title: "Track 3", src: "/audio/placeholder.mp3", duration: "3:42" },
+  ],
+};
+
+export const happyHour: EP = {
+  title: "Happy Hour",
+  year: 2024,
+  coverArt: "/epArt/happyHour.png",
+  isLatest: true,
+  tracks: [
+    { title: "Track 1", src: "/audio/placeholder.mp3", duration: "3:45" },
+    { title: "Track 2", src: "/audio/placeholder.mp3", duration: "4:12" },
+    { title: "Track 3", src: "/audio/placeholder.mp3", duration: "3:58" },
+  ],
+};
+
+// Export all EPs together (newest first)
+export const allEPs: EP[] = [happyHour, coldSun, change, tooMinded];

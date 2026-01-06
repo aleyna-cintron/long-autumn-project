@@ -46,11 +46,28 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body 
-        className={`${geistSans.variable} ${geistMono.variable} ${permanentMarker.variable} ${robotoCondensed.variable} ${courierPrime.variable} antialiased bg-deep-black text-off-white min-h-screen`}
+        className={`${geistSans.variable} ${geistMono.variable} ${permanentMarker.variable} ${robotoCondensed.variable} ${courierPrime.variable} antialiased text-off-white min-h-screen`}
       >
+        {/* Animated cosmic background - global */}
+        <div 
+          className="fixed top-0 left-0 w-full h-full animate-cosmic-drift"
+          style={{
+            backgroundImage: 'url("/cosmic-bg.jpeg")',
+            backgroundSize: '120%',
+            backgroundPosition: 'center',
+            zIndex: -20,
+          }}
+        />
+        
+        {/* Dark overlay for better text readability */}
+        <div 
+          className="fixed top-0 left-0 w-full h-full bg-black/40"
+          style={{ zIndex: -10 }}
+        />
+
         <CartStoreProvider>
           <NavBar />
-          <main className="min-h-screen">
+          <main className="min-h-screen relative z-0">
             {children}
           </main>
           <Footer />

@@ -4,6 +4,7 @@ import "./styles.css";
 import { CartStoreProvider } from "./store/cart-store-provider";
 import NavBar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
+import { AtmosphericTexture } from "./components/AtmosphericTexture";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,7 +24,7 @@ const permanentMarker = Permanent_Marker({
 
 const robotoCondensed = Roboto_Condensed({
   variable: "--font-roboto-condensed",
-  weight: ["700", "900"],
+  weight: ["400", "700"],
   subsets: ["latin"],
 });
 
@@ -47,18 +48,8 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body 
         className={`${geistSans.variable} ${geistMono.variable} ${permanentMarker.variable} ${robotoCondensed.variable} ${courierPrime.variable} antialiased text-off-white min-h-screen`}
-      >
-        {/* Animated cosmic background - global */}
-        <div 
-          className="fixed top-0 left-0 w-full h-full animate-cosmic-drift"
-          style={{
-            backgroundImage: 'url("/cosmic-bg.jpeg")',
-            backgroundSize: '120%',
-            backgroundPosition: 'center',
-            zIndex: -20,
-          }}
-        />
-        
+      > 
+        <AtmosphericTexture></AtmosphericTexture>
         {/* Dark overlay for better text readability */}
         <div 
           className="fixed top-0 left-0 w-full h-full bg-black/40"

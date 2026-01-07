@@ -27,7 +27,7 @@ export default function FeaturesSection() {
   ];
 
   return (
-    <section className="bg-deep-black py-16 px-4">
+    <section className="bg-deep-black/60 py-16 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {features.map((feature, index) => (

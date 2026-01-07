@@ -49,3 +49,19 @@ export function formatTime(isoDate: string) {
         hour12: true 
     });
 }
+
+export function formatFullDate(isoDate: string) {
+  const eventDate = new Date(isoDate);
+  return eventDate.toLocaleDateString('en-US', {
+    weekday: 'long',
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric'
+  });
+}
+export function formatShowDateTime(isoDate: string) {
+  return {
+    date: formatFullDate(isoDate),
+    time: formatTime(isoDate)
+  };
+}

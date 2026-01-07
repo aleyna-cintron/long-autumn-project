@@ -40,7 +40,6 @@ export const happyHour: EP = {
   title: "Happy Hour",
   year: 2024,
   coverArt: "/epArt/happyHour.png",
-  isLatest: true,
   tracks: [
     { title: "Track 1", src: "/audio/placeholder.mp3", duration: "3:45" },
     { title: "Track 2", src: "/audio/placeholder.mp3", duration: "4:12" },
@@ -48,5 +47,19 @@ export const happyHour: EP = {
   ],
 };
 
+export const fading: EP = {
+  title: "Fading",
+  year: 2025,
+  coverArt: "/epArt/fading.png",
+  backsideArt: "/epArt/fading-backside.jpeg",  // Add this line
+  isLatest: true,
+  tracks: [
+    { title: "Track 1", src: "/audio/placeholder.mp3", duration: "3:30" },
+    { title: "Track 2", src: "/audio/placeholder.mp3", duration: "4:15" },
+    { title: "Track 3", src: "/audio/placeholder.mp3", duration: "3:52" },
+    { title: "Track 4", src: "/audio/placeholder.mp3", duration: "4:05" },
+  ],
+};
+
 // Export all EPs together (newest first)
-export const allEPs: EP[] = [happyHour, coldSun, change, tooMinded];
+export const allEPs: EP[] = [fading, happyHour, coldSun, change, tooMinded];

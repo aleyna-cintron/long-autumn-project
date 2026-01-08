@@ -1,13 +1,12 @@
 export default function OurStory() {
   return (
-    <div className="w-full min-h-screen bg-background/90  rounded-lg text-accent p-8 md:p-16 lg:p-20 pt-32 md:pt-36 lg:pt-50">
-      {/* Our Story Section - Two Column Layout */}
+    <div className="w-full bg-background/90 rounded-lg text-accent p-2 md:p-12 lg:p-16 pt-20 md:pt-24 lg:pt-30">      {/* Our Story Section - Two Column Layout */}
       <div className="max-w-7xl mx-auto mb-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left Column - Text */}
           <div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-2">Our Story</h1>
-            <div className="w-16 h-1 bg-red-600 mb-8"></div>
+            <h1 className="text-5xl md:text-6xl font-bold mb-2 text-foreground">Our Story</h1>
+            <div className="w-16 h-1 bg-wine mb-8"></div>
             
             <div className="space-y-6 text-foreground leading-relaxed">
               <p>

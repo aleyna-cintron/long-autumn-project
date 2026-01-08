@@ -1,5 +1,6 @@
 // create a band member card component that takes in name, role, and image url as props and displays them in a card format
 import Image from "next/image";
+import GrayscaleCosmicBg from "./GrayscaleCosmicBg";
 
 // Define the props for the BandMemberCard component
 interface BandMemberCardProps {

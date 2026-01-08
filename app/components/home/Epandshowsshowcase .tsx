@@ -3,6 +3,7 @@ import { allEPs } from '../../../data/eps';
 import { getUpcomingShows, formatShowDateTime } from '../../lib/shows';
 import { Calendar, Clock, MapPin, Music, Play } from 'lucide-react';
 import RotatingAlbumArt from './RotatingAlbumArt';
+import GrayscaleCosmicBg from '../ui/GrayscaleCosmicBg';
 
 export default async function EPAndShowsShowcase() {
   const latestEP = allEPs.find(ep => ep.isLatest) || allEPs[0];
@@ -39,16 +40,7 @@ export default async function EPAndShowsShowcase() {
                 {/* Record Display with Background */}
                 <div className="py-12 px-8 flex items-center justify-center relative">
                     {/* Background Image with filters */}
-                    <div 
-                      className="absolute inset-0"
-                      style={{
-                        backgroundImage: `url("/cosmic-bg.jpeg")`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        filter: 'grayscale(100%) saturate(3)',
-                        opacity: 0.6
-                      }}
-                    />
+                    <GrayscaleCosmicBg></GrayscaleCosmicBg>
                   <RotatingAlbumArt ep={latestEP} />
                 </div>
               </div>              
@@ -106,17 +98,8 @@ export default async function EPAndShowsShowcase() {
                   return (
                     <div key={show.id} className="border border-border rounded-lg p-6 mb-6 relative overflow-hidden">
                       {/* Background Image */}
-                      <div 
-                        className="absolute inset-0"
-                        style={{
-                          backgroundImage: 'url("/cosmic-bg.jpeg")',
-                          backgroundSize: 'cover',
-                          backgroundPosition: 'center',
-                          filter: 'grayscale(100%) saturate(300%)',
-                          opacity: 0.4
-                        }}
-                      />
-                      
+                     
+                      <GrayscaleCosmicBg></GrayscaleCosmicBg>
                       <div className="relative z-10">
                         <h3 className="text-2xl text-foreground mb-4">
                           {index === 0 ? 'Next Show' : 'Upcoming Show'}

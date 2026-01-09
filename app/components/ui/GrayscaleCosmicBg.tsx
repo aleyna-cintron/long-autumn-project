@@ -1,7 +1,7 @@
 export default function GrayscaleCosmicBg(){
     return (
         <div 
-            className="absolute inset-0"
+            className="absolute inset-0 rounded-lg"
             style={{
                 backgroundImage: `url("/cosmic-bg.jpeg")`,
                 backgroundSize: 'cover',

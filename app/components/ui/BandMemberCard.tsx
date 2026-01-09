@@ -1,36 +1,42 @@
-// create a band member card component that takes in name, role, and image url as props and displays them in a card format
 import Image from "next/image";
 import GrayscaleCosmicBg from "./GrayscaleCosmicBg";
 
-// Define the props for the BandMemberCard component
 interface BandMemberCardProps {
     name: string;
     role: string;
     imageUrl: string;
     bio: string;
-    variant?: "left" | "right"; // Layout variant
+    variant?: "left" | "right";
 }
 
 export default function BandMemberCard({ name, role, imageUrl, bio, variant = "left" }: BandMemberCardProps) {
   return (
     <div className="relative group">
-      {/* Image with enhanced border and shadow */}
-      <div className="relative overflow-hidden rounded-lg border-2 border-white/20 shadow-2xl group-hover:border-brutal-red/50 transition-all duration-500 group-hover:shadow-brutal-red/30">
-        <Image 
-          src={imageUrl} 
-          alt={`${name}'s photo`}
-          width={0}
-          height={0}
-          sizes="100vw"
-          className="rounded-lg grayscale object-cover w-full h-auto transition-all duration-700 group-hover:grayscale-0 group-hover:saturate-50 group-hover:scale-110"
-        />
-        {/* Dark gradient overlay - always visible at bottom */}
-        <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black via-black/90 to-transparent"></div>
-        
-        {/* Name and Role - Always visible at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8 z-10">
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-1 uppercase tracking-tight drop-shadow-lg">{name}</h2>
-          <p className="text-brutal-red text-base lg:text-lg font-semibold uppercase tracking-wide drop-shadow-lg">{role}</p>
+      {/* Image container with cosmic background behind it */}
+      <div className="relative">
+        {/* Cosmic Background - offset behind image */}
+       
+        <div className="absolute -inset-20 z-0">
+          <GrayscaleCosmicBg />
+        </div>
+        {/* Image with enhanced border and shadow */}
+        <div className="relative z-10 overflow-hidden rounded-lg border-2 border-white/20 shadow-2xl group-hover:border-brutal-red/50 transition-all duration-500 group-hover:shadow-brutal-red/30">
+          <Image 
+            src={imageUrl} 
+            alt={`${name}'s photo`}
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="rounded-lg grayscale object-cover w-full h-auto transition-all duration-700 group-hover:grayscale-0 group-hover:saturate-50 group-hover:scale-110"
+          />
+          {/* Dark gradient overlay - always visible at bottom */}
+          <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black via-black/90 to-transparent"></div>
+          
+          {/* Name and Role - Always visible at bottom */}
+          <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8 z-10">
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-1 uppercase tracking-tight drop-shadow-lg">{name}</h2>
+            <p className="text-brutal-red text-base lg:text-lg font-semibold uppercase tracking-wide drop-shadow-lg">{role}</p>
+          </div>
         </div>
       </div>
 

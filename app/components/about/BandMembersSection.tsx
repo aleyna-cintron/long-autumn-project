@@ -1,6 +1,5 @@
 import BandMemberCard from '../ui/BandMemberCard'
 import { bandMembers } from '../../../types/bandMembers';
-import GrayscaleCosmicBg from '../ui/GrayscaleCosmicBg';
 
 export default function BandMembersSection() {
   return (
@@ -9,30 +8,29 @@ export default function BandMembersSection() {
         const isLeft = member.variant === 'left';
 
         return (
-          <div key={member.name} className="relative w-full p-20">
-            <div className="bg-background/70 backdrop-blur-sm rounded-lg border-2 border-accent/30 overflow-hidden p-20 ">
-              <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-start border-accent/30 border-2 py-6 px-8 p-20 rounded-lg  ">
-              <GrayscaleCosmicBg></GrayscaleCosmicBg>  
-              {isLeft && (
-                <>
-                  <div className="lg:col-span-7 relative">
-                    <Decor variant="left" />
-                    <BandMemberCard {...member} />
-                  </div>
-                  <Number index={index} align="right"/>
-                </>
-              )}
-
-              {!isLeft && (
-                <>
-                  <Number index={index} align="left" />
-                  <div className="lg:col-span-7 relative">
-                    <Decor variant="right" />
-                    <BandMemberCard {...member} />
-                  </div>
-                </>
+          <div key={member.name} className="relative p-20">
+            <div className="bg-background/70 backdrop-blur-sm rounded-lg border-2 border-accent/30 overflow-hidden p-20">
+              <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-start py-6 px-8 p-20 rounded-lg">
+                {isLeft && (
+                  <>
+                    <div className="lg:col-span-7 relative">
+                      <Decor variant="left" />
+                      <BandMemberCard {...member} />
+                    </div>
+                    <Number index={index} align="right"/>
+                  </>
                 )}
-                </div>
+
+                {!isLeft && (
+                  <>
+                    <Number index={index} align="left" />
+                    <div className="lg:col-span-7 relative">
+                      <Decor variant="right" />
+                      <BandMemberCard {...member} />
+                    </div>
+                  </>
+                )}
+              </div>
             </div>
           </div>
         );

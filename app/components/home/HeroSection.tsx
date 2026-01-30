@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Play, Calendar, ShoppingBag } from "lucide-react";
 import BandMemberBackground from "./BandMemberBackground";
+import { Button } from '../ui/Button'
 
 const ctaButtons = [
   {
@@ -54,42 +55,11 @@ export default function HeroSection() {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 items-center">
             {ctaButtons.map((button) => (
-              <CTAButton key={button.label} {...button} />
+              <Button key={button.label} {...button} />
             ))}
           </div>
         </div>
       </div>
     </div>
-  );
-}
-
-// Modular component for CTA buttons
-function CTAButton({
-  href,
-  label,
-  icon: Icon,
-  variant,
-}: {
-  href: string;
-  label: string;
-  icon: React.ComponentType<{ size: number; fill?: string }>;
-  variant: "primary" | "outline";
-}) {
-  const isPrimary = variant === "primary";
-  
-  return (
-    <Link
-      href={href}
-      className={`
-        ${isPrimary 
-          ? "bg-brutal-red hover:bg-deep-black text-deep-black hover:text-brutal-red border-brutal-red" 
-          : "bg-transparent hover:bg-off-white/10 text-off-white border-off-white"
-        }
-        font-bold px-8 py-4 flex items-center gap-3 uppercase tracking-wider text-sm border-2
-      `}
-    >
-      <Icon size={20} {...(isPrimary ? { fill: "currentColor" } : {})} />
-      {label}
-    </Link>
   );
 }

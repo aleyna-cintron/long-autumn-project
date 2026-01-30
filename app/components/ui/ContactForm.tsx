@@ -4,68 +4,85 @@ export default function ContactForm() {
   return (
     <form
       action={sendEmail}
-      className="max-w-lg mx-auto p-6 bg-gray-900 rounded-lg shadow-lg flex flex-col gap-4"
+      className="bg-black border-2 border-gray-800 p-8 max-w-2xl"
+      style={{
+        backgroundImage: `
+          linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)
+        `,
+        backgroundSize: '20px 20px'
+      }}
     >
-      {/* Name */}
-      <label htmlFor="name" className="text-white font-semibold">
-        Name
-      </label>
-      <input
-        id="name"
-        name="name"
-        type="text"
-        placeholder="Your Name"
-        className="w-full bg-black text-white p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-white focus:border-white placeholder-gray-400"
-      />
+      <div className="space-y-6">
+        {/* Name */}
+        <div>
+          <label htmlFor="name" className="block text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">
+            Name
+          </label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            placeholder="Your Name"
+            className="w-full bg-black text-white p-4 border-2 border-gray-800 focus:outline-none focus:border-brutal-red placeholder-gray-600 transition-colors"
+          />
+        </div>
 
-      {/* Email */}
-      <label htmlFor="email" className="text-white font-semibold">
-        Email
-      </label>
-      <input
-        id="email"
-        name="email"
-        type="email"
-        placeholder="Your Email"
-        className="w-full bg-black text-white p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-white focus:border-white placeholder-gray-400"
-      />
+        {/* Email */}
+        <div>
+          <label htmlFor="email" className="block text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">
+            Email
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="Your Email"
+            className="w-full bg-black text-white p-4 border-2 border-gray-800 focus:outline-none focus:border-brutal-red placeholder-gray-600 transition-colors"
+          />
+        </div>
 
-      {/* Contact Reason */}
-      <label htmlFor="reason" className="text-white font-semibold">
-        Contact Reason
-      </label>
-      <select
-        id="reason"
-        name="reason"
-        className="w-full bg-black text-white p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-white focus:border-white"
-      >
-        <option value="booking">Booking Inquiry</option>
-        <option value="label-rep">Label / A&R Inquiry</option>
-        <option value="radio-promo">Radio / Press Inquiry</option>
-        <option value="fan-message">Fan Message</option>
-        <option value="collaboration">Collaboration Request</option>
-        <option value="business">Business Inquiry</option>
-      </select>
+        {/* Contact Reason */}
+        <div>
+          <label htmlFor="reason" className="block text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">
+            Contact Reason
+          </label>
+          <select
+            id="reason"
+            name="reason"
+            className="w-full bg-black text-white p-4 border-2 border-gray-800 focus:outline-none focus:border-brutal-red transition-colors cursor-pointer"
+          >
+            <option value="booking">Booking Inquiry</option>
+            <option value="label-rep">Label / A&R Inquiry</option>
+            <option value="radio-promo">Radio / Press Inquiry</option>
+            <option value="fan-message">Fan Message</option>
+            <option value="collaboration">Collaboration Request</option>
+            <option value="business">Business Inquiry</option>
+          </select>
+        </div>
 
-      {/* Message */}
-      <label htmlFor="message" className="text-white font-semibold">
-        Message
-      </label>
-      <textarea
-        id="message"
-        name="message"
-        placeholder="Your Message"
-        rows={5}
-        className="w-full bg-black text-white p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-white focus:border-white resize-none placeholder-gray-400"
-      ></textarea>
+        {/* Message */}
+        <div>
+          <label htmlFor="message" className="block text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">
+            Message
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Your Message"
+            rows={6}
+            className="w-full bg-black text-white p-4 border-2 border-gray-800 focus:outline-none focus:border-brutal-red resize-none placeholder-gray-600 transition-colors"
+          ></textarea>
+        </div>
 
-      {/* Submit Button */}
-      <button
-        type="submit"
-        className="bg-white text-black font-semibold py-3 rounded-lg hover:bg-gray-200 transition-colors duration-200"
-      >
-        Submit
-      </button>
+        {/* Submit Button */}
+        <button
+          type="submit"
+          className="w-full bg-transparent border-2 border-brutal-red text-brutal-red font-bold py-4 uppercase tracking-wider hover:bg-brutal-red hover:text-white transition-all duration-300"
+        >
+          Send Message
+        </button>
+      </div>
     </form>
   );
 }

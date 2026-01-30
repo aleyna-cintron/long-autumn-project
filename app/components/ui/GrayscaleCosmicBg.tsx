@@ -7,7 +7,7 @@ export default function GrayscaleCosmicBg(){
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 filter: 'grayscale(100%) saturate(3)',
-                opacity: 0.6
+                opacity: 0.40
             }}
         />
     )

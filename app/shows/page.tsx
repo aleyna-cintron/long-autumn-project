@@ -8,9 +8,9 @@ export default async function ShowsPage() {
     const pastShows = await getPastShows();
 
     return (
-        <div className="w-full min-h-screen bg-black text-white pt-32 md:pt-36 lg:pt-40 pb-20">
+        <div className="w-full min-h-screen bg-black text-white pt-36 md:pt-40 lg:pt-44 pb-20">
             {/* Hero Section */}
-            <div className="relative h-64 mb-16 overflow-hidden">
+            <div className="relative h-40 mb-10 overflow-hidden">
                 {/* Background image - you can add a concert photo here */}
                 <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-black opacity-90"></div>
                 

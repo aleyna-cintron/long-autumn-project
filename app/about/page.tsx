@@ -15,12 +15,6 @@ export default function AboutPage() {
       </section>
 
       <WhereWePlay />
-
-      <div className="max-w-4xl mx-auto text-center py-32 border-t border-gray-800">
-        <blockquote className="text-3xl md:text-4xl lg:text-5xl font-light leading-relaxed text-gray-200">
-          "Long Autumn's story is one of collaboration and growth, rooted in a commitment to authenticity"
-        </blockquote>
-      </div>
     </div>
   );
 }

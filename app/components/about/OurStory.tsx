@@ -3,10 +3,10 @@ import { PanelCard } from "../ui/PanelCard";
 
 export default function OurStory() {
   return (
-    <PanelCard title="Our Story" className="max-w-7xl mx-auto">
-      <div className="flex flex-col lg:flex-row gap-8">
+    <PanelCard title="Our Story" className="max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[1900px] mx-auto">
+      <div className="flex flex-col lg:flex-row gap-8 2xl:gap-12 3xl:gap-16">
         {/* Left Column - Bio */}
-        <div className="lg:w-1/2 space-y-6 text-foreground leading-relaxed text-lg">
+        <div className="lg:w-1/2 space-y-6 2xl:space-y-8 text-foreground leading-relaxed text-lg 2xl:text-xl 3xl:text-2xl">
           <p>
             Long Autumn started in 2019, when lead singer John Mark, bassist Kolbe Maloney, and guitarist Nick Harvey began playing together in a small, rundown garage in Acton, Massachusetts. Drawn together by a shared love of alt-rock and indie music, they soon added drummer Conor Moran, expanding their sound. By January 2020, guitarist and backing vocalist Jam Templeton joined, completing the five-piece lineup.
           </p>
@@ -20,7 +20,7 @@ export default function OurStory() {
 
         {/* Right Column - Images Grid */}
         <div className="lg:w-1/2">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-4 2xl:gap-6 3xl:gap-8">
             <div className="relative overflow-hidden rounded aspect-square">
               <Image
                 src="/three.jpg"

@@ -33,7 +33,7 @@ export default function FeaturesSection() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-near-black border border-neutral-800 p-8 hover:border-brutal-red transition-colors group"
+              className="bg-background border border-neutral-800 p-8 hover:border-brutal-red transition-colors group"
             >
               {/* Icon */}
               <div className="mb-6">

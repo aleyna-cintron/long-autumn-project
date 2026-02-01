@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-type ButtonVariant = "primary" | "outline" | "dark" | "muted";
+type ButtonVariant = "primary" | "outline" | "dark" | "muted" | "glow" | "purple" | "light";
 type ButtonSize = "sm" | "md" | "lg";
 
 interface ButtonProps {
@@ -34,8 +34,11 @@ export function Button({
   const variantClasses = {
     primary: "bg-brutal-red hover:bg-deep-black text-deep-black hover:text-brutal-red border-brutal-red",
     outline: "bg-black hover:bg-off-white/10 text-off-white border-off-white/30",
-    dark: "bg-black text-brutal-red border-border hover:bg-brutal-red hover:text-black",
+    dark: "bg-black text-brutal-red border-border hover:border-brutal-red",
     muted: "bg-near-black text-off-white border-border hover:border-brutal-red [&_svg]:text-brutal-red",
+    glow: "bg-gradient-to-r from-purple-900/80 via-brutal-red/60 to-purple-900/80 text-white border-purple-500/50 hover:border-purple-400 hover:shadow-[0_0_20px_rgba(139,0,128,0.5)] hover:scale-[1.02]",
+    purple: "bg-purple-900/60 text-purple-100 border-purple-700/60 hover:bg-purple-800/70 hover:border-purple-500",
+    light: "bg-black text-brutal-red border-white/80 hover:bg-black/80 hover:border-white hover:shadow-[0_0_15px_rgba(255,255,255,0.3)]",
   };
 
   const baseClasses = `

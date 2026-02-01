@@ -2,8 +2,10 @@
 
 import { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Play, Pause, Music, ExternalLink } from 'lucide-react';
+import { Play, Pause, ExternalLink, Volume2 } from 'lucide-react';
 import { EP, Track } from '@/types/music-data';
+import { PanelCard } from '../ui/PanelCard';
+import { Button } from '../ui/Button';
 
 interface FeaturedEPPlayerProps {
   ep: EP;
@@ -16,6 +18,7 @@ export default function FeaturedEPPlayer({ ep }: FeaturedEPPlayerProps) {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [volume, setVolume] = useState(1);
+  const [showVolume, setShowVolume] = useState(false);
 
   // Reset when EP changes
   useEffect(() => {
@@ -84,9 +87,11 @@ export default function FeaturedEPPlayer({ ep }: FeaturedEPPlayerProps) {
   const epCoverArt = ep.coverArt || '/placeholder-cover.jpg';
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 mb-32 items-center pt-10">
+    <>
+      {/* Content */}
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center pt-10">
       {/* Left Side - Album Art & Links */}
-      <div className="flex flex-col items-center lg:items-end lg:pr-40">
+      <div className="flex flex-col items-center pr-40">
         {/* Album Art with Rotating Vinyl */}
         <div className="relative w-full max-w-md aspect-square mb-8">
           {/* Rotating Vinyl - slides out from behind sleeve */}
@@ -139,114 +144,113 @@ export default function FeaturedEPPlayer({ ep }: FeaturedEPPlayerProps) {
         </div>
 
         {/* Streaming Links */}
-        <div className="w-full max-w-md space-y-3">
-          <button className="w-full bg-brutal-red hover:bg-red-700 text-white font-bold py-3 px-6 transition-colors duration-300 flex items-center justify-center gap-2">
-            <Music size={20} />
-            Latest Release
-          </button>
-          <button className="w-full bg-red-500/20 hover:bg-red-500/30 border border-brutal-red text-white font-semibold py-3 px-6 transition-colors duration-300 flex items-center justify-center gap-2">
-            <ExternalLink size={18} />
-            Spotify
-          </button>
-          <button className="w-full bg-transparent hover:bg-white/5 border border-gray-700 hover:border-gray-500 text-gray-300 font-semibold py-3 px-6 transition-colors duration-300">
-            TikTok
-          </button>
-          <button className="w-full bg-transparent hover:bg-white/5 border border-gray-700 hover:border-gray-500 text-gray-300 font-semibold py-3 px-6 transition-colors duration-300">
-            YouTube Music
-          </button>
+          <div className="w-full max-w-md space-y-3">
+            <Button href='https://open.spotify.com/artist/YOUR_ARTIST_ID' label='Spotify' variant='light' external />
+            <Button href='https://music.apple.com/artist/YOUR_ARTIST_ID' label='Apple Music' variant='light' external />
+            <Button href='https://youtube.com/@YOUR_CHANNEL' label='YouTube Music' variant='light' external />
         </div>
       </div>
 
-      {/* Right Side - Track Info & Player */}
-      <div className="flex flex-col">
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4">{ep.title}</h1>
-        <p className="text-gray-400 text-sm mb-8">
-          Our latest EP blending our signature sound with new textures and ideas.
-        </p>
+        {/* Right Side - Track Info & Player */}
+        <PanelCard title={`${ep.title} • ${epYear}`} className="lg:max-w-200">
+          <div className="flex flex-col">
+            {/* <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4">{ep.title}</h1> */}
 
-        {/* Now Playing */}
-        <div className="mb-8">
-          <h2 className="text-xl font-semibold mb-4">Now Playing</h2>
-          
-          {/* Custom Audio Player */}
-          <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-4">
-            <div className="flex items-center gap-4 mb-4">
-              <button
-                onClick={togglePlay}
-                className="w-12 h-12 rounded-full bg-brutal-red hover:bg-red-700 flex items-center justify-center transition-colors"
-              >
-                {isPlaying ? <Pause size={20} fill="white" /> : <Play size={20} fill="white" className="ml-1" />}
-              </button>
-              <div className="flex-1">
-                <p className="font-semibold text-white">{currentTrack.title}</p>
-                <p className="text-sm text-gray-400">
-                  {formatTime(currentTime)} / {formatTime(duration)}
-                </p>
+            {/* Track List with Now Playing */}
+            <div className="bg-background border border-muted rounded-lg overflow-hidden">
+              {/* Now Playing Header */}
+              <div className="p-4 border-b border-muted">
+                <div className="flex items-center gap-4">
+                  <button
+                    onClick={togglePlay}
+                    className="w-10 h-10 rounded-full bg-brutal-red hover:bg-red-700 flex items-center justify-center transition-colors flex-shrink-0"
+                  >
+                    {isPlaying ? <Pause size={18} fill="white" /> : <Play size={18} fill="white" className="ml-0.5" />}
+                  </button>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm uppercase tracking-widest text-brutal-red font-bold mb-1">Now Playing</p>
+                    <div className="flex items-center gap-2">
+                      <p className="font-semibold text-white truncate">{currentTrack.title}</p>
+                      <span className="text-gray-500 text-sm">
+                        {formatTime(currentTime)} / {formatTime(duration)}
+                      </span>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => setShowVolume(!showVolume)}
+                    className="p-2 text-gray-400 hover:text-white transition-colors"
+                  >
+                    <Volume2 size={18} />
+                  </button>
+                </div>
+
+                {/* Progress Bar */}
+                <input
+                  type="range"
+                  min="0"
+                  max={duration || 0}
+                  value={currentTime}
+                  onChange={handleSeek}
+                  className="w-full h-1 bg-muted rounded-lg appearance-none cursor-pointer slider mt-3"
+                />
+
+                {/* Volume Control - shows on click */}
+                {showVolume && (
+                  <div className="flex items-center gap-2 mt-3">
+                    <Volume2 size={14} className="text-gray-400" />
+                    <input
+                      type="range"
+                      min="0"
+                      max="1"
+                      step="0.01"
+                      value={volume}
+                      onChange={handleVolumeChange}
+                      className="flex-1 h-1 bg-muted rounded-lg appearance-none cursor-pointer slider"
+                    />
+                  </div>
+                )}
               </div>
+
             </div>
 
-            {/* Progress Bar */}
-            <input
-              type="range"
-              min="0"
-              max={duration || 0}
-              value={currentTime}
-              onChange={handleSeek}
-              className="w-full h-1 bg-gray-700 rounded-lg appearance-none cursor-pointer slider"
+            {/* Track List */}
+            <div className="mt-4 space-y-3">
+              {ep.tracks.map((track, index) => (
+                <button
+                  key={index}
+                  onClick={() => playTrack(track)}
+                  className={`w-full flex items-center justify-between p-5 rounded-lg transition-all duration-300 ${
+                    currentTrack.title === track.title
+                      ? 'bg-background border border-brutal-red'
+                      : 'bg-background border border-muted  hover:border-brutal-red'
+                  }`}
+                >
+                  <div className="flex items-center gap-4">
+                    <span className={`font-mono text-lg w-8 ${currentTrack.title === track.title ? 'text-brutal-red' : 'text-gray-500'}`}>
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <span className={`text-lg font-medium ${currentTrack.title === track.title ? 'text-white' : 'text-gray-300'}`}>
+                      {track.title}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <span className="text-gray-500">{track.duration}</span>
+                    {currentTrack.title === track.title && (
+                      <Play size={18} className="text-brutal-red" fill="currentColor" />
+                    )}
+                  </div>
+                </button>
+              ))}
+            </div>
+
+            {/* Hidden Audio Element */}
+            <audio
+              ref={audioRef}
+              src={currentTrack.src}
+              onEnded={() => setIsPlaying(false)}
             />
-
-            {/* Volume Control */}
-            <div className="flex items-center gap-2 mt-4">
-              <span className="text-xs text-gray-400">Volume</span>
-              <input
-                type="range"
-                min="0"
-                max="1"
-                step="0.01"
-                value={volume}
-                onChange={handleVolumeChange}
-                className="flex-1 h-1 bg-gray-700 rounded-lg appearance-none cursor-pointer slider"
-              />
-            </div>
-          </div>
-
-          {/* Hidden Audio Element */}
-          <audio
-            ref={audioRef}
-            src={currentTrack.src}
-            onEnded={() => setIsPlaying(false)}
-          />
-        </div>
-
-        {/* Playlist */}
-        <div>
-          <h2 className="text-xl font-semibold mb-4">Playlist</h2>
-          <div className="space-y-2">
-            {ep.tracks.map((track, index) => (
-              <button
-                key={index}
-                onClick={() => playTrack(track)}
-                className={`w-full flex items-center justify-between p-4 rounded-lg transition-all duration-300 ${
-                  currentTrack.title === track.title
-                    ? 'bg-brutal-red/20 border border-brutal-red'
-                    : 'bg-gray-900/30 border border-gray-800 hover:bg-gray-800/50 hover:border-gray-700'
-                }`}
-              >
-                <div className="flex items-center gap-4">
-                  <span className="text-gray-400 font-mono text-sm w-6">{index + 1}</span>
-                  <span className="font-medium">{track.title}</span>
-                </div>
-                <div className="flex items-center gap-4">
-                  <span className="text-gray-400 text-sm">{track.duration}</span>
-                  {currentTrack.title === track.title && (
-                    <Play size={16} className="text-brutal-red" fill="currentColor" />
-                  )}
-                </div>
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
+              </div>
+          </PanelCard>
 
       <style jsx>{`
         .animate-spin-slow {
@@ -280,6 +284,7 @@ export default function FeaturedEPPlayer({ ep }: FeaturedEPPlayerProps) {
           border: none;
         }
       `}</style>
-    </div>
+      </div>
+    </>
   );
 }

@@ -138,12 +138,12 @@ export default function BandMembersSection() {
       }}
       renderFront={(card) => renderFront(card as BandMemberCardData)}
       renderBack={(card) => renderBack(card as BandMemberCardData)}
-      containerClassName="w-full"
+      containerClassName="w-full max-w-[95vw] mx-auto"
       cardClassName=""
       header={
         <div className="text-center">
-          <h3 className="font-bold text-7xl mb-4 text-white">Meet The Band</h3>
-          <p className="text-white/50 text-xs uppercase tracking-widest mb-20">Five of a Kind · Scroll to explore</p>
+          <h3 className="font-bold text-7xl 3xl:text-8xl 4xl:text-9xl mb-4 3xl:mb-6 text-white mt-16 3xl:mt-20">Meet The Band</h3>
+          <p className="text-white/50 text-xs 3xl:text-sm 4xl:text-base uppercase tracking-widest mb-20 3xl:mb-24">Five of a Kind · Scroll to explore</p>
         </div>
       }
     />

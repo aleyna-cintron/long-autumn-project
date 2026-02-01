@@ -1,11 +1,36 @@
 .card {
   position: absolute;
-  top: 65%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 320px;
   height: 480px;
   perspective: 1000px;
+}
+
+/* Scale up cards on larger screens */
+@media (min-width: 1600px) {
+  .card {
+    top: 50%;
+    width: 360px;
+    height: 540px;
+  }
+}
+
+@media (min-width: 2000px) {
+  .card {
+    top: 55%;
+    width: 400px;
+    height: 600px;
+  }
+}
+
+@media (min-width: 2400px) {
+  .card {
+    top: 60%;
+    width: 480px;
+    height: 720px;
+  }
 }
 
 .cardWrapper {

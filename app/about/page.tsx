@@ -20,6 +20,17 @@ export default function AboutPage() {
       <section className="min-h-screen snap-start flex items-center justify-center px-8 md:px-16 lg:px-20 py-20">
         <WhereWePlay />
       </section>
+
+      {/* Band Running Section */}
+      <section className="min-h-screen snap-start flex items-center justify-center px-8 md:px-16 lg:px-20 3xl:px-32 py-20 w-full">
+        <div className="w-full max-w-6xl 2xl:max-w-7xl 3xl:max-w-[1800px]">
+          <img
+            src="/la-running.jpg"
+            alt="Long Autumn band running"
+            className="w-full h-auto rounded-lg 3xl:rounded-xl shadow-2xl"
+          />
+        </div>
+      </section>
     </div>
   );
 }

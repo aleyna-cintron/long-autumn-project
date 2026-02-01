@@ -32,21 +32,21 @@ export default async function EPAndShowsShowcase() {
                 href="https://open.spotify.com/artist/YOUR_ARTIST_ID"
                 label="Listen on Spotify"
                 icon={Music}
-                variant="muted"
+                variant="dark"
                 external
               />
               <Button
                 href="https://music.apple.com/artist/YOUR_ARTIST_ID"
                 label="Apple Music"
                 icon={Music}
-                variant="muted"
+                variant="dark"
                 external
               />
               <Button
                 href="https://youtube.com/@YOUR_CHANNEL"
                 label="YouTube"
                 icon={Play}
-                variant="muted"
+                variant="dark"
                 external
               />
             </div>
@@ -91,7 +91,7 @@ export default async function EPAndShowsShowcase() {
                       href={show.url || '#'}
                       label="Get Tickets"
                       icon={Calendar}
-                      variant="muted"
+                      variant="dark"
                       external
                     />
                   </PanelCard>

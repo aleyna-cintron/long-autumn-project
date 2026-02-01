@@ -1,20 +1,25 @@
+"use client";
 import OurStory from '../components/about/OurStory';
 import BandMembersSection from '../components/about/BandMembersSection';
 import WhereWePlay from '../components/about/WhereWePlay';
+
 export default function AboutPage() {
   return (
-    <div className="w-full min-h-screen bg-transparent text-foreground pt-32 md:pt-36 lg:pt-40 px-8 md:px-16 lg:px-20 pb-20">
-      <OurStory />
-      <section className="max-w-4xl md:max-w-5xl lg:max-w-6xl xl:max-w-7xl 2xl:max-w-[1600px] mx-auto pt-20">
-        <h2 className="text-6xl md:text-7xl mb-20 uppercase tracking-wider relative">
-          <span className="relative z-10">Meet the Band</span>
-          <div className="absolute top-1/2 left-0 w-32 h-px bg-brutal-red opacity-50" />
-        </h2>
+    <div className="w-full bg-transparent text-foreground scroll-smooth snap-y snap-mandatory overflow-y-auto">
+      {/* Our Story Section */}
+      <section className="min-h-screen snap-start flex items-center justify-center pt-32 md:pt-36 lg:pt-40 px-8 md:px-16 lg:px-20 pb-20">
+        <OurStory />
+      </section>
 
+      {/* Band Members Section */}
+      <section className="band-section relative snap-start">
         <BandMembersSection />
       </section>
 
-      <WhereWePlay />
+      {/* Where We Play Section */}
+      <section className="min-h-screen snap-start flex items-center justify-center px-8 md:px-16 lg:px-20 py-20">
+        <WhereWePlay />
+      </section>
     </div>
   );
 }

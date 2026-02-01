@@ -1,0 +1,89 @@
+.card {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  height: 480px;
+  perspective: 1000px;
+}
+
+.cardWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  animation: floating 3s infinite ease-in-out;
+}
+
+#card-1 .cardWrapper {
+  animation-delay: 0;
+}
+
+#card-2 .cardWrapper {
+  animation-delay: 0.15s;
+}
+
+#card-3 .cardWrapper {
+  animation-delay: 0.3s;
+}
+
+#card-4 .cardWrapper {
+  animation-delay: 0.45s;
+}
+
+#card-5 .cardWrapper {
+  animation-delay: 0.6s;
+}
+
+.flipCardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+/* Hover flip only on desktop */
+@media (min-width: 768px) {
+  .card:hover .flipCardInner {
+    transform: rotateY(180deg);
+  }
+}
+
+.flipCardFront,
+.flipCardBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 0.8em;
+  overflow: hidden;
+}
+
+.flipCardBack {
+  padding: 0;
+  background-color: #0a0a0a;
+  transform: rotateY(180deg);
+}
+
+@keyframes floating {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    transform: translate(-50%, -60%);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Cards section container - using :global for non-module class */
+:global(.cards-section) {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}

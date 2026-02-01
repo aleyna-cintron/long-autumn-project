@@ -2,7 +2,6 @@ import { allEPs } from '../../../data/eps'
 import { getUpcomingShows, formatShowDateTime } from '../../lib/shows'
 import { Calendar, Clock, MapPin, Music, Play } from 'lucide-react'
 import RotatingAlbumArt from './RotatingAlbumArt'
-import GrayscaleCosmicBg from '../ui/GrayscaleCosmicBg'
 import { PanelCard } from '../ui/PanelCard'
 import { Button } from '../ui/Button'
 
@@ -20,7 +19,7 @@ export default async function EPAndShowsShowcase() {
           <PanelCard title="New EP - Listen Now">
             <PanelCard
               title={latestEP.title}
-              background={<GrayscaleCosmicBg />}
+              background
               className="mb-8"
             >
               <div className="py-12 px-8 flex items-center justify-center">
@@ -62,7 +61,7 @@ export default async function EPAndShowsShowcase() {
                 return (
                   <PanelCard
                     key={show.id}
-                    background={<GrayscaleCosmicBg />}
+                    background
                     className="mb-6"
                   >
                     <h3 className="text-2xl text-foreground mb-4">

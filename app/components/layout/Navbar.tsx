@@ -25,13 +25,13 @@ export default function NavBar() {
       <div className="max-w-7xl mx-auto px-4">
         {/* Logo - Only show on non-home pages, centered above nav */}
         {!isHomePage && (
-          <div className="flex justify-center">
+          <div className="flex justify-center mt-4">
             <Link href="/">
               <Image
-                src="/LA_Logo_Clean_White.png"
+                src="/LA_Logo_Horiz.png"
                 alt="Long Autumn Logo"
-                width={80}
-                height={80}
+                width={200}
+                height={200}
                 className="font-logo"
               />
             </Link>

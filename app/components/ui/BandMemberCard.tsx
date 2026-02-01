@@ -1,5 +1,6 @@
 import Image from "next/image";
 import GrayscaleCosmicBg from "./GrayscaleCosmicBg";
+import { PanelCard } from "./PanelCard";
 
 interface BandMemberCardProps {
     name: string;
@@ -13,6 +14,7 @@ export default function BandMemberCard({ name, role, imageUrl, bio, variant = "l
   return (
     <div className="relative group">
       {/* Image container with cosmic background behind it */}
+      <PanelCard title="">
       <div className="relative">
         {/* Cosmic Background - offset behind image */}
        
@@ -45,7 +47,8 @@ export default function BandMemberCard({ name, role, imageUrl, bio, variant = "l
         <p className="text-gray-300 text-sm leading-relaxed">
           {bio}
         </p>
-      </div>
+        </div>
+        </PanelCard>
     </div>
   );
 }

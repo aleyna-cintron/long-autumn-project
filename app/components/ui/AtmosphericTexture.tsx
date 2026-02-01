@@ -1,7 +1,7 @@
 export function AtmosphericTexture() {
   return (
     <>
-      <div 
+      <div
         className="fixed inset-0 animate-cosmic-drift"
         style={{
           backgroundImage: 'url("/cosmic-bg.jpeg")',
@@ -10,9 +10,6 @@ export function AtmosphericTexture() {
           zIndex: -20,
         }}
       />
-      
-      {/* Dark overlay for better text readability */}
-      <div className="fixed inset-0 bg-black/40" style={{ zIndex: -10 }} />
 
       {/* Grainy Overlay */}
       <div 

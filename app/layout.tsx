@@ -50,11 +50,6 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${permanentMarker.variable} ${robotoCondensed.variable} ${courierPrime.variable} antialiased text-off-white min-h-screen`}
       > 
         <AtmosphericTexture></AtmosphericTexture>
-        {/* Dark overlay for better text readability */}
-        <div 
-          className="fixed top-0 left-0 w-full h-full bg-black/40"
-          style={{ zIndex: -10 }}
-        />
 
         <CartStoreProvider>
           <NavBar />

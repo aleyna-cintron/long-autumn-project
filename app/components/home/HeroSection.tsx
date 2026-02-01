@@ -31,21 +31,62 @@ export default function HeroSection() {
       {/* Background: 5 band member images side by side */}
       <BandMemberBackground />
 
-      {/* Content layer: Logo centered, text and buttons at bottom */}
-      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4">
-        {/* Logo - centered */}
-        <div className="flex-1 flex items-center justify-center max-w-2xl w-full">
-          <Image
-            src="/LA_Logo_Clean_White.png"
-            alt="Long Autumn"
-            width={700}
-            height={700}
-            priority
-            className="w-full"
-          />
+      {/* Dark retro video game filter overlay */}
+      <div className="absolute inset-0 z-5 pointer-events-none">
+        {/* Dark tint */}
+        <div className="absolute inset-0 bg-black/30" />
+
+        {/* CRT Scanlines */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `repeating-linear-gradient(
+              0deg,
+              rgba(0, 0, 0, 0.3),
+              rgba(0, 0, 0, 0.3) 1px,
+              transparent 1px,
+              transparent 3px
+            )`,
+            opacity: 0.6,
+          }}
+        />
+
+        {/* Color aberration / RGB shift effect */}
+        <div
+          className="absolute inset-0 mix-blend-overlay"
+          style={{
+            background: `
+              linear-gradient(90deg, rgba(255,0,0,0.03) 0%, transparent 50%, rgba(0,255,255,0.03) 100%)
+            `,
+          }}
+        />
+
+        {/* Vignette effect */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.6) 100%)',
+          }}
+        />
+      </div>
+
+      {/* Content layer */}
+      <div className="absolute inset-0 z-10 flex flex-col items-center px-4">
+        {/* Logo - upper-middle third */}
+        <div className="flex-1 flex items-center justify-center pt-16">
+          <div className="max-w-lg w-full">
+            <Image
+              src="/LA_Logo_Clean_White.png"
+              alt="Long Autumn"
+              width={600}
+              height={240}
+              priority
+              className="w-full"
+            />
+          </div>
         </div>
 
-        {/* Text and buttons - at bottom */}
+        {/* Tagline + CTAs - bottom section */}
         <div className="flex flex-col items-center pb-12">
           {/* Tagline */}
           <p className="text-off-white text-lg md:text-xl tracking-widest mb-8 text-center uppercase">

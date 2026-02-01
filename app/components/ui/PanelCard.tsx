@@ -1,7 +1,9 @@
+import GrayscaleCosmicBg from './GrayscaleCosmicBg'
+
 interface PanelCardProps {
   children: React.ReactNode
   title?: string
-  background?: React.ReactNode
+  background?: boolean
   className?: string
   fillParent?: boolean
 }
@@ -9,7 +11,7 @@ interface PanelCardProps {
 export function PanelCard({
   title,
   children,
-  background,
+  background = false,
   className = '',
   fillParent = false,
 }: PanelCardProps) {
@@ -20,7 +22,9 @@ export function PanelCard({
       } ${className}`}
     >
       {background && (
-        <div className="absolute inset-0 z-0 pointer-events-none">{background}</div>
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <GrayscaleCosmicBg />
+        </div>
       )}
 
       <div className="relative z-10 flex flex-col flex-1">

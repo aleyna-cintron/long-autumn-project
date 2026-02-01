@@ -1,9 +1,10 @@
 import ContactForm from "../components/ui/ContactForm";
+// import { BrutalistHeroSection } from "../components/ui/BrutalistHeroSection";
 
 export default function ContactPage() {
     return (
-        <div className="w-full min-h-screen bg-black text-white pt-36 md:pt-40 lg:pt-44 pb-20">
-            {/* Hero Section */}
+        <div className="w-full min-h-screen bg-black text-white pt-24 md:pt-28 lg:pt-32 pb-20">
+            Hero Section
             <div className="relative h-40 mb-10 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-black opacity-90"></div>
 
@@ -15,7 +16,6 @@ export default function ContactPage() {
                 </div>
             </div>
 
-            {/* Contact Form Section */}
             <div className="max-w-4xl mx-auto px-4">
                 <div className="mb-8">
                     <h2 className="text-3xl font-bold mb-2">Send a Message</h2>
@@ -24,6 +24,6 @@ export default function ContactPage() {
 
                 <ContactForm />
             </div>
-        </div>
+        </div> 
     )
 }

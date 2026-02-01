@@ -1,4 +1,9 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
 
 :root {
   --font-size: 16px;
@@ -16,24 +21,22 @@
   --cold-blue: #457b9d;
 
   /* Light mode (not used for band site, but keeping structure) */
-  --background: #ffffff;
-  --foreground: oklch(0.145 0 0);
-  --card: #ffffff;
+  --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: #030213;
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.95 0.0058 264.53);
-  --secondary-foreground: #030213;
-  --muted: #ececf0;
-  --muted-foreground: #717182;
-  --accent: #e9ebef;
-  --accent-foreground: #030213;
-  --destructive: #d4183d;
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: #ffffff;
-  --border: rgba(0, 0, 0, 0.1);
-  --input: transparent;
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
   --input-background: #f3f3f5;
   --switch-background: #cbced4;
   --font-weight-medium: 500;
@@ -47,74 +50,76 @@
   --radius: 0.625rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: #030213;
+  --sidebar-primary: oklch(0.205 0 0);
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.97 0 0);
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
 }
 
 .dark {
   /* Main background - Deep Black */
-  --background: #000000;
-  --foreground: #f1faee; /* Off-white for text */
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0); /* Off-white for text */
 
   /* Cards and content blocks - Near black */
-  --card: #1a1a1a;
-  --card-foreground: #f1faee;
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
 
   /* Popovers */
-  --popover: #1a1a1a;
-  --popover-foreground: #f1faee;
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
 
   /* Primary accent - Red */
-  --primary: #e63946;
-  --primary-foreground: #f1faee;
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
 
   /* Secondary - Near black */
-  --secondary: #1a1a1a;
-  --secondary-foreground: #f1faee;
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
 
   /* Muted - Dark gray */
-  --muted: #1a1a1a;
-  --muted-foreground: #999999;
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
 
   /* Accent - Brutal Red for highlights and interactive elements */
-  --accent: #e63946;
-  --accent-foreground: #000000;
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
 
   /* Blue accent for secondary interactions */
   --accent-secondary: #457b9d;
 
   /* Destructive - Red */
-  --destructive: #e63946;
+  --destructive: oklch(0.704 0.191 22.216);
   --destructive-foreground: #f1faee;
 
   /* Borders - sharp and visible */
-  --border: #333333;
-  --input: #1a1a1a;
-  --ring: #e63946; /* Red for focus rings */
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0); /* Red for focus rings */
 
   --font-weight-medium: 700;
   --font-weight-normal: 400;
 
   /* Charts with high contrast */
-  --chart-1: #e63946;
-  --chart-2: #457b9d;
-  --chart-3: #f1faee;
-  --chart-4: #666666;
-  --chart-5: #333333;
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
 
   /* Sidebar */
-  --sidebar: #000000;
-  --sidebar-foreground: #f1faee;
-  --sidebar-primary: #e63946;
-  --sidebar-primary-foreground: #000000;
-  --sidebar-accent: #1a1a1a;
-  --sidebar-accent-foreground: #f1faee;
-  --sidebar-border: #333333;
-  --sidebar-ring: #e63946;
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
 }
 
 @theme inline {
@@ -168,6 +173,9 @@
   );
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
 }
 
 @layer base {
@@ -193,11 +201,11 @@
     bottom: -50%;
     z-index: -3;
     background:
-      radial-gradient(ellipse 800px 600px at 15% 25%, rgba(49, 46, 129, 0.18) 0%, transparent 50%),
-      radial-gradient(ellipse 600px 800px at 85% 75%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
-      radial-gradient(ellipse 700px 700px at 60% 40%, rgba(59, 130, 246, 0.10) 0%, transparent 55%),
-      radial-gradient(ellipse 900px 500px at 40% 80%, rgba(30, 27, 75, 0.15) 0%, transparent 50%),
-      linear-gradient(to bottom, rgba(10, 24, 40, 0.4) 0%, rgba(0, 0, 0, 0.95) 50%, rgba(0, 0, 0, 1) 100%);
+      radial-gradient(ellipse 800px 600px at 15% 25%, rgba(49, 46, 129, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse 600px 800px at 85% 75%, rgba(139, 92, 246, 0.06) 0%, transparent 50%),
+      radial-gradient(ellipse 700px 700px at 60% 40%, rgba(59, 130, 246, 0.05) 0%, transparent 55%),
+      radial-gradient(ellipse 900px 500px at 40% 80%, rgba(30, 27, 75, 0.08) 0%, transparent 50%),
+      linear-gradient(to bottom, rgba(10, 24, 40, 0.3) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.7) 100%);
     animation: atmosphericBreath 25s ease-in-out infinite alternate;
   }
 
@@ -537,5 +545,37 @@ html {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Cosmic drift animation - slow panning movement */
+@keyframes cosmic-drift {
+  0% {
+    transform: scale(1.2) translate(0%, 0%);
+  }
+  25% {
+    transform: scale(1.2) translate(-2%, -1%);
+  }
+  50% {
+    transform: scale(1.2) translate(-1%, -2%);
+  }
+  75% {
+    transform: scale(1.2) translate(1%, -1%);
+  }
+  100% {
+    transform: scale(1.2) translate(0%, 0%);
+  }
+}
+
+.animate-cosmic-drift {
+  animation: cosmic-drift 60s ease-in-out infinite;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }

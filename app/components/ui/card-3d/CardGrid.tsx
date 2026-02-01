@@ -132,8 +132,9 @@ const CardGridInternal = ({
           });
         });
       } else {
-        // DESKTOP: Original spread and flip animation
+        // DESKTOP: Spread from center animation
         const totalScrollHeight = window.innerHeight * config.scrollMultiplier!;
+        const centerIndex = Math.floor(cards.length / 2);
 
         // Pin cards section
         ScrollTrigger.create({
@@ -144,7 +145,14 @@ const CardGridInternal = ({
           pinSpacing: true,
         });
 
-        // Spread cards
+        // Set z-index: center card on top, decreasing outward
+        cardElements.forEach((card, index) => {
+          const distanceFromCenter = Math.abs(index - centerIndex);
+          const zIndex = cards.length - distanceFromCenter;
+          gsap.set(card, { zIndex });
+        });
+
+        // Spread cards from center
         cardElements.forEach((card, index) => {
           gsap.to(card, {
             left: `${positions[index % positions.length]}%`,

@@ -1,8 +1,8 @@
 'use client'
 
 import { bandMembers } from '../../../types/bandMembers';
-import CardGrid from '../ui/card/CardGrid';
-import { BandMemberCardData } from '../ui/card/types';
+import CardGrid from '../ui/card-3d/CardGrid';
+import { BandMemberCardData } from '../ui/card-3d/types';
 import ShinyText from '@/components/ShinyText';
 
 // Convert band members to card data

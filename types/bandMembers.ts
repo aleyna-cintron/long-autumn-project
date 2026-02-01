@@ -8,27 +8,6 @@ export interface BandMember {
 
 export const bandMembers: BandMember[] = [
   {
-    name: 'Kolbe Maloney',
-    role: 'Bass Guitar',
-    imageUrl: '/kolbeBike.jpg',
-    bio: "Kolbe's bass lines provide the foundation that holds Long Autumn together...",
-    variant: 'right',
-  },
-  {
-    name: 'Jam Templeton',
-    role: 'Guitar, Backing Vocals',
-    imageUrl: '/jam.jpg',
-    bio: "Jam's intricate guitar work and harmonies add layers of texture...",
-    variant: 'right',
-  },
-  {
-    name: 'John Mark',
-    role: 'Lead Vocals, Guitar',
-    imageUrl: '/johnmark.jpeg',
-    bio: "The voice that started it all. John's emotive delivery brings depth to every lyric...",
-    variant: 'left',
-  },
-  {
     name: 'Conor Moran',
     role: 'Drums',
     imageUrl: '/conor.jpeg',
@@ -41,5 +20,26 @@ export const bandMembers: BandMember[] = [
     imageUrl: '/harv.jpg',
     bio: "One of the original three members, Nick's guitar work is the backbone...",
     variant: 'left',
+  },
+  {
+    name: 'John Mark',
+    role: 'Lead Vocals, Guitar',
+    imageUrl: '/johnmark.jpeg',
+    bio: "The voice that started it all. John's emotive delivery brings depth to every lyric...",
+    variant: 'left',
+  },
+  {
+    name: 'Jam Templeton',
+    role: 'Guitar, Backing Vocals',
+    imageUrl: '/jam.jpg',
+    bio: "Jam's intricate guitar work and harmonies add layers of texture...",
+    variant: 'right',
+  },
+  {
+    name: 'Kolbe Maloney',
+    role: 'Bass Guitar',
+    imageUrl: '/kolbeBike.jpg',
+    bio: "Kolbe's bass lines provide the foundation that holds Long Autumn together...",
+    variant: 'right',
   },
 ];

@@ -40,7 +40,7 @@ export function PanelCard({
 
         <div
           className={`relative z-10 p-8 flex-1 ${
-            !background ? 'bg-background/60 rounded-b-lg' : ''
+            !background ? 'bg-background/70 rounded-b-lg shadow-[inset_0_2px_20px_rgba(0,0,0,0.3)]' : ''
           }`}
         >
           {children}

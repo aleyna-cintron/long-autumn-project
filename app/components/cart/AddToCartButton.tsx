@@ -1,17 +1,15 @@
 'use client'
 
-import { Button } from "../ui/Button";
 import { useCartStore } from "../../store/cart-store-provider";
 import { CartItem } from "../../store/cart-store";
 import { toast } from 'sonner'
 
-
 export default function AddToCartButton({ item }: {item : CartItem}) {
   const addItem = useCartStore((state) => state.addItem)
-  const quantity = useCartStore(state => 
+  const quantity = useCartStore(state =>
     state.items.find(i => i.id === item.id)?.quantity || 0
   )
-  const price = useCartStore(state => 
+  const price = useCartStore(state =>
     state.items.find(i => i.id === item.id)?.price || 0
   )
   const handleAddToCart = () => {
@@ -20,12 +18,18 @@ export default function AddToCartButton({ item }: {item : CartItem}) {
   }
   const sum = quantity * price;
   return (
-    <div>
-  <Button onClick={handleAddToCart}>
-  +
-  </Button>
-      <p>{sum}</p>
+    <div className="flex items-center gap-4">
+      <button
+        onClick={handleAddToCart}
+        className="px-8 py-4 border-2 bg-brutal-red hover:bg-deep-black text-deep-black hover:text-brutal-red border-brutal-red font-bold flex items-center justify-center gap-3 uppercase tracking-wider text-sm rounded-sm transition-all duration-300"
+      >
+        Add to Cart
+      </button>
+      {quantity > 0 && (
+        <p className="text-gray-400">
+          {quantity} in cart · ${sum.toFixed(2)}
+        </p>
+      )}
     </div>
-   
   )
 }

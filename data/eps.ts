@@ -3,6 +3,7 @@ import { EP } from '@/types/music-data'
 const basePath = "/audio/change/";
 
 export const change: EP = {
+  id: "change",
   title: "Change",
   year: 2022,
   coverArt: "/epArt/change.png",
@@ -15,6 +16,7 @@ export const change: EP = {
 };
 
 export const tooMinded: EP = {
+  id: "too-minded",
   title: "Too Minded",
   year: 2021,
   coverArt: "/epArt/tooMinded.jpg",
@@ -26,6 +28,7 @@ export const tooMinded: EP = {
 };
 
 export const coldSun: EP = {
+  id: "cold-sun",
   title: "Cold Sun",
   year: 2023,
   coverArt: "/epArt/coldSun.jpg",
@@ -37,6 +40,7 @@ export const coldSun: EP = {
 };
 
 export const happyHour: EP = {
+  id: "happy-hour",
   title: "Happy Hour",
   year: 2024,
   coverArt: "/epArt/happyHour.png",
@@ -48,6 +52,7 @@ export const happyHour: EP = {
 };
 
 export const fading: EP = {
+  id: "fading",
   title: "Fading",
   year: 2025,
   coverArt: "/epArt/fading.png",

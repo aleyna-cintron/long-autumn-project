@@ -6,10 +6,11 @@ export interface Track {
 }
 
 export interface EP {
+  id: string;
   title: string;
   year?: number;
   coverArt?: string;
-  backsideArt?: string;  // Add this line
+  backsideArt?: string; 
   isLatest?: boolean;
   tracks: Track[];
 }

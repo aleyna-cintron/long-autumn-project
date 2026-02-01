@@ -13,6 +13,9 @@ const config: Config = {
         '3xl': '1920px',
         '4xl': '2400px',
       },
+      animation: {
+        'spin-slow': 'spin 6s linear infinite',
+      },
     },
   },
 };

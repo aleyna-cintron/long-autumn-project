@@ -4,9 +4,10 @@ import Link from "next/link";
 import AddToCartButton from "../../components/cart/AddToCartButton";
 import { getStripeProducts } from "../../lib/getStripeProducts";
 import DecrementItemButton from "@/app/components/ui/DecrementItemButton";
+import { Button } from "../../components/ui/Button";
 
-export default async function ProductDetailPage({ params }: { params: { id: string } }) {
-  const { id } = params;
+export default async function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
   const products = await getStripeProducts();
   const product = products.find((p) => p.id === id);
 
@@ -83,7 +84,7 @@ export default async function ProductDetailPage({ params }: { params: { id: stri
               </div>
 
               {/* Cart Controls */}
-              <div className="pt-6 border-t border-gray-800">
+              <div className="pt-6 border-t border-gray-800 space-y-4">
                 <div className="flex gap-4">
                   <AddToCartButton
                     item={{
@@ -95,6 +96,7 @@ export default async function ProductDetailPage({ params }: { params: { id: stri
                   />
                   <DecrementItemButton id={id} />
                 </div>
+                <Button href="/cart" label="View Cart" variant="dark" />
               </div>
             </div>
           </div>

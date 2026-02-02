@@ -1,4 +1,4 @@
-import { stripe } from "./stripe";
+import { getStripe } from "./stripe";
 import type { Product } from "../../types/product-data"
 
 /** simple cents -> dollars helper (assumes 2-decimal currency like USD) */
@@ -13,7 +13,7 @@ function centsToMajor(cents: number | null | undefined) {
  * - Falls back to querying the first active price for a product if default_price absent
  */
 export async function getStripeProducts(): Promise<Product[]> {
-  const stripeProducts = await stripe.products.list({
+  const stripeProducts = await getStripe().products.list({
     active: true,
     expand: ["data.default_price"],
     limit: 100,
@@ -32,7 +32,7 @@ export async function getStripeProducts(): Promise<Product[]> {
 
     // fallback: if no default_price amount, try to fetch a price for product (simple, 1 result)
     if (cents == null) {
-      const prices = await stripe.prices.list({ product: p.id, active: true, limit: 1 });
+      const prices = await getStripe().prices.list({ product: p.id, active: true, limit: 1 });
       cents = prices.data[0]?.unit_amount ?? null;
     }
 

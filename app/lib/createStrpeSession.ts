@@ -1,5 +1,5 @@
 'use server'
-import {stripe} from './stripe'
+import {getStripe} from './stripe'
 import { CartItem } from '../store/cart-store'
 
 // Creates a Stripe Checkout session and returns the session URL
@@ -16,7 +16,7 @@ export async function createCheckoutSession(cartItems: CartItem[]) {
   }))
   console.log('Line items for Stripe:', line_items);
   try {
-    const session = await stripe.checkout.sessions.create({
+    const session = await getStripe().checkout.sessions.create({
       payment_method_types: ['card'],
       mode: 'payment',
       line_items,

@@ -1,9 +1,20 @@
 import 'server-only'
-
 import Stripe from 'stripe'
 
-console.log('STRIPE_SECRET_KEY:', process.env.STRIPE_SECRET_KEY)
-console.log('Type:', typeof process.env.STRIPE_SECRET_KEY)
-console.log('Length:', process.env.STRIPE_SECRET_KEY?.length)
+let stripe: Stripe | null = null
 
-export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
+export function getStripe() {
+  if (!stripe) {
+    const key = process.env.STRIPE_SECRET_KEY
+
+    if (!key) {
+      throw new Error('STRIPE_SECRET_KEY is not set')
+    }
+
+    stripe = new Stripe(key, {
+        apiVersion: '2025-09-30.clover',
+    })
+  }
+
+  return stripe
+}

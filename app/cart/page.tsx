@@ -2,7 +2,7 @@ import Cart from "../components/cart/Cart"
 
 export default function CheckoutPage() {
   return (
-    <div className="w-full min-h-screen bg-black text-white pt-36 md:pt-40 lg:pt-44 pb-20">
+    <div className="w-full min-h-screen bg-black text-white pt-36 md:pt-40 lg:pt-24 pb-20">
       {/* Hero Section */}
       <div className="relative h-40 mb-10 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-black opacity-90"></div>

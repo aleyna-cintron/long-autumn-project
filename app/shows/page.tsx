@@ -11,22 +11,49 @@ export default async function ShowsPage() {
     return (
         <div className="w-full min-h-screen text-white md:pt-20 lg:pt-24 pb-20">
             {/* Hero Section */}
-            <div className="relative h-150 mb-10 overflow-hidden">
-                {/* Background image - you can add a concert photo here */}
-                <div className="absolute inset-0 bg-background/80"></div>
-                
-                {/* Content */}
-                <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
-                    <h1 className="text-5xl md:text-6xl font-bold mb-4 lg:mt-20">Live Shows</h1>
-                    <p className="text-gray-400 max-w-2xl">
+            <section className="relative pt-28 pb-20 overflow-hidden bg-background/60">
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    {/* Distressed text container */}
+                    <div className="relative mb-12">
+                        {/* Glitch shadow layers */}
+                        <h1
+                            className="absolute inset-0 text-5xl md:text-7xl lg:text-8xl tracking-wider uppercase text-brutal-red/20 blur-sm text-center"
+                            style={{ transform: 'translate(-4px, -4px)' }}
+                        >
+                            LIVE SHOWS
+                        </h1>
+                        <h1
+                            className="absolute inset-0 text-5xl md:text-7xl lg:text-8xl tracking-wider uppercase text-white/10 text-center"
+                            style={{ transform: 'translate(4px, 4px)' }}
+                        >
+                            LIVE SHOWS
+                        </h1>
+
+                        {/* Main text */}
+                        <h1
+                            className="relative text-5xl md:text-7xl lg:text-8xl tracking-wider uppercase text-foreground text-center"
+                            style={{
+                                textShadow: `
+                                    2px 2px 0 rgba(49, 10, 81, 0.5),
+                                    4px 4px 0 rgba(49, 10, 81, 0.3)
+                                `,
+                            }}
+                        >
+                            LIVE SHOWS
+                        </h1>
+                    </div>
+
+                    {/* Subtitle */}
+                    <p className="text-center text-gray-400 max-w-2xl mx-auto">
                         Experience Long Autumn live. Raw energy, cinematic atmosphere, unforgettable nights.
                     </p>
                 </div>
-            </div>
+            </section>
 
             {/* Upcoming Dates Section */}
-            <div className="max-w-4xl mx-auto px-4">
-                <PanelCard title="Upcoming Shows">
+            <section className="py-20">
+                <div className="max-w-4xl mx-auto px-4">
+                    <PanelCard title="Upcoming Shows">
 
                 {upcomingShows.length === 0 ? (
                     /* TBD Message */
@@ -51,7 +78,7 @@ export default async function ShowsPage() {
                         text-center
                         rounded-sm
                         max-w-4xl mx-auto">
-                        <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-widest text-white mb-4">
+                        <h3 className="text-lg md:text-xl font-bold uppercase tracking-widest text-white mb-4">
                             Want to book Long Autumn for your venue?
                         </h3>
 
@@ -70,18 +97,18 @@ export default async function ShowsPage() {
                             Booking Inquiry
                         </a>
                     </div>
-                </PanelCard>
-            </div>
-            {/* Booking CTA */}
-
-
+                    </PanelCard>
+                </div>
+            </section>
 
             {/* Previous Shows Section */}
-            <div id="previous-shows" className="max-w-4xl mx-auto px-4 mt-20">
-                <PanelCard title="Previous Shows">
-                    <PastShowsList shows={pastShows} />
-                </PanelCard>
-            </div>
+            <section className="py-20">
+                <div id="previous-shows" className="max-w-4xl mx-auto px-4">
+                    <PanelCard title="Previous Shows">
+                        <PastShowsList shows={pastShows} />
+                    </PanelCard>
+                </div>
+            </section>
         </div>
     );
 }

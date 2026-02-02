@@ -56,9 +56,25 @@ export default function FeaturedEPPlayer({ ep }: FeaturedEPPlayerProps) {
   }
 
   function playTrack(track: Track) {
-    setCurrentTrack(track);
-    setIsPlaying(true);
+    if (currentTrack.title === track.title) {
+      // Same track - toggle play/pause
+      togglePlay();
+    } else {
+      // Different track - switch and play
+      setCurrentTrack(track);
+      setIsPlaying(true);
+    }
   }
+
+  // Auto-play when track changes and isPlaying is true
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    if (isPlaying) {
+      audio.play().catch(() => setIsPlaying(false));
+    }
+  }, [currentTrack]);
 
   function formatTime(seconds: number): string {
     if (isNaN(seconds)) return '0:00';
@@ -236,7 +252,9 @@ export default function FeaturedEPPlayer({ ep }: FeaturedEPPlayerProps) {
                   <div className="flex items-center gap-4">
                     <span className="text-gray-500">{track.duration}</span>
                     {currentTrack.title === track.title && (
-                      <Play size={18} className="text-brutal-red" fill="currentColor" />
+                      isPlaying
+                        ? <Pause size={18} className="text-brutal-red" fill="currentColor" />
+                        : <Play size={18} className="text-brutal-red" fill="currentColor" />
                     )}
                   </div>
                 </button>

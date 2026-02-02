@@ -2,7 +2,7 @@
 
 import { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Play, Pause, ExternalLink, Volume2 } from 'lucide-react';
+import { Play, Pause, Volume2 } from 'lucide-react';
 import { EP, Track } from '@/types/music-data';
 import { PanelCard } from '../ui/PanelCard';
 import { Button } from '../ui/Button';

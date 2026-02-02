@@ -19,7 +19,7 @@ export default function FanGallery({
   instagramUrl = 'https://instagram.com/longautumnmusic',
 }: FanGalleryProps) {
   // Default placeholder photos if none provided
-  const displayPhotos = photos ?? [1, 2, 3, 4, 5, 6].map((i) => ({ id: i }))
+  const displayPhotos: FanPhoto[] = photos ?? [1, 2, 3, 4, 5, 6].map((i) => ({ id: i }))
 
   return (
     <section className="py-20">

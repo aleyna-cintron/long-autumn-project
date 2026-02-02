@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { Play, Calendar, ShoppingBag } from "lucide-react";
 import BandMemberBackground from "./BandMemberBackground";
 import { Button } from '../ui/Button'

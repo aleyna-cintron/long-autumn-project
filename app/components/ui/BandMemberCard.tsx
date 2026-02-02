@@ -10,7 +10,7 @@ interface BandMemberCardProps {
     variant?: "left" | "right";
 }
 
-export default function BandMemberCard({ name, role, imageUrl, bio, variant = "left" }: BandMemberCardProps) {
+export default function BandMemberCard({ name, role, imageUrl, bio }: BandMemberCardProps) {
   return (
     <div className="relative group">
       {/* Image container with cosmic background behind it */}

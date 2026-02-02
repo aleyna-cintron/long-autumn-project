@@ -11,7 +11,7 @@ export default function OurStory() {
             Long Autumn started in 2019, when lead singer John Mark, bassist Kolbe Maloney, and guitarist Nick Harvey began playing together in a small, rundown garage in Acton, Massachusetts. Drawn together by a shared love of alt-rock and indie music, they soon added drummer Conor Moran, expanding their sound. By January 2020, guitarist and backing vocalist Jam Templeton joined, completing the five-piece lineup.
           </p>
           <p>
-            Coming out of Boston's vibrant music scene, Long Autumn quickly took to the stage, developing a live energy that reflected their diverse influences. Over the years, they've shared the stage with bands like Valleyheart and The Backfires, honing their performance style along the way.
+            Coming out of Boston&apos;s vibrant music scene, Long Autumn quickly took to the stage, developing a live energy that reflected their diverse influences. Over the years, they&apos;ve shared the stage with bands like Valleyheart and The Backfires, honing their performance style along the way.
           </p>
           <p>
             Known for crafting emotive alt-rock, the band focuses on creating music that connects with listeners on a personal level. Their upcoming EP, Happy Hour, set for release in early 2024, reflects this evolution, blending their signature sound with new textures and ideas.

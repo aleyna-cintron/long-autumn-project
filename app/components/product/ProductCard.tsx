@@ -1,15 +1,14 @@
 'use client'
 
-import { useState, useLayoutEffect } from 'react'
+import { useState } from 'react'
 import Image from "next/image"
 import Link from 'next/link'
-import { useCartStore, useCartStoreRaw } from '../store/cart-store-provider'
-import { Product } from '../product-data'
-import AddToCartButton from './cart/AddToCartButton'
+import { useCartStore } from '../../store/cart-store-provider'
+import { Product } from '@/types/product-data'
+import AddToCartButton from '../cart/AddToCartButton'
 
 export default function ProductCard({ product }: { product: Product }) {
   const [quantity, setQuantity] = useState(1)
-  const cartStore = useCartStoreRaw()
 
   // Get quantity from cart store (if item is in cart)
   const quantityInCart = useCartStore(
@@ -22,14 +21,6 @@ export default function ProductCard({ product }: { product: Product }) {
 
   const handleDecrement = () => {
     setQuantity((q) => Math.max(1, q - 1))
-  }
-
-  useLayoutEffect(() => {
-    cartStore.persist?.rehydrate()
-  }, [cartStore])
-
-  if (!cartStore.persist?.hasHydrated()) {
-    return <p>Loading...</p>
   }
 
   return (

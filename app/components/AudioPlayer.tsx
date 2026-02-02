@@ -2,7 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import { change } from "../../data/eps";
-import { Track } from "@/types/track";
+import { Track } from "@/types/music-data";
 
 export default function AudioPlayer() {
   const audioRef = useRef<HTMLAudioElement | null>(null);

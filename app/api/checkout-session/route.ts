@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 export async function POST(req: Request) {
   try {
     const items = await req.json(); // Make sure req.json() is valid
-    const line_items = items.map((item: any) => ({
+    const line_items = items.map((item: { quantity: number }) => ({
       currency: 'usd',
       price: 'price_123',
       quantity: item.quantity,

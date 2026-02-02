@@ -5,7 +5,7 @@ export default function GalleryHero() {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background z-10 " />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/gallery/la-shask.jpg"
+            src="/gallery/la-shask.JPG"
             alt="Long Autumn live performance"
             className="w-full h-full object-cover object-[center_30%]"
           />

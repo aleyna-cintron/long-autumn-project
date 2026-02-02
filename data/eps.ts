@@ -56,7 +56,7 @@ export const fading: EP = {
   title: "Fading",
   year: 2025,
   coverArt: "/epArt/fading.png",
-  backsideArt: "/epArt/fading-backside.jpeg",  // Add this line
+  backsideArt: "/epArt/fading-backside.jpeg",
   isLatest: true,
   tracks: [
     { title: "Track 1", src: "/audio/placeholder.mp3", duration: "3:30" },

@@ -35,6 +35,7 @@ const renderFront = (card: BandMemberCardData) => (
             <div className="flex-1 px-1 min-h-0">
               <div className="relative p-[2px] rounded h-full" style={{ background: 'linear-gradient(180deg, #8b0000, #4a0080, #8b0000)' }}>
                 <div className="relative rounded overflow-hidden h-full">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={card.imageUrl}
                     alt={card.name}

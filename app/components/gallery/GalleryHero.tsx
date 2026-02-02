@@ -3,6 +3,7 @@ export default function GalleryHero() {
     <section className="relative h-screen flex items-end overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background z-10 " />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/gallery/la-shask.jpg"
             alt="Long Autumn live performance"

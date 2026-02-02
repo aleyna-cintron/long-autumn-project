@@ -36,7 +36,7 @@ export default function FanGallery({
                 className="aspect-square rounded-sm overflow-hidden border-2 border-brutal-red/20 hover:border-brutal-red transition-all bg-muted/30 flex items-center justify-center"
               >
                 {photo.src ? (
-                  // Real photo
+                  /* eslint-disable @next/next/no-img-element */
                   <img
                     src={photo.src}
                     alt={photo.alt ?? 'Fan wearing Long Autumn merch'}

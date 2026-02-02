@@ -1,4 +1,3 @@
-// components/BandMemberCard.tsx
 import React, { memo } from "react";
 import ShinyText from "@/components/ShinyText";
 
@@ -12,6 +11,7 @@ interface BandMemberCardProps {
 }
 
 const BandMemberCard: React.FC<BandMemberCardProps> = ({
+  /* eslint-disable @next/next/no-img-element */
   name,
   role,
   imageUrl,

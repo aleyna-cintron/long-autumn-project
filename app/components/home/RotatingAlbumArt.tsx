@@ -1,5 +1,4 @@
 'use client';
-
 import { motion } from 'framer-motion';
 import { EP } from '@/types/music-data';
 
@@ -8,6 +7,7 @@ interface RotatingAlbumArtProps {
 }
 
 export default function RotatingAlbumArt({ ep }: RotatingAlbumArtProps) {
+  /* eslint-disable @next/next/no-img-element */
   return (
     <div className="relative z-10 w-64 h-64" style={{ perspective: '1000px' }}>
         <motion.div

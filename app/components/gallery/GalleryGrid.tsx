@@ -21,7 +21,7 @@ export default function Gallery() {
                 className="relative group cursor-pointer overflow-hidden bg-black border-2 border-white/10 hover:border-accent transition-all rounded-lg mb-4 break-inside-avoid"
                 onClick={() => setLightboxImage(image.url)}
               >
-                {/* Image with natural dimensions */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={image.url}
                   alt={image.caption}

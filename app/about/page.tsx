@@ -2,6 +2,7 @@
 import OurStory from '../components/about/OurStory';
 import BandMembersSection from '../components/about/BandMembersSection';
 import WhereWePlay from '../components/about/WhereWePlay';
+import Image from 'next/image';
 
 export default function AboutPage() {
   return (
@@ -24,9 +25,12 @@ export default function AboutPage() {
       {/* Band Running Section */}
       <section className="min-h-screen snap-start flex items-center justify-center px-8 md:px-16 lg:px-20 3xl:px-32 py-20 w-full">
         <div className="w-full max-w-6xl 2xl:max-w-7xl 3xl:max-w-[1800px]">
-          <img
+          <Image
             src="/la-running.jpg"
             alt="Long Autumn band running"
+            width={1600}
+            height={900}
+            priority
             className="w-full h-auto rounded-lg 3xl:rounded-xl shadow-2xl"
           />
         </div>

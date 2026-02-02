@@ -15,8 +15,8 @@ interface FanGalleryProps {
 
 export default function FanGallery({
   photos,
-  instagramHandle = '@longautumnband',
-  instagramUrl = 'https://instagram.com/longautumnband',
+  instagramHandle = '@longautumnmusic',
+  instagramUrl = 'https://instagram.com/longautumnmusic',
 }: FanGalleryProps) {
   // Default placeholder photos if none provided
   const displayPhotos = photos ?? [1, 2, 3, 4, 5, 6].map((i) => ({ id: i }))

@@ -81,22 +81,22 @@ export default function ContactPage() {
                                 </p>
                                 <div className="space-y-3">
                                     <a
-                                        href="https://instagram.com/longautumnband"
+                                        href="https://instagram.com/longautumnmusic"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="flex items-center text-muted-foreground hover:text-brutal-red transition-colors p-4 bg-muted/30 rounded-sm border border-border hover:border-brutal-red"
                                     >
                                         <Instagram className="mr-3 flex-shrink-0" size={20} />
-                                        @longautumnband
+                                        @longautumnmusic
                                     </a>
                                     <a
-                                        href="https://twitter.com/longautumnband"
+                                        href="https://twitter.com/longautumnmusic"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="flex items-center text-muted-foreground hover:text-brutal-red transition-colors p-4 bg-muted/30 rounded-sm border border-border hover:border-brutal-red"
                                     >
                                         <Twitter className="mr-3 flex-shrink-0" size={20} />
-                                        @longautumnband
+                                        @longautumnmusic
                                     </a>
                                 </div>
                             </PanelCard>

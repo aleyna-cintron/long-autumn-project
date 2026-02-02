@@ -12,11 +12,11 @@ export default function Footer() {
   ];
 
   const socialLinks = [
-    { name: "Instagram", href: "https://instagram.com/longautumn" },
-    { name: "Facebook", href: "https://facebook.com/longautumn" },
-    { name: "TikTok", href: "https://tiktok.com/@longautumn" },
-    { name: "Spotify", href: "https://open.spotify.com/artist/longautumn" },
-    { name: "Apple Music", href: "https://music.apple.com/artist/longautumn" },
+    { name: "Instagram", href: "https://instagram.com/longautumnmusic" },
+    { name: "Facebook", href: "https://facebook.com/longautumnmusic" },
+    { name: "Twitter", href: "https://twitter.com/longautumnmusic" },
+    { name: "YouTube", href: "https://www.youtube.com/@LongAutumn" },
+    { name: "Apple Music", href: "https://music.apple.com/us/artist/long-autumn/1481105151" },
   ];
 
   const legalLinks = [

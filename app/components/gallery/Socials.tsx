@@ -7,12 +7,12 @@ export default function Socials() {
             More moments on Instagram
           </p>
           <a
-            href="https://instagram.com"
+            href="https://instagram.com/longautumnmusic"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block text-accent hover:text-accent/80 transition-colors text-xl"
           >
-            @longautumn →
+            @longautumnmusic →
           </a>
         </div>
       </section>

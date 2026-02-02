@@ -145,9 +145,9 @@ export default function FeaturedEPPlayer({ ep }: FeaturedEPPlayerProps) {
 
         {/* Streaming Links */}
           <div className="w-full max-w-md space-y-3">
-            <Button href='https://open.spotify.com/artist/YOUR_ARTIST_ID' label='Spotify' variant='light' external />
-            <Button href='https://music.apple.com/artist/YOUR_ARTIST_ID' label='Apple Music' variant='light' external />
-            <Button href='https://youtube.com/@YOUR_CHANNEL' label='YouTube Music' variant='light' external />
+            <Button href='https://open.spotify.com/artist/4o9s60Nr1QgG7FGLUQakzu' label='Spotify' variant='light' external />
+            <Button href='https://music.apple.com/us/artist/long-autumn/1481105151' label='Apple Music' variant='light' external />
+            <Button href='https://www.youtube.com/@LongAutumn' label='YouTube Music' variant='light' external />
         </div>
       </div>
 

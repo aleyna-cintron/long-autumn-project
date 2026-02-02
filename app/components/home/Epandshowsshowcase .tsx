@@ -29,21 +29,21 @@ export default async function EPAndShowsShowcase() {
 
             <div className="grid grid-cols-1 gap-3">
               <Button
-                href="https://open.spotify.com/artist/YOUR_ARTIST_ID"
+                href="https://open.spotify.com/artist/4o9s60Nr1QgG7FGLUQakzu"
                 label="Listen on Spotify"
                 icon={Music}
                 variant="dark"
                 external
               />
               <Button
-                href="https://music.apple.com/artist/YOUR_ARTIST_ID"
+                href="https://music.apple.com/us/artist/long-autumn/1481105151"
                 label="Apple Music"
                 icon={Music}
                 variant="dark"
                 external
               />
               <Button
-                href="https://youtube.com/@YOUR_CHANNEL"
+                href="https://www.youtube.com/@LongAutumn"
                 label="YouTube"
                 icon={Play}
                 variant="dark"

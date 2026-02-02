@@ -37,6 +37,10 @@ const courierPrime = Courier_Prime({
 export const metadata: Metadata = {
   title: "Long Autumn",
   description: "Alt-rock from Manchester, NH / Boston, MA",
+  icons: {
+    icon: "/LA_Logo_Clean_White.png",
+    apple: "/LA_Logo_Clean_White.png",
+  },
 };
 
 export default function RootLayout({

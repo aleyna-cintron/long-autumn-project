@@ -1,13 +1,12 @@
-import { getStripeProducts } from "../lib/getStripeProducts";
 import { PanelCard } from "../components/ui/PanelCard";
 import ProductDetails from "../components/product/ProductDetails";
 import MerchHero from "../components/product/MerchHero";
 import FanGallery from "../components/product/FanGallery";
 import ConnectSection from "../components/product/ConnectSection";
+import { products } from "@/data/product";
+const product = products[0];
 
 export default async function ProductsPage() {
-  const products = await getStripeProducts();
-  const product = products[0];
 
   return (
     <div className="w-full min-h-screen text-white md:pt-20 lg:pt-24 pb-20">
@@ -27,7 +26,7 @@ export default async function ProductsPage() {
           ) : (
             <PanelCard title="Featured Item">
               <ProductDetails product={product} />
-            </PanelCard>
+            </PanelCard>   
           )}
         </div>
       </section>

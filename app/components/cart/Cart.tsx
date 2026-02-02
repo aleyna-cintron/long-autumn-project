@@ -28,10 +28,12 @@ export default function Cart() {
   const totalPrice = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 
   async function handleCheckout() {
-    const res = await fetch('/api/checkout_session', {
+    const res = await fetch('/api/checkout-session', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ items: items }),
+      body: JSON.stringify(
+        items.map(item => ({ priceId: item.priceId, quantity: item.quantity }))
+      )
     })
 
     const data = await res.json()

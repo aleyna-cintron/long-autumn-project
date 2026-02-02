@@ -5,6 +5,7 @@ import { CartStoreProvider } from "./store/cart-store-provider";
 import NavBar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import { AtmosphericTexture } from "./components/ui/AtmosphericTexture";
+import { Toaster } from "sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -61,6 +62,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
+          <Toaster position="bottom-right" theme="dark" />
         </CartStoreProvider>
       </body>
     </html>

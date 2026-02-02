@@ -1,19 +1,13 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import { Truck, ChevronDown, Ruler, Sparkles } from 'lucide-react'
 import AddToCartButton from '../cart/AddToCartButton'
 import DecrementItemButton from '../ui/DecrementItemButton'
 import { Button } from '../ui/Button'
-
-interface Product {
-  id: string
-  name: string
-  price: number
-  imageUrl: string
-  description?: string
-}
+import { Product } from '@/types/product-data'
 
 interface ProductDetailsProps {
   product: Product
@@ -24,13 +18,42 @@ const sizeChart = [
   { size: 'M', chest: '38-40', length: '28', sleeve: '8.5' },
   { size: 'L', chest: '42-44', length: '29', sleeve: '9' },
   { size: 'XL', chest: '46-48', length: '30', sleeve: '9.5' },
-  { size: '2XL', chest: '50-52', length: '31', sleeve: '10' },
 ]
 
 export default function ProductDetails({ product }: ProductDetailsProps) {
+  const router = useRouter()
   const [selectedSize, setSelectedSize] = useState<string>('M')
   const [sizeGuideOpen, setSizeGuideOpen] = useState(false)
   const [designStoryOpen, setDesignStoryOpen] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  // Find the priceId for the selected size
+  const selectedSizeOption = selectedSize
+    ? product.sizes.find(s => s.size === selectedSize)
+    : null
+  const priceId = selectedSizeOption?.priceId
+
+  const handleBuyNow = async () => {
+    if (!priceId) return
+
+    setIsLoading(true)
+    try {
+      const response = await fetch('/api/checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify([{ priceId, quantity: 1 }]),
+      })
+
+      const data = await response.json()
+
+      if (data.url) {
+        router.push(data.url)
+      }
+    } catch (error) {
+      console.error('Checkout error:', error)
+    } finally {
+      setIsLoading(false)
+    }
+  }
 
   return (
     <div className="grid md:grid-cols-2 gap-12 items-start">
@@ -38,8 +61,8 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
       <div className="relative">
         <div className="aspect-square bg-black rounded-sm overflow-hidden flex items-center justify-center border-2 border-brutal-red/20">
           <Image
-            src={product.imageUrl}
-            alt={product.name}
+            src={product.images[0].src}
+            alt={product.images[0].alt}
             width={600}
             height={600}
             className="w-full h-full object-contain p-8"
@@ -55,7 +78,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
           </h3>
           <p className="text-muted-foreground leading-relaxed mb-6">
             {product.description || "Our signature t-shirt featuring the Long Autumn logo on a premium quality black tee. Designed with a vintage-inspired aesthetic that matches our moody alt-rock vibe. Perfect for shows or everyday wear."}
-          </p>
+          </p>/
         </div>
 
         {/* Details */}
@@ -92,7 +115,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
           </div>
 
           <div className="flex flex-wrap gap-3">
-            {['S', 'M', 'L', 'XL', '2XL'].map((size) => (
+            {['S', 'M', 'L', 'XL'].map((size) => (
               <button
                 key={size}
                 onClick={() => setSelectedSize(size)}
@@ -148,24 +171,43 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
         </div>
 
         {/* Price & Purchase */}
-        <div className="pt-6 border-t-2 border-brutal-red/30">
+        <div className="pt-6 border-t border-border">
           <div className="flex items-baseline gap-4 mb-6">
             <span className="text-4xl text-foreground font-bold">${product.price.toFixed(2)}</span>
             <span className="text-muted-foreground">+ shipping</span>
           </div>
-          <div className="flex flex-col sm:flex-row gap-4">
+
+          {/* Primary: Add to Cart */}
+          <div className="flex items-center gap-3 mb-4">
             <AddToCartButton
               item={{
                 id: `${product.id}-${selectedSize}`,
                 name: `${product.name} (${selectedSize})`,
                 quantity: 1,
                 price: product.price,
+                priceId: priceId || '',
               }}
             />
             <DecrementItemButton id={`${product.id}-${selectedSize}`} />
           </div>
-          <div className="mt-4">
+
+          {/* Secondary: View Cart */}
+          <div className="mb-6">
             <Button href="/cart" label="View Cart" variant="dark" />
+          </div>
+
+          {/* Tertiary: Buy Now - separated */}
+          <div className="pt-4 border-t border-border">
+            <p className="text-muted-foreground text-sm mb-3">
+              <span className="text-brutal-red">—</span> or skip the cart
+            </p>
+            <button
+              onClick={handleBuyNow}
+              disabled={isLoading || !priceId}
+              className="px-8 py-3 border-2 border-foreground/30 text-foreground uppercase tracking-wide rounded-sm hover:border-brutal-red hover:text-brutal-red transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {isLoading ? 'Processing...' : 'Buy Now'}
+            </button>
           </div>
         </div>
 

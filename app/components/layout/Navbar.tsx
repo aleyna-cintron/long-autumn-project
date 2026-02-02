@@ -4,10 +4,15 @@ import Link from "next/link";
 import Image from "next/image";
 import { ShoppingCart } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { useCartStore } from "../../store/cart-store-provider";
 
 export default function NavBar() {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
+  const cartCount = useCartStore((state) =>
+    state.items.reduce((sum, item) => sum + item.quantity, 0)
+  );
+  const displayCount = cartCount > 99 ? "99+" : cartCount;
 
   // Nav links stored in array
   const navLinks = [
@@ -60,13 +65,18 @@ export default function NavBar() {
             <li>
               <Link
                 href="/cart"
-                className={`transition-colors ${
+                className={`relative transition-colors ${
                   pathname === "/cart"
                     ? "text-brutal-red"
                     : "text-neutral-400 hover:text-brutal-red"
                 }`}
               >
                 <ShoppingCart size={20} />
+                {cartCount > 0 && (
+                  <span className="absolute -top-2 -right-3 bg-brutal-red text-black text-xs font-bold rounded-full min-w-[18px] h-[18px] flex items-center justify-center px-1">
+                    {displayCount}
+                  </span>
+                )}
               </Link>
             </li>
           </ul>

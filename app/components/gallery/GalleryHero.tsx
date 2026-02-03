@@ -1,7 +1,7 @@
 export default function GalleryHero() {
   return (
     <section className="relative pt-28 pb-20 overflow-hidden bg-background/60">
-      <div className="max-w-6xl 3xl:max-w-7xl 4xl:max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-6xl 3xl:max-w-7xl 4xl:max-w-450 mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Distressed text container */}
         <div className="relative mb-12">
           {/* Glitch shadow layers */}

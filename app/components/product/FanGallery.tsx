@@ -2,24 +2,28 @@ import { PanelCard } from '../ui/PanelCard'
 import { Button } from '../ui/Button'
 
 interface FanPhoto {
-  id: number
-  src?: string
+  src: string
   alt?: string
 }
 
 interface FanGalleryProps {
-  photos?: FanPhoto[]
   instagramHandle?: string
   instagramUrl?: string
 }
 
 export default function FanGallery({
-  photos,
   instagramHandle = '@longautumnmusic',
   instagramUrl = 'https://instagram.com/longautumnmusic',
 }: FanGalleryProps) {
   // Default placeholder photos if none provided
-  const displayPhotos: FanPhoto[] = photos ?? [1, 2, 3, 4, 5, 6].map((i) => ({ id: i }))
+  const displayPhotos: FanPhoto[] = [
+    { src: 'fans-in-merch/fan1.webp', alt: 'Fan wearing Long Autumn tee' },
+    { src: 'fans-in-merch/fan2.webp', alt: 'Fan wearing Long Autumn tee' },
+    { src: 'fans-in-merch/fan3.webp', alt: 'Fan wearing Long Autumn tee' },
+    { src: 'fans-in-merch/fan4.webp', alt: 'Fan wearing Long Autumn tee' },
+    { src: 'fans-in-merch/fan5.webp', alt: 'Fan wearing Long Autumn tee' },
+    { src: 'fans-in-merch/fan6.webp', alt: 'Fan wearing Long Autumn tee' }, 
+  ];
 
   return (
     <section className="py-20">
@@ -32,7 +36,7 @@ export default function FanGallery({
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
             {displayPhotos.map((photo) => (
               <div
-                key={photo.id}
+                key={photo.src}
                 className="aspect-square rounded-sm overflow-hidden border-2 border-brutal-red/20 hover:border-brutal-red transition-all bg-muted/30 flex items-center justify-center"
               >
                 {photo.src ? (
@@ -60,7 +64,7 @@ export default function FanGallery({
                         />
                       </svg>
                     </div>
-                    <span className="text-muted-foreground/50 text-sm">Fan Photo {photo.id}</span>
+                    <span className="text-muted-foreground/50 text-sm">Fan Photo {photo.src.split('/').pop()}</span>
                   </div>
                 )}
               </div>

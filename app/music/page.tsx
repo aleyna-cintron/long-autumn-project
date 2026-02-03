@@ -30,7 +30,7 @@ export default function MusicPage() {
           <div className="absolute inset-0 bg-black/50" />
         </div>
 
-        <div className="relative z-10 w-full max-w-[1600px] mx-auto px-4 md:px-8 pt-32 md:pt-36 lg:pt-40 pb-20">
+        <div className="relative z-10 w-full max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2200px] mx-auto px-4 md:px-8 pt-32 md:pt-36 lg:pt-40 pb-20">
           <PanelCard title="Now Playing">
             <FeaturedEPPlayer ep={selectedEP} />
           </PanelCard>
@@ -38,7 +38,7 @@ export default function MusicPage() {
       </section>
 
       {/* DISCOGRAPHY */}
-        <div className="relative z-10 w-full max-w-[1600px] min-h-screen">
+        <div className="relative z-10 w-full max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2200px] min-h-screen">
             <DiscographyServer currentEP={selectedEP} onSelectEP={setSelectedEP} />
       </div>
       

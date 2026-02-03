@@ -143,8 +143,8 @@ export default function BandMembersSection() {
       cardClassName=""
       header={
         <div className="text-center">
-          <h3 className="font-bold text-5xl md:text-6xl lg:text-7xl 3xl:text-8xl mb-2 text-white">Meet The Band</h3>
-          <p className="text-white/50 text-xs 3xl:text-sm 4xl:text-base uppercase tracking-widest">Five of a Kind · Scroll to explore</p>
+          <h3 className="font-bold text-4xl md:text-5xl lg:text-6xl 2xl:text-6xl 3xl:text-7xl 4xl:text-8xl mb-2 text-white">Meet The Band</h3>
+          <p className="text-white/50 text-xs md:text-sm 2xl:text-sm 3xl:text-base 4xl:text-base uppercase tracking-widest">Five of a Kind · Scroll to explore</p>
         </div>
       }
     />

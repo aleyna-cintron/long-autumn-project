@@ -10,9 +10,9 @@ export default function GalleryHero() {
             className="w-full h-full object-cover object-[center_30%]"
           />
         </div>
-        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 pt-24 w-full">
-          <h1 className="text-7xl md:text-9xl text-white mb-6 leading-none">Visual Archive</h1>
-          <p className="text-2xl text-white/80 max-w-2xl italic">
+        <div className="relative z-20 max-w-7xl 3xl:max-w-[1800px] 4xl:max-w-[2200px] mx-auto px-4 sm:px-6 lg:px-8 pb-20 pt-24 w-full">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl 2xl:text-8xl 3xl:text-8xl 4xl:text-9xl text-white mb-4 md:mb-6 leading-none">Visual Archive</h1>
+          <p className="text-lg md:text-xl lg:text-2xl 2xl:text-2xl 3xl:text-3xl 4xl:text-3xl text-white/80 max-w-2xl 3xl:max-w-3xl italic">
             Moments from the road, the stage, and everything in between
           </p>
         </div>

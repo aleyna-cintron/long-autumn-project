@@ -3,10 +3,10 @@ import { PanelCard } from "../ui/PanelCard";
 
 export default function OurStory() {
   return (
-    <PanelCard title="Our Story" className="max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[1900px] mx-auto">
+    <PanelCard title="Our Story" className="max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[1900px] 4xl:max-w-[2200px] mx-auto">
       <div className="flex flex-col lg:flex-row gap-8 2xl:gap-12 3xl:gap-16">
         {/* Left Column - Bio */}
-        <div className="lg:w-1/2 space-y-6 2xl:space-y-8 text-foreground leading-relaxed text-lg 2xl:text-xl 3xl:text-2xl">
+        <div className="lg:w-1/2 space-y-6 2xl:space-y-8 text-foreground leading-relaxed text-base md:text-base lg:text-lg 2xl:text-lg 3xl:text-xl 4xl:text-xl">
           <p>
             Long Autumn started in 2019, when lead singer Johnny Mark, bassist Kolbe Maloney, and guitarist Nick Harvey began playing together in a small, rundown garage in Acton, Massachusetts. Drawn together by a shared love of alt-rock and indie music, they soon added drummer Conor Moran, expanding their sound. By January 2020, guitarist and backing vocalist Jam Templeton joined, completing the five-piece lineup.
           </p>

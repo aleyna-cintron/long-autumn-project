@@ -27,9 +27,9 @@ export default function Footer() {
 
   return (
     <footer className="bg-deep-black border-t border-neutral-800">
-      <div className="w-[80%] mx-auto px-8 py-16">
+      <div className="w-[90%] md:w-[80%] mx-auto px-4 md:px-8 py-12 md:py-16 3xl:py-20">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-8 3xl:gap-12 mb-12">
           {/* Brand Section */}
           <div>
             <Link href="/">
@@ -38,20 +38,20 @@ export default function Footer() {
                 alt="Long Autumn Logo"
                 width={400}
                 height={133}
-                className="w-[180px] h-auto mb-6"
+                className="w-[150px] md:w-[180px] 3xl:w-[220px] h-auto mb-6"
               />
             </Link>
-            <p className="font-body text-off-white/70 text-sm leading-relaxed mb-6">
+            <p className="font-body text-off-white/70 text-sm md:text-sm 3xl:text-base leading-relaxed mb-6">
               Cinematic alt-rock from Manchester, NH / Boston, MA. For the midnight wanderers and the dreamers.
             </p>
-            <p className="font-body text-cold-blue text-xs">
+            <p className="font-body text-cold-blue text-xs md:text-xs 3xl:text-sm">
               © 2024 Long Autumn. All rights reserved.
             </p>
           </div>
 
           {/* Navigate Section */}
           <div>
-            <h4 className="font-body text-off-white text-sm font-bold mb-6 uppercase tracking-widest">
+            <h4 className="font-body text-off-white text-sm 3xl:text-base font-bold mb-6 uppercase tracking-widest">
               NAVIGATE
             </h4>
             <ul className="space-y-3">
@@ -59,7 +59,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="font-body text-off-white/70 hover:text-brutal-red text-sm transition-colors block"
+                    className="font-body text-off-white/70 hover:text-brutal-red text-sm 3xl:text-base transition-colors block"
                   >
                     {link.name}
                   </Link>
@@ -70,7 +70,7 @@ export default function Footer() {
 
           {/* Connect Section */}
           <div>
-            <h4 className="font-body text-off-white text-sm font-bold mb-6 uppercase tracking-widest">
+            <h4 className="font-body text-off-white text-sm 3xl:text-base font-bold mb-6 uppercase tracking-widest">
               CONNECT
             </h4>
             <ul className="space-y-3">
@@ -80,7 +80,7 @@ export default function Footer() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-body text-off-white/70 hover:text-brutal-red text-sm transition-colors block"
+                    className="font-body text-off-white/70 hover:text-brutal-red text-sm 3xl:text-base transition-colors block"
                   >
                     {link.name}
                   </a>
@@ -92,7 +92,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-neutral-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="font-body text-off-white/50 text-xs">
+          <p className="font-body text-off-white/50 text-xs 3xl:text-sm">
             Designed with brutalist aesthetics and analog soul.
           </p>
           <div className="flex gap-8">
@@ -100,7 +100,7 @@ export default function Footer() {
               <span key={link.name} className="flex items-center gap-8">
                 <Link
                   href={link.href}
-                  className="font-body text-off-white/50 hover:text-brutal-red text-xs transition-colors"
+                  className="font-body text-off-white/50 hover:text-brutal-red text-xs 3xl:text-sm transition-colors"
                 >
                   {link.name}
                 </Link>

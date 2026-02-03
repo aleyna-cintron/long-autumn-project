@@ -28,7 +28,7 @@ export const galleryImages: GalleryImage[] = [
     caption: 'Live Show'
   },
 
-  // 4. John-singing - HIGH UP
+  // 4. Johnny-singing - HIGH UP
   {
     url: '/gallery/jarv.jpg',
     caption: 'The Band on Stage'
@@ -45,7 +45,7 @@ export const galleryImages: GalleryImage[] = [
   // 7. Blue atmospheric contrast
   {
     url: '/gallery/harv-beer.JPG',
-    caption: 'John Mark Live'
+    caption: 'Johnny Mark Live'
   },
 
   // 8. Dark performance
@@ -73,7 +73,7 @@ export const galleryImages: GalleryImage[] = [
   // 12. Conor - MIDDLE
   {
     url: '/gallery/johnmark.jpg',
-    caption: 'John Mark'
+    caption: 'Johnny Mark'
   },
 
   // 13. Architectural contrast

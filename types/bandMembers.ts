@@ -22,10 +22,10 @@ export const bandMembers: BandMember[] = [
     variant: 'left',
   },
   {
-    name: 'John Mark',
+    name: 'Johnny Mark',
     role: 'Lead Vocals, Guitar',
     imageUrl: '/band-cards/johnmark.JPEG',
-    bio: "The voice that started it all. John's emotive delivery brings depth to every lyric...",
+    bio: "The voice that started it all. Johnny's emotive delivery brings depth to every lyric...",
     variant: 'left',
   },
   {

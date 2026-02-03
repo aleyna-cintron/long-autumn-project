@@ -6,7 +6,7 @@ import { useState } from "react";
 const bandMembers = [
   { src: "/home-kolbe.png", alt: "Kolbe" },
   { src: "/home-nick.png", alt: "Nick" },
-  { src: "/home-john.png", alt: "John" },
+  { src: "/home-john.png", alt: "Johnny" },
   { src: "/home-jam.png", alt: "Jam" },
   { src: "/home-connor.png", alt: "Connor" },
 ];

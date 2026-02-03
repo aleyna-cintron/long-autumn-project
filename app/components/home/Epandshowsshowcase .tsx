@@ -53,7 +53,7 @@ export default async function EPAndShowsShowcase() {
           </PanelCard>
 
           {/* Catch Us Live */}
-          <PanelCard title="Catch Us Live" fillParent={true}>
+          <PanelCard title="Catch Us Live" background fillParent={true}>
             {nextShows.length > 0 ? (
               nextShows.map((show, index) => {
                 const { date, time } = formatShowDateTime(show.datetime)
@@ -61,7 +61,7 @@ export default async function EPAndShowsShowcase() {
                 return (
                   <PanelCard
                     key={show.id}
-                    background
+                    
                     className="mb-6"
                   >
                     <h3 className="text-2xl text-foreground mb-4">

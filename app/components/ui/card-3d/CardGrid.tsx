@@ -63,13 +63,14 @@ const CardGridInternal = ({
         // MOBILE: Sequential card flip through stacked deck
         const mobileScrollHeight = window.innerHeight * (cards.length * 0.8);
 
-        // Pin section
+        // Pin section with anticipatePin to prevent snap-back
         ScrollTrigger.create({
           trigger: cardsSection,
           start: "top top",
           end: () => `+=${mobileScrollHeight}`,
           pin: true,
           pinSpacing: true,
+          anticipatePin: 1,
         });
 
         // Stack cards with first on top
@@ -136,13 +137,14 @@ const CardGridInternal = ({
         const totalScrollHeight = window.innerHeight * config.scrollMultiplier!;
         const centerIndex = Math.floor(cards.length / 2);
 
-        // Pin cards section
+        // Pin cards section with anticipatePin to prevent snap-back
         ScrollTrigger.create({
           trigger: cardsSection,
           start: "top top",
           end: () => `+=${totalScrollHeight}`,
           pin: true,
           pinSpacing: true,
+          anticipatePin: 1,
         });
 
         // Set z-index: center card on top, decreasing outward
@@ -231,7 +233,7 @@ const CardGridInternal = ({
   return (
     <div className={containerClassName || ""} ref={container}>
       <section className="cards-section">
-        {/* Header positioned at top of cards section */}
+        {/* Header inside pinned section */}
         {header && (
           <div className="absolute top-[15%] left-0 right-0 z-20 text-center pointer-events-none">
             {header}

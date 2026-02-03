@@ -3,7 +3,7 @@ import { PanelCard } from "../ui/PanelCard";
 
 export default function OurStory() {
   return (
-    <PanelCard title="Our Story" className="max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[1900px] 4xl:max-w-[2200px] mx-auto">
+    <PanelCard title="Our Story" className="max-w-3xl md:max-w-4xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-350 3xl:max-w-400 4xl:max-w-475 mx-auto">
       <div className="flex flex-col lg:flex-row gap-8 2xl:gap-12 3xl:gap-16">
         {/* Left Column - Bio */}
         <div className="lg:w-1/2 space-y-6 2xl:space-y-8 text-foreground leading-relaxed text-base md:text-base lg:text-lg 2xl:text-lg 3xl:text-xl 4xl:text-xl">

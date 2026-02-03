@@ -8,10 +8,28 @@
   perspective: 1000px;
 }
 
-/* Scale cards on larger screens - kept moderate */
-@media (min-width: 1600px) {
+/* Medium screens - push cards down */
+@media (min-width: 768px) and (max-width: 1023px) {
   .card {
-    top: 50%;
+    top: 65%;
+    width: 280px;
+    height: 420px;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1024px) and (max-width: 1599px) {
+  .card {
+    top: 62%;
+    width: 300px;
+    height: 450px;
+  }
+}
+
+/* Scale cards on larger screens - kept moderate */
+@media (min-width: 1600px) and (max-width: 1999px) {
+  .card {
+    top: 58%;
     width: 300px;
     height: 450px;
   }

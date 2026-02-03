@@ -13,7 +13,7 @@ export default async function EPAndShowsShowcase() {
   return (
     <section className="w-full bg-transparent py-20 px-8 md:px-16 lg:px-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 min-h-[600px]">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 min-h-150">
 
           {/* Latest EP */}
           <PanelCard title="New EP - Listen Now">
@@ -53,7 +53,7 @@ export default async function EPAndShowsShowcase() {
           </PanelCard>
 
           {/* Catch Us Live */}
-          <PanelCard title="Catch Us Live" background fillParent={true}>
+          <PanelCard title="Catch Us Live" fillParent={true}>
             {nextShows.length > 0 ? (
               nextShows.map((show, index) => {
                 const { date, time } = formatShowDateTime(show.datetime)

@@ -11,7 +11,7 @@ export default function WhereWePlay() {
   return (
     <div className="max-w-7xl 2xl:max-w-[1400px] 3xl:max-w-[1700px] 4xl:max-w-[2000px] mx-auto py-12 md:py-16 3xl:py-20 text-center relative">
       {/* Backdrop for better readability */}
-      <div className="absolute inset-0 -m-8 3xl:-m-12 bg-black/60 backdrop-blur-sm rounded-2xl" />
+      <div className="absolute inset-0 -m-8 3xl:-m-12 border-2 backdrop-blur-sm rounded-2xl" />
 
       <div className="relative z-10">
         <h2 className="text-3xl md:text-4xl lg:text-5xl 2xl:text-5xl 3xl:text-6xl 4xl:text-7xl font-bold mb-4 3xl:mb-6 text-text-primary drop-shadow-lg">

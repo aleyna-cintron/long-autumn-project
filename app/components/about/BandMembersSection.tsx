@@ -40,7 +40,7 @@ const renderFront = (card: BandMemberCardData) => (
                     src={card.imageUrl}
                     alt={card.name}
                     className="w-full h-full object-cover object-top"
-                    style={{ filter: 'contrast(1.1) saturate(0.9)' }}
+                    // style={{ filter: 'contrast(1.1) saturate(0.9)' }}
                   />
                   <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.7) 100%)' }} />
                 </div>

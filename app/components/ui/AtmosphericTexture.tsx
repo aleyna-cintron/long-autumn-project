@@ -8,15 +8,15 @@ export function AtmosphericTexture() {
           backgroundSize: '120%',
           backgroundPosition: 'center',
           zIndex: -20,
-          filter: 'brightness(0.85) saturate(0.8)',
+          // filter: 'brightness(0.85) saturate(0.8)',
         }}
       />
 
       {/* Darkening overlay */}
-      <div
+      {/* <div
         className="fixed inset-0 bg-black/20 pointer-events-none"
         style={{ zIndex: -19 }}
-      />
+      /> */}
 
       {/* Grainy Overlay */}
       <div 

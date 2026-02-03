@@ -64,7 +64,7 @@ const BandMemberCard: React.FC<BandMemberCardProps> = ({
                               alt={name}
                               className="w-full h-full object-cover object-top"
                               style={{
-                                filter: 'contrast(1.1) saturate(0.9)',
+                                // filter: 'contrast(1.1) saturate(0.9)',
                               }}
                             />
                             {/* Dark vignette */}

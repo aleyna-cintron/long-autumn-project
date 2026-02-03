@@ -28,7 +28,7 @@ export default function BandMemberCard({ name, role, imageUrl, bio }: BandMember
             alt={`${name}'s photo`}
             width={0}
             height={0}
-            sizes="100vw"
+            // sizes="100vw
             className="rounded-lg grayscale object-cover w-full h-auto transition-all duration-700 group-hover:grayscale-0 group-hover:saturate-50 group-hover:scale-110"
           />
           {/* Dark gradient overlay - always visible at bottom */}

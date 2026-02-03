@@ -7,12 +7,10 @@ import { products } from "@/data/product";
 const product = products[0];
 
 export default async function ProductsPage() {
-
   return (
     <div className="w-full min-h-screen text-white md:pt-20 lg:pt-24 pb-20">
-      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0" />
       <MerchHero />
-
       {/* Featured Item Section */}
       <section className="py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -30,9 +28,7 @@ export default async function ProductsPage() {
           )}
         </div>
       </section>
-
       <FanGallery />
-
       <ConnectSection />
     </div>
   );

@@ -1,76 +1,76 @@
 import { Play, Calendar, ShoppingBag } from "lucide-react";
 import BandMemberBackground from "./BandMemberBackground";
-import { Button } from '../ui/Button'
+import { Button } from "../ui/Button";
 
 const ctaButtons = [
-  {
-    href: "/music",
-    label: "LISTEN NOW",
-    icon: Play,
-    variant: "primary" as const,
-  },
-  {
-    href: "/shows",
-    label: "UPCOMING SHOWS",
-    icon: Calendar,
-    variant: "outline" as const,
-  },
-  {
-    href: "/products",
-    label: "SHOP MERCH",
-    icon: ShoppingBag,
-    variant: "outline" as const,
-  },
+  { href: "/music", label: "LISTEN NOW", icon: Play, variant: "primary" as const },
+  { href: "/shows", label: "UPCOMING SHOWS", icon: Calendar, variant: "outline" as const },
+  { href: "/products", label: "SHOP MERCH", icon: ShoppingBag, variant: "outline" as const },
 ];
 
 export default function HeroSection() {
   return (
-    <div className="relative w-full h-screen overflow-hidden max-w-625 mx-auto">
-      {/* Background: 5 band member images side by side */}
-      <BandMemberBackground />
+    <section
+      className="
+        relative w-full h-screen overflow-hidden
+        bg-linear-to-b from-transparent from-30% via-black/60 to-black
+      "
+    >
+      {/* ======================================================
+          COMPOSITING LAYER (image + effects share context)
+      ====================================================== */}
+      <div className="absolute inset-0 z-0">
 
-      {/* Dark retro video game filter overlay */}
-      <div className="absolute inset-0 z-5 pointer-events-none">
-        {/* Dark tint */}
-        <div className="absolute inset-0 bg-black/30" />
+        {/* IMAGE (max-width constrained only here) */}
+        <div className="absolute inset-0 flex justify-center">
+          <div className="relative h-full w-full max-w-600">
+            <BandMemberBackground />
+          </div>
+        </div>
 
-        {/* CRT Scanlines */}
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `repeating-linear-gradient(
-              0deg,
-              rgba(0, 0, 0, 0.3),
-              rgba(0, 0, 0, 0.3) 1px,
-              transparent 1px,
-              transparent 3px
-            )`,
-            opacity: 0.6,
-          }}
-        />
+        {/* EFFECTS (full-bleed, affect image) */}
+        <div className="absolute inset-0 pointer-events-none">
+          {/* Dark tint */}
+          <div className="absolute inset-0 bg-black/30" />
 
-        {/* Color aberration / RGB shift effect */}
-        <div
-          className="absolute inset-0 mix-blend-overlay"
-          style={{
-            background: `
-              linear-gradient(90deg, rgba(255,0,0,0.03) 0%, transparent 50%, rgba(0,255,255,0.03) 100%)
-            `,
-          }}
-        />
+          {/* CRT scanlines */}
+          <div
+            className="absolute inset-0 opacity-60"
+            style={{
+              backgroundImage: `repeating-linear-gradient(
+                0deg,
+                rgba(0,0,0,0.35),
+                rgba(0,0,0,0.35) 1px,
+                transparent 1px,
+                transparent 3px
+              )`,
+            }}
+          />
 
-        {/* Vignette effect */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: 'radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.6) 100%)',
-          }}
-        />
+          {/* Grain */}
+          <div
+            className="absolute inset-0 opacity-25 mix-blend-overlay"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='2' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+            }}
+          />
+
+          {/* Vignette */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.6) 100%)",
+            }}
+          />
+        </div>
       </div>
 
-      {/* Content layer */}
-      <div className="absolute inset-0 z-10 flex flex-col items-center px-4">
-        {/* Logo - upper-middle third */}
+      {/* ======================================================
+          CONTENT (isolated, interactive, above everything)
+      ====================================================== */}
+      <div className="absolute inset-0 z-20 flex flex-col items-center px-4">
+        {/* Logo */}
         <div className="flex-1 flex items-center justify-center pt-16">
           <div className="max-w-lg w-full">
             <img
@@ -82,14 +82,12 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Tagline + CTAs - bottom section */}
+        {/* Tagline + CTA */}
         <div className="flex flex-col items-center pb-12">
-          {/* Tagline */}
           <p className="text-off-white text-lg md:text-xl tracking-widest mb-8 text-center uppercase">
             ALT-ROCK FROM MANCHESTER, NH / BOSTON, MA
           </p>
 
-          {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 items-center">
             {ctaButtons.map((button) => (
               <Button key={button.label} {...button} />
@@ -97,6 +95,6 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

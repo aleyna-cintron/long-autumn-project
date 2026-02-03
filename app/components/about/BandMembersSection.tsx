@@ -7,7 +7,7 @@ import ShinyText from '@/components/ShinyText';
 
 // Convert band members to card data
 const cardData: BandMemberCardData[] = bandMembers.map((member, index) => ({
-  id: `member-${index}`,
+  id: `card-${index + 1}`,
   name: member.name,
   role: member.role,
   imageUrl: member.imageUrl,
@@ -130,10 +130,10 @@ export default function BandMembersSection() {
       config={{
         positions: [10, 30, 50, 70, 90],
         rotations: [-12, -6, 0, 6, 12],
-        scrollMultiplier: 0.8,
+        scrollMultiplier: 2,
         cardWidth: 320,
         cardHeight: 480,
-        staggerDelay: 0.01,
+        staggerDelay: 0.02,
       }}
       renderFront={(card) => renderFront(card as BandMemberCardData)}
       renderBack={(card) => renderBack(card as BandMemberCardData)}
@@ -141,7 +141,7 @@ export default function BandMembersSection() {
       cardClassName=""
       header={
         <div className="text-center">
-          <h3 className="inline-block text-4xl md:text-5xl lg:text-6xl 2xl:text-6xl 3xl:text-7xl 4xl:text-8xl mb-2 text-white px-6 md:px-8 py-2 md:py-3 rounded-lg">Meet The Band</h3>
+          <h3 className="font-bold text-4xl md:text-5xl lg:text-6xl 2xl:text-6xl 3xl:text-7xl 4xl:text-8xl mb-2 text-white">Meet The Band</h3>
         </div>
       }
     />

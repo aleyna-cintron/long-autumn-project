@@ -154,7 +154,7 @@ const CardGridInternal = ({
           gsap.set(card, { zIndex });
         });
 
-        // Spread cards from center - faster spread
+        // Spread cards from center
         cardElements.forEach((card, index) => {
           gsap.to(card, {
             left: `${positions[index % positions.length]}%`,
@@ -163,34 +163,33 @@ const CardGridInternal = ({
             scrollTrigger: {
               trigger: cardsSection,
               start: "top top",
-              end: () => `+=${window.innerHeight * 0.5}`,
-              scrub: 0.3,
+              end: () => `+=${window.innerHeight}`,
+              scrub: 0.5,
               id: `spread-${index}`,
             },
           });
         });
 
-        // Flip cards with staggered effect - faster timing
+        // Flip cards with staggered effect
         cardElements.forEach((card, index) => {
           const frontEl = card.querySelector(".flipCardFront");
           const backEl = card.querySelector(".flipCardBack");
 
           const staggerOffset = index * config.staggerDelay!;
-          // Start at 20% and end by 50% for much faster completion
-          const startOffset = 0.2 + staggerOffset;
-          const endOffset = 0.5 + staggerOffset;
+          const startOffset = 1 / 3 + staggerOffset;
+          const endOffset = 2 / 3 + staggerOffset;
 
           ScrollTrigger.create({
             trigger: cardsSection,
             start: "top top",
             end: () => `+=${totalScrollHeight}`,
-            scrub: 0.5,
+            scrub: 1,
             id: `rotate-flip-${index}`,
             onUpdate: (self) => {
               const progress = self.progress;
               if (progress >= startOffset && progress <= endOffset) {
                 // During flip animation
-                const animationProgress = (progress - startOffset) / (endOffset - startOffset);
+                const animationProgress = (progress - startOffset) / (1 / 3);
                 const frontRotation = -180 * animationProgress;
                 const backRotation = 180 - 180 * animationProgress;
                 const cardRotation =

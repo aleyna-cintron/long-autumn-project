@@ -1,3 +1,3 @@
 export { default as CardGrid } from "./CardGrid";
 export { default as Card } from "./Card";
-export type { CardData, CardGridConfig, CardGridProps } from "./types";
+export type { BandMemberCardData, CardGridConfig, CardGridProps } from "./types";

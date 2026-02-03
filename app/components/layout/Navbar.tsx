@@ -30,14 +30,14 @@ export default function NavBar() {
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <nav className="w-full bg-deep-black border-b border-white fixed top-0 z-50">
+    <nav className="w-full bg-bg-main border-b border-white/5 fixed top-0 z-50">
       <div className="max-w-7xl mx-auto px-4">
         {/* Mobile Header */}
         <div className="flex md:hidden items-center justify-between h-14">
           {/* Burger Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="text-neutral-400 hover:text-brutal-red transition-colors"
+            className="text-text-secondary hover:text-accent-red transition-colors"
             aria-label="Toggle menu"
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -62,13 +62,13 @@ export default function NavBar() {
             href="/cart"
             className={`relative transition-colors ${
               pathname === "/cart"
-                ? "text-brutal-red"
-                : "text-neutral-400 hover:text-brutal-red"
+                ? "text-accent-red"
+                : "text-text-secondary hover:text-accent-red"
             }`}
           >
             <ShoppingCart size={20} />
             {cartCount > 0 && (
-              <span className="absolute -top-2 -right-3 bg-brutal-red text-black text-[10px] font-bold rounded-full min-w-4 h-4 flex items-center justify-center px-1">
+              <span className="absolute -top-2 -right-3 bg-accent-red text-bg-main text-[10px] font-bold rounded-full min-w-4 h-4 flex items-center justify-center px-1">
                 {displayCount}
               </span>
             )}
@@ -77,7 +77,7 @@ export default function NavBar() {
 
         {/* Mobile Menu Dropdown */}
         {isMenuOpen && (
-          <div className="md:hidden border-t border-white/20 py-4">
+          <div className="md:hidden border-t border-white/5 py-4">
             <ul className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <li key={link.href}>
@@ -86,8 +86,8 @@ export default function NavBar() {
                     onClick={closeMenu}
                     className={`block font-body text-sm font-bold tracking-wider transition-colors uppercase ${
                       pathname === link.href
-                        ? "text-brutal-red"
-                        : "text-neutral-400 hover:text-brutal-red"
+                        ? "text-accent-red"
+                        : "text-text-secondary hover:text-accent-red"
                     }`}
                   >
                     {link.name}
@@ -124,8 +124,8 @@ export default function NavBar() {
                     href={link.href}
                     className={`font-body text-sm font-bold tracking-wider transition-colors uppercase ${
                       pathname === link.href
-                        ? "text-brutal-red"
-                        : "text-neutral-400 hover:text-brutal-red"
+                        ? "text-accent-red"
+                        : "text-text-secondary hover:text-accent-red"
                     }`}
                   >
                     {link.name}
@@ -139,13 +139,13 @@ export default function NavBar() {
                   href="/cart"
                   className={`relative transition-colors ${
                     pathname === "/cart"
-                      ? "text-brutal-red"
-                      : "text-neutral-400 hover:text-brutal-red"
+                      ? "text-accent-red"
+                      : "text-text-secondary hover:text-accent-red"
                   }`}
                 >
                   <ShoppingCart size={20} />
                   {cartCount > 0 && (
-                    <span className="absolute -top-2 -right-3 bg-brutal-red text-black text-xs font-bold rounded-full min-w-[18px] h-[18px] flex items-center justify-center px-1">
+                    <span className="absolute -top-2 -right-3 bg-accent-red text-bg-main text-xs font-bold rounded-full min-w-[18px] h-[18px] flex items-center justify-center px-1">
                       {displayCount}
                     </span>
                   )}

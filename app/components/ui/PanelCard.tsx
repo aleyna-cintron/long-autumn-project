@@ -32,7 +32,7 @@ export function PanelCard({
           <div className="relative">
             <div className="absolute inset-0 bg-black/70 rounded-t-lg z-0" />
             <div className="absolute inset-0 bg-brutal-red/10 backdrop-blur-lg rounded-t-lg z-10 border-brutal-red/50 border-b-2" />
-            <h2 className="relative z-20 py-6 px-8 text-xl md:text-2xl lg:text-3xl 2xl:text-3xl 3xl:text-4xl 4xl:text-4xl text-foreground text-center tracking-wider uppercase">
+            <h2 className="relative z-20 py-6 px-8 text-xl md:text-2xl lg:text-3xl 2xl:text-3xl 3xl:text-4xl 4xl:text-4xl text-text-primary text-center tracking-wider uppercase">
               {title}
             </h2>
           </div>

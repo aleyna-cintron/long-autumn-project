@@ -12,13 +12,28 @@
   --accent-typeface-stack: "Courier Prime", monospace;
   --body-typeface-stack: "Courier Prime", monospace;
 
-  /* Brutalist Color Palette */
-  /* Core UI Colors */
-  --deep-black: #000000;
-  --near-black: #1a1a1a;
-  --off-white: #f1faee;
-  --brutal-red: #e63946;
-  --cold-blue: #457b9d;
+  /* Design System Color Palette */
+  /* Background Colors */
+  --bg-main: #0B0B0D;
+  --bg-panel: #121216;
+
+  /* Text Colors */
+  --text-primary: #E6E1D8;
+  --text-secondary: #B6B1A7;
+  --text-muted: #7E7A72;
+
+  /* Accent Colors */
+  --accent-red: #9E2A2B;
+  --accent-red-hover: #B23A48;
+  --accent-purple: #3B1C5A;
+  --accent-indigo: #1E2A4A;
+
+  /* Legacy aliases (for backwards compatibility) */
+  --deep-black: #0B0B0D;
+  --near-black: #121216;
+  --off-white: #E6E1D8;
+  --brutal-red: #9E2A2B;
+  --cold-blue: #7E7A72;
 
   /* Light mode (not used for band site, but keeping structure) */
   --card: oklch(1 0 0);
@@ -61,74 +76,91 @@
 }
 
 .dark {
-  /* Main background - Deep Black */
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0); /* Off-white for text */
+  /* Main background - bg.main #0B0B0D */
+  --background: #0B0B0D;
+  --foreground: #E6E1D8; /* text.primary */
 
-  /* Cards and content blocks - Near black */
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
+  /* Cards and content blocks - bg.panel #121216 */
+  --card: #121216;
+  --card-foreground: #E6E1D8;
 
   /* Popovers */
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
+  --popover: #121216;
+  --popover-foreground: #E6E1D8;
 
-  /* Primary accent - Red */
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
+  /* Primary - text.primary for main readable content */
+  --primary: #E6E1D8;
+  --primary-foreground: #0B0B0D;
 
-  /* Secondary - Near black */
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
+  /* Secondary - text.secondary for body copy */
+  --secondary: #121216;
+  --secondary-foreground: #B6B1A7;
 
-  /* Muted - Dark gray */
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
+  /* Muted - text.muted for metadata */
+  --muted: #121216;
+  --muted-foreground: #7E7A72;
 
-  /* Accent - Brutal Red for highlights and interactive elements */
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
+  /* Accent - accent.red for interactive elements */
+  --accent: #121216;
+  --accent-foreground: #E6E1D8;
 
-  /* Blue accent for secondary interactions */
-  --accent-secondary: #457b9d;
+  /* Destructive - accent.red */
+  --destructive: #9E2A2B;
+  --destructive-foreground: #E6E1D8;
 
-  /* Destructive - Red */
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: #f1faee;
-
-  /* Borders - sharp and visible */
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0); /* Red for focus rings */
+  /* Borders - subtle white at low opacity */
+  --border: rgba(255, 255, 255, 0.05);
+  --input: rgba(255, 255, 255, 0.08);
+  --ring: #9E2A2B; /* accent.red for focus rings */
 
   --font-weight-medium: 700;
   --font-weight-normal: 400;
 
-  /* Charts with high contrast */
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
+  /* Charts */
+  --chart-1: #9E2A2B;
+  --chart-2: #B23A48;
+  --chart-3: #3B1C5A;
+  --chart-4: #1E2A4A;
+  --chart-5: #7E7A72;
 
   /* Sidebar */
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --sidebar: #121216;
+  --sidebar-foreground: #E6E1D8;
+  --sidebar-primary: #9E2A2B;
+  --sidebar-primary-foreground: #E6E1D8;
+  --sidebar-accent: #121216;
+  --sidebar-accent-foreground: #E6E1D8;
+  --sidebar-border: rgba(255, 255, 255, 0.05);
+  --sidebar-ring: #9E2A2B;
 }
 
 @theme inline {
-  /* Custom brutalist colors */
-  --color-brutal-red: var(--brutal-red);
-  --color-near-black: var(--near-black);
-  --color-off-white: var(--off-white);
-  --color-deep-black: var(--deep-black);
-  --color-cold-blue: var(--cold-blue);
+  /* Custom breakpoints for larger screens */
+  --breakpoint-3xl: 1920px;
+  --breakpoint-4xl: 2400px;
+
+  /* Design System Colors */
+  /* Background */
+  --color-bg-main: var(--bg-main);
+  --color-bg-panel: var(--bg-panel);
+
+  /* Text */
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+
+  /* Accent */
+  --color-accent-red: var(--accent-red);
+  --color-accent-red-hover: var(--accent-red-hover);
+  --color-accent-purple: var(--accent-purple);
+  --color-accent-indigo: var(--accent-indigo);
+
+  /* Legacy aliases */
+  --color-brutal-red: var(--accent-red);
+  --color-near-black: var(--bg-panel);
+  --color-off-white: var(--text-primary);
+  --color-deep-black: var(--bg-main);
+  --color-cold-blue: var(--text-muted);
 
   /* Standard theme colors */
   --color-background: var(--background);
@@ -187,7 +219,7 @@
     @apply text-foreground;
     font-family: var(--body-typeface-stack);
     position: relative;
-    background: #000000;
+    background: var(--bg-main);
     overflow-x: hidden;
   }
 

@@ -25,7 +25,7 @@ const ctaButtons = [
 
 export default function HeroSection() {
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+    <div className="relative w-full h-screen overflow-hidden max-w-625 mx-auto">
       {/* Background: 5 band member images side by side */}
       <BandMemberBackground />
 

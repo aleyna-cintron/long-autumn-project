@@ -1,6 +1,6 @@
 import { PanelCard } from "../components/ui/PanelCard";
 import ProductDetails from "../components/product/ProductDetails";
-import MerchHero from "../components/product/MerchHero";
+import PageHero from "../components/ui/PageHeader";
 import FanGallery from "../components/product/FanGallery";
 import ConnectSection from "../components/product/ConnectSection";
 import { products } from "@/data/product";
@@ -10,7 +10,10 @@ export default async function ProductsPage() {
   return (
     <div className="w-full min-h-screen text-white md:pt-20 lg:pt-24 pb-20">
       <div className="absolute inset-0" />
-      <MerchHero />
+      <PageHero
+        title="Official Gear"
+        subtitle="Support the band and rep Long Autumn"
+      />
       {/* Featured Item Section */}
       <section className="py-20">
         <div className="max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl 2xl:max-w-6xl 3xl:max-w-350 4xl:max-w-400 mx-auto px-4 sm:px-6 lg:px-8">

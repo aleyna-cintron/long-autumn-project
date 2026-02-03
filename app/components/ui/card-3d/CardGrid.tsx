@@ -230,17 +230,10 @@ const CardGridInternal = ({
 
   return (
     <div className={containerClassName || ""} ref={container}>
-      {/* Mobile: Header above cards section */}
-      {header && (
-        <div className={`pt-32 pb-8 text-center ${isMobile ? 'block' : 'hidden'}`}>
-          {header}
-        </div>
-      )}
-
       <section className="cards-section">
-        {/* Desktop: Header overlaid on cards */}
+        {/* Header positioned at top of cards section */}
         {header && (
-          <div className={`absolute top-0 left-0 right-0 z-20 pt-32 md:pt-36 lg:pt-40 pointer-events-none ${isMobile ? 'hidden' : 'block'}`}>
+          <div className="absolute top-[15%] left-0 right-0 z-20 text-center pointer-events-none">
             {header}
           </div>
         )}

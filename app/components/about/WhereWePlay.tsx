@@ -9,7 +9,7 @@ const regions = [
 
 export default function WhereWePlay() {
   return (
-    <div className="max-w-7xl 2xl:max-w-[1400px] 3xl:max-w-[1700px] mx-auto py-20 3xl:py-28 text-center relative">
+    <div className="max-w-7xl 2xl:max-w-[1400px] 3xl:max-w-[1700px] mx-auto py-12 md:py-16 3xl:py-20 text-center relative">
       {/* Backdrop for better readability */}
       <div className="absolute inset-0 -m-8 3xl:-m-12 bg-black/60 backdrop-blur-sm rounded-2xl" />
 

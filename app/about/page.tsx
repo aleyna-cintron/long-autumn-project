@@ -6,25 +6,25 @@ import Image from 'next/image';
 
 export default function AboutPage() {
   return (
-    <div className="w-full bg-transparent text-foreground scroll-smooth snap-y snap-mandatory overflow-y-auto">
+    <div className="w-full bg-transparent text-foreground scroll-smooth">
       {/* Our Story Section */}
-      <section className="min-h-screen snap-start flex items-center justify-center pt-32 md:pt-36 lg:pt-40 px-8 md:px-16 lg:px-20 pb-20">
+      <section className="min-h-screen flex items-center justify-center pt-32 md:pt-36 lg:pt-40 px-8 md:px-16 lg:px-20 pb-20">
         <OurStory />
       </section>
 
       {/* Band Members Section */}
-      <section className="band-section relative snap-start">
+      <section className="band-section relative">
         <BandMembersSection />
       </section>
 
       {/* Where We Play Section */}
-      <section className="min-h-screen snap-start flex items-center justify-center px-8 md:px-16 lg:px-20 py-20">
+      <section className="px-8 md:px-16 lg:px-20 py-16 md:py-20">
         <WhereWePlay />
       </section>
 
       {/* Band Running Section */}
-      <section className="min-h-screen snap-start flex items-center justify-center px-8 md:px-16 lg:px-20 3xl:px-32 py-20 w-full">
-        <div className="w-full max-w-6xl 2xl:max-w-7xl 3xl:max-w-[1800px]">
+      <section className="px-8 md:px-16 lg:px-20 3xl:px-32 py-16 md:py-20 w-full">
+        <div className="w-full max-w-6xl 2xl:max-w-7xl 3xl:max-w-[1800px] mx-auto">
           <Image
             src="/la-running.jpg"
             alt="Long Autumn band running"

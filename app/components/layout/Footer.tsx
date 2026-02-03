@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   const navigationLinks = [
@@ -31,10 +32,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-8 mb-12">
           {/* Brand Section */}
           <div>
-            <h3 className="font-logo text-xl text-off-white mb-3 tracking-wide">
-              LONG AUTUMN
-            </h3>
-            <div className="w-12 h-0.5 bg-brutal-red mb-6" />
+            <Link href="/">
+              <Image
+                src="/LA_Logo_Horiz.png"
+                alt="Long Autumn Logo"
+                width={400}
+                height={133}
+                className="w-[180px] h-auto mb-6"
+              />
+            </Link>
             <p className="font-body text-off-white/70 text-sm leading-relaxed mb-6">
               Cinematic alt-rock from Manchester, NH / Boston, MA. For the midnight wanderers and the dreamers.
             </p>

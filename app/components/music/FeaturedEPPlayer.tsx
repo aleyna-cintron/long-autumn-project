@@ -107,9 +107,9 @@ export default function FeaturedEPPlayer({ ep }: FeaturedEPPlayerProps) {
       {/* Content */}
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center pt-10">
       {/* Left Side - Album Art & Links */}
-      <div className="flex flex-col items-center pr-40">
+      <div className="flex flex-col items-center lg:pr-40">
         {/* Album Art with Rotating Vinyl */}
-        <div className="relative w-full max-w-md aspect-square mb-8">
+        <div className="relative w-full max-w-[280px] md:max-w-md aspect-square mb-6 md:mb-8">
           {/* Rotating Vinyl - slides out from behind sleeve */}
           <div
             className={`absolute top-0 left-0 transition-all duration-700 z-0 ${
@@ -124,12 +124,12 @@ export default function FeaturedEPPlayer({ ep }: FeaturedEPPlayerProps) {
               }`}
             >
               {/* Vinyl grooves effect */}
-              <div className="absolute inset-8 rounded-full bg-gradient-to-br from-gray-800 to-black"></div>
-              <div className="absolute inset-12 rounded-full bg-gradient-to-br from-gray-900 to-black"></div>
-              <div className="absolute inset-16 rounded-full bg-gradient-to-br from-black to-gray-800"></div>
-              
+              <div className="absolute inset-4 md:inset-8 rounded-full bg-gradient-to-br from-gray-800 to-black"></div>
+              <div className="absolute inset-6 md:inset-12 rounded-full bg-gradient-to-br from-gray-900 to-black"></div>
+              <div className="absolute inset-8 md:inset-16 rounded-full bg-gradient-to-br from-black to-gray-800"></div>
+
               {/* Center label with album art */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 rounded-full overflow-hidden border-4 border-black shadow-xl">
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 md:w-40 md:h-40 rounded-full overflow-hidden border-2 md:border-4 border-black shadow-xl">
                 <Image
                   src={epCoverArt}
                   alt={ep.title}
@@ -149,9 +149,9 @@ export default function FeaturedEPPlayer({ ep }: FeaturedEPPlayerProps) {
                 fill
                 className="object-cover"
               />
-              
+
               {ep.isLatest && (
-                <div className="absolute top-4 right-4 bg-brutal-red text-white px-4 py-2 text-xs font-bold uppercase tracking-wider shadow-lg z-10">
+                <div className="absolute top-2 right-2 md:top-4 md:right-4 bg-brutal-red text-white px-2 py-1 md:px-4 md:py-2 text-[10px] md:text-xs font-bold uppercase tracking-wider shadow-lg z-10">
                   EP • {epYear}
                 </div>
               )}
@@ -160,7 +160,7 @@ export default function FeaturedEPPlayer({ ep }: FeaturedEPPlayerProps) {
         </div>
 
         {/* Streaming Links */}
-          <div className="w-full max-w-md space-y-3">
+          <div className="w-full max-w-[280px] md:max-w-md space-y-2 md:space-y-3">
             <Button href='https://open.spotify.com/artist/4o9s60Nr1QgG7FGLUQakzu' label='Spotify' variant='light' external />
             <Button href='https://music.apple.com/us/artist/long-autumn/1481105151' label='Apple Music' variant='light' external />
             <Button href='https://www.youtube.com/@LongAutumn' label='YouTube Music' variant='light' external />
@@ -175,28 +175,30 @@ export default function FeaturedEPPlayer({ ep }: FeaturedEPPlayerProps) {
             {/* Track List with Now Playing */}
             <div className="bg-background border border-muted rounded-lg overflow-hidden">
               {/* Now Playing Header */}
-              <div className="p-4 border-b border-muted">
-                <div className="flex items-center gap-4">
+              <div className="p-3 md:p-4 border-b border-muted">
+                <div className="flex items-center gap-2 md:gap-4">
                   <button
                     onClick={togglePlay}
-                    className="w-10 h-10 rounded-full bg-brutal-red hover:bg-red-700 flex items-center justify-center transition-colors flex-shrink-0"
+                    className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-brutal-red hover:bg-red-700 flex items-center justify-center transition-colors flex-shrink-0"
                   >
-                    {isPlaying ? <Pause size={18} fill="white" /> : <Play size={18} fill="white" className="ml-0.5" />}
+                    {isPlaying ? <Pause size={14} className="md:hidden" fill="white" /> : <Play size={14} className="md:hidden ml-0.5" fill="white" />}
+                    {isPlaying ? <Pause size={18} className="hidden md:block" fill="white" /> : <Play size={18} className="hidden md:block ml-0.5" fill="white" />}
                   </button>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm uppercase tracking-widest text-brutal-red font-bold mb-1">Now Playing</p>
+                    <p className="text-xs md:text-sm uppercase tracking-widest text-brutal-red font-bold mb-1">Now Playing</p>
                     <div className="flex items-center gap-2">
-                      <p className="font-semibold text-white truncate">{currentTrack.title}</p>
-                      <span className="text-gray-500 text-sm">
+                      <p className="font-semibold text-white truncate text-sm md:text-base">{currentTrack.title}</p>
+                      <span className="text-gray-500 text-xs md:text-sm">
                         {formatTime(currentTime)} / {formatTime(duration)}
                       </span>
                     </div>
                   </div>
                   <button
                     onClick={() => setShowVolume(!showVolume)}
-                    className="p-2 text-gray-400 hover:text-white transition-colors"
+                    className="p-1.5 md:p-2 text-gray-400 hover:text-white transition-colors"
                   >
-                    <Volume2 size={18} />
+                    <Volume2 size={16} className="md:hidden" />
+                    <Volume2 size={18} className="hidden md:block" />
                   </button>
                 </div>
 
@@ -230,31 +232,36 @@ export default function FeaturedEPPlayer({ ep }: FeaturedEPPlayerProps) {
             </div>
 
             {/* Track List */}
-            <div className="mt-4 space-y-3">
+            <div className="mt-3 md:mt-4 space-y-2 md:space-y-3">
               {ep.tracks.map((track, index) => (
                 <button
                   key={index}
                   onClick={() => playTrack(track)}
-                  className={`w-full flex items-center justify-between p-5 rounded-lg transition-all duration-300 ${
+                  className={`w-full flex items-center justify-between p-3 md:p-5 rounded-lg transition-all duration-300 ${
                     currentTrack.title === track.title
                       ? 'bg-background border border-brutal-red'
                       : 'bg-background border border-muted  hover:border-brutal-red'
                   }`}
                 >
-                  <div className="flex items-center gap-4">
-                    <span className={`font-mono text-lg w-8 ${currentTrack.title === track.title ? 'text-brutal-red' : 'text-gray-500'}`}>
+                  <div className="flex items-center gap-2 md:gap-4">
+                    <span className={`font-mono text-sm md:text-lg w-6 md:w-8 ${currentTrack.title === track.title ? 'text-brutal-red' : 'text-gray-500'}`}>
                       {String(index + 1).padStart(2, '0')}
                     </span>
-                    <span className={`text-lg font-medium ${currentTrack.title === track.title ? 'text-white' : 'text-gray-300'}`}>
+                    <span className={`text-sm md:text-lg font-medium ${currentTrack.title === track.title ? 'text-white' : 'text-gray-300'}`}>
                       {track.title}
                     </span>
                   </div>
-                  <div className="flex items-center gap-4">
-                    <span className="text-gray-500">{track.duration}</span>
+                  <div className="flex items-center gap-2 md:gap-4">
+                    <span className="text-gray-500 text-xs md:text-base">{track.duration}</span>
                     {currentTrack.title === track.title && (
                       isPlaying
-                        ? <Pause size={18} className="text-brutal-red" fill="currentColor" />
-                        : <Play size={18} className="text-brutal-red" fill="currentColor" />
+                        ? <Pause size={14} className="text-brutal-red md:hidden" fill="currentColor" />
+                        : <Play size={14} className="text-brutal-red md:hidden" fill="currentColor" />
+                    )}
+                    {currentTrack.title === track.title && (
+                      isPlaying
+                        ? <Pause size={18} className="text-brutal-red hidden md:block" fill="currentColor" />
+                        : <Play size={18} className="text-brutal-red hidden md:block" fill="currentColor" />
                     )}
                   </div>
                 </button>

@@ -5,7 +5,7 @@ import Socials from "../components/gallery/Socials";
 
 export default function Gallery() {
   return (
-    <div className="w-full min-h-screen bg-transparent pt-20">
+    <div className="w-full min-h-screen bg-transparent">
       <div className="absolute inset-0 bg-black/50" />
       <GalleryHero></GalleryHero>
       {/* Hero Section */}

@@ -44,7 +44,7 @@ export function Button({
   const baseClasses = `
     ${variantClasses[variant]}
     ${sizeClasses[size]}
-    font-bold flex items-center justify-center gap-3 uppercase tracking-wider text-sm rounded-sm transition-all duration-300
+    font-bold flex items-center justify-center gap-2 md:gap-3 uppercase tracking-wider text-xs md:text-sm rounded-sm transition-all duration-300
     ${className}
   `;
 

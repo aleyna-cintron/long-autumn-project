@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Play, Calendar, ShoppingBag } from "lucide-react";
 import BandMemberBackground from "./BandMemberBackground";
 import { Button } from '../ui/Button'
@@ -74,13 +73,11 @@ export default function HeroSection() {
         {/* Logo - upper-middle third */}
         <div className="flex-1 flex items-center justify-center pt-16">
           <div className="max-w-lg w-full">
-            <Image
+            <img
               src="/LA_Logo_Clean_White.png"
               alt="Long Autumn"
-              width={600}
-              height={240}
-              priority
               className="w-full"
+              fetchPriority="high"
             />
           </div>
         </div>

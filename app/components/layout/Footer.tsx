@@ -59,7 +59,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="font-body text-text-secondary hover:text-accent-red text-sm 3xl:text-base transition-colors block"
+                    className="font-body text-text-secondary hover:text-brutal-red text-sm 3xl:text-base transition-colors block"
                   >
                     {link.name}
                   </Link>
@@ -80,7 +80,7 @@ export default function Footer() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-body text-text-secondary hover:text-accent-red text-sm 3xl:text-base transition-colors block"
+                    className="font-body text-text-secondary hover:text-brutal-red text-sm 3xl:text-base transition-colors block"
                   >
                     {link.name}
                   </a>
@@ -100,7 +100,7 @@ export default function Footer() {
               <span key={link.name} className="flex items-center gap-8">
                 <Link
                   href={link.href}
-                  className="font-body text-text-muted hover:text-accent-red text-xs 3xl:text-sm transition-colors"
+                  className="font-body text-text-muted hover:text-brutal-red text-xs 3xl:text-sm transition-colors"
                 >
                   {link.name}
                 </Link>

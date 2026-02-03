@@ -37,7 +37,7 @@ export default function NavBar() {
           {/* Burger Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="text-text-secondary hover:text-accent-red transition-colors"
+            className="text-text-secondary hover:text-brutal-red transition-colors"
             aria-label="Toggle menu"
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -62,13 +62,13 @@ export default function NavBar() {
             href="/cart"
             className={`relative transition-colors ${
               pathname === "/cart"
-                ? "text-accent-red"
-                : "text-text-secondary hover:text-accent-red"
+                ? "text-brutal-red"
+                : "text-text-secondary hover:text-brutal-red"
             }`}
           >
             <ShoppingCart size={20} />
             {cartCount > 0 && (
-              <span className="absolute -top-2 -right-3 bg-accent-red text-bg-main text-[10px] font-bold rounded-full min-w-4 h-4 flex items-center justify-center px-1">
+              <span className="absolute -top-2 -right-3 bg-brutal-red text-black text-[10px] font-bold rounded-full min-w-4 h-4 flex items-center justify-center px-1">
                 {displayCount}
               </span>
             )}
@@ -86,8 +86,8 @@ export default function NavBar() {
                     onClick={closeMenu}
                     className={`block font-body text-sm font-bold tracking-wider transition-colors uppercase ${
                       pathname === link.href
-                        ? "text-accent-red"
-                        : "text-text-secondary hover:text-accent-red"
+                        ? "text-brutal-red"
+                        : "text-text-secondary hover:text-brutal-red"
                     }`}
                   >
                     {link.name}
@@ -124,8 +124,8 @@ export default function NavBar() {
                     href={link.href}
                     className={`font-body text-sm font-bold tracking-wider transition-colors uppercase ${
                       pathname === link.href
-                        ? "text-accent-red"
-                        : "text-text-secondary hover:text-accent-red"
+                        ? "text-brutal-red"
+                        : "text-text-secondary hover:text-brutal-red"
                     }`}
                   >
                     {link.name}
@@ -139,13 +139,13 @@ export default function NavBar() {
                   href="/cart"
                   className={`relative transition-colors ${
                     pathname === "/cart"
-                      ? "text-accent-red"
-                      : "text-text-secondary hover:text-accent-red"
+                      ? "text-brutal-red"
+                      : "text-text-secondary hover:text-brutal-red"
                   }`}
                 >
                   <ShoppingCart size={20} />
                   {cartCount > 0 && (
-                    <span className="absolute -top-2 -right-3 bg-accent-red text-bg-main text-xs font-bold rounded-full min-w-[18px] h-[18px] flex items-center justify-center px-1">
+                    <span className="absolute -top-2 -right-3 bg-brutal-red text-black text-xs font-bold rounded-full min-w-[18px] h-[18px] flex items-center justify-center px-1">
                       {displayCount}
                     </span>
                   )}

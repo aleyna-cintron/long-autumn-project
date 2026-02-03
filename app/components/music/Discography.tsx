@@ -19,7 +19,7 @@ export default function Discography({ currentEP, onSelectEP }: DiscographyProps)
   const orderedEPs = orderEPs(allEPs);
 
   return (
-    <section className="relative w-screen bg-bg-panel/60 py-16 min-h-screen">
+    <section className="relative w-screen bg-black/60 py-16 min-h-screen">
       <div className="mx-auto max-w-[2500px] px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-y-4 items-center justify-items-center md:mt-40">
           <h3 className="col-span-full text-4xl md:text-5xl lg:text-6xl 2xl:text-6xl 3xl:text-7xl 4xl:text-8xl font-bold text-center text-text-primary">Discography</h3>

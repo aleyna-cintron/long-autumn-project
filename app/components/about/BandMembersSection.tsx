@@ -7,7 +7,6 @@ import ShinyText from '@/components/ShinyText';
 
 // Convert band members to card data
 const cardData: BandMemberCardData[] = bandMembers.map((member, index) => ({
-  id: `card-${index + 1}`,
   name: member.name,
   role: member.role,
   imageUrl: member.imageUrl,
@@ -26,9 +25,8 @@ const renderFront = (card: BandMemberCardData) => (
             <div className="absolute inset-3 rounded border border-purple-800/40" />
 
             {/* Header */}
-            <div className="relative px-2 pt-1 pb-2 flex justify-between items-center">
+            <div className="relative px-2 pt-1 pb-2 flex justify-center items-center">
               <span className="text-xs font-black tracking-widest text-red-600">LONG AUTUMN</span>
-              <span className="text-xs font-mono text-red-500 font-bold">#{String(card.cardNumber).padStart(2, '0')}</span>
             </div>
 
             {/* Photo */}
@@ -81,9 +79,8 @@ const renderBack = (card: BandMemberCardData) => (
             <div className="absolute inset-3 rounded border border-purple-800/40 pointer-events-none" />
 
             {/* Header */}
-            <div className="flex justify-between items-center mb-3">
+            <div className="flex justify-center items-center mb-3">
               <span className="text-xs font-black tracking-widest text-red-600">BIOGRAPHY</span>
-              <span className="text-xs font-mono text-red-500 font-bold">#{String(card.cardNumber).padStart(2, '0')}</span>
             </div>
 
             {/* Name */}
@@ -132,10 +129,10 @@ export default function BandMembersSection() {
       config={{
         positions: [10, 30, 50, 70, 90],
         rotations: [-12, -6, 0, 6, 12],
-        scrollMultiplier: 2,
+        scrollMultiplier: 0.8,
         cardWidth: 320,
         cardHeight: 480,
-        staggerDelay: 0.02,
+        staggerDelay: 0.01,
       }}
       renderFront={(card) => renderFront(card as BandMemberCardData)}
       renderBack={(card) => renderBack(card as BandMemberCardData)}
@@ -143,8 +140,7 @@ export default function BandMembersSection() {
       cardClassName=""
       header={
         <div className="text-center">
-          <h3 className="font-bold text-4xl md:text-5xl lg:text-6xl 2xl:text-6xl 3xl:text-7xl 4xl:text-8xl mb-2 text-white">Meet The Band</h3>
-          <p className="text-white/50 text-xs md:text-sm 2xl:text-sm 3xl:text-base 4xl:text-base uppercase tracking-widest">Five of a Kind · Scroll to explore</p>
+          <h3 className="inline-block text-4xl md:text-5xl lg:text-6xl 2xl:text-6xl 3xl:text-7xl 4xl:text-8xl mb-2 text-white px-6 md:px-8 py-2 md:py-3 rounded-lg">Meet The Band</h3>
         </div>
       }
     />

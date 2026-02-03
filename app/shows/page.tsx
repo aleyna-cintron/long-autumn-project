@@ -12,7 +12,7 @@ export default async function ShowsPage() {
         <div className="w-full min-h-screen text-text-primary md:pt-20 lg:pt-24 pb-20">
             {/* Hero Section */}
             <section className="relative pt-28 pb-20 overflow-hidden bg-background/60">
-                <div className="max-w-6xl 3xl:max-w-7xl 4xl:max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div className="max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl 2xl:max-w-5xl 3xl:max-w-300 4xl:max-w-350 mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     {/* Distressed text container */}
                     <div className="relative mb-12">
                         {/* Glitch shadow layers */}
@@ -52,7 +52,7 @@ export default async function ShowsPage() {
 
             {/* Upcoming Dates Section */}
             <section className="py-20">
-                <div className="max-w-4xl 3xl:max-w-5xl 4xl:max-w-6xl mx-auto px-4">
+                <div className="max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl 2xl:max-w-5xl 3xl:max-w-300 4xl:max-w-350 mx-auto px-4">
                     <PanelCard title="Upcoming Shows">
 
                 {upcomingShows.length === 0 ? (
@@ -71,7 +71,7 @@ export default async function ShowsPage() {
                     )}
 
                     {/* Booking? */}
-                    <div className="mt-12 p-8 text-center rounded-sm max-w-4xl 3xl:max-w-5xl mx-auto">
+                    <div className="mt-12 p-8 text-center rounded-sm mx-auto">
                         <h3 className="text-lg md:text-xl lg:text-2xl 3xl:text-2xl 4xl:text-3xl font-bold uppercase tracking-widest text-text-primary mb-4">
                             Want to book Long Autumn for your venue?
                         </h3>
@@ -89,7 +89,7 @@ export default async function ShowsPage() {
 
             {/* Previous Shows Section */}
             <section className="py-20">
-                <div id="previous-shows" className="max-w-4xl 3xl:max-w-5xl 4xl:max-w-6xl mx-auto px-4">
+                <div id="previous-shows" className="max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl 2xl:max-w-5xl 3xl:max-w-300 4xl:max-w-350 mx-auto px-4">
                     <PanelCard title="Previous Shows">
                         <PastShowsList shows={pastShows} />
                     </PanelCard>

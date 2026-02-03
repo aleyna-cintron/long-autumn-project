@@ -13,7 +13,7 @@ export default async function ProductsPage() {
       <MerchHero />
       {/* Featured Item Section */}
       <section className="py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl 2xl:max-w-6xl 3xl:max-w-350 4xl:max-w-400 mx-auto px-4 sm:px-6 lg:px-8">
           {!product ? (
             <PanelCard title="Featured Item">
               <div className="p-12 text-center">

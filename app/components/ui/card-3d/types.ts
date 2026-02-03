@@ -1,8 +1,6 @@
-export interface CardData {
-  id: string;
-}
 
-export interface BandMemberCardData extends CardData {
+
+export interface BandMemberCardData {
   name: string;
   role: string;
   imageUrl: string;
@@ -21,10 +19,10 @@ export interface CardGridConfig {
 }
 
 export interface CardGridProps {
-  cards: CardData[];
+  cards: BandMemberCardData[];
   config?: Partial<CardGridConfig>;
-  renderFront: (card: CardData) => React.ReactNode;
-  renderBack: (card: CardData) => React.ReactNode;
+  renderFront: (card: BandMemberCardData) => React.ReactNode;
+  renderBack: (card: BandMemberCardData) => React.ReactNode;
   containerClassName?: string;
   cardClassName?: string;
   header?: React.ReactNode;

@@ -6,8 +6,8 @@ export default function ContactPage() {
     return (
         <div className="w-full min-h-screen text-text-primary md:pt-20 lg:pt-24 pb-20">
             {/* Hero Section */}
-            <section className="relative pt-28 pb-20 overflow-hidden bg-background/60">
-                <div className="max-w-6xl 3xl:max-w-7xl 4xl:max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <section className="relative pt-28 pb-12 lg:pb-16 2xl:pb-10 3xl:pb-12 overflow-hidden bg-background/60">
+                <div className="max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl 2xl:max-w-6xl 3xl:max-w-350 4xl:max-w-400 mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     {/* Distressed text container */}
                     <div className="relative mb-12">
                         {/* Glitch shadow layers */}
@@ -46,16 +46,18 @@ export default function ContactPage() {
             </section>
 
             {/* Contact Form & Info Section */}
-            <section className="py-20">
-                <div className="max-w-6xl 3xl:max-w-7xl 4xl:max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid md:grid-cols-2 gap-8 3xl:gap-12">
+            <section className="py-12 lg:py-16 2xl:py-12 3xl:py-16">
+                <div className="max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl 2xl:max-w-6xl 3xl:max-w-350 4xl:max-w-400 mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="grid md:grid-cols-2 gap-6 lg:gap-8 3xl:gap-10">
                         {/* Contact Form */}
-                        <PanelCard title="Send Us a Message">
-                            <ContactForm />
-                        </PanelCard>
+                        <div className="flex flex-col">
+                            <PanelCard title="Send Us a Message" fillParent>
+                                <ContactForm />
+                            </PanelCard>
+                        </div>
 
                         {/* Contact Info */}
-                        <div className="space-y-8">
+                        <div className="space-y-6 lg:space-y-6 2xl:space-y-4 3xl:space-y-6">
                             {/* All Inquiries */}
                             <PanelCard title="All Inquiries">
                                 <p className="text-text-secondary mb-6 leading-relaxed text-base md:text-base lg:text-lg 3xl:text-lg 4xl:text-xl">

@@ -12,7 +12,7 @@ export default function Gallery() {
     <>
       {/* Responsive Gallery Grid - Masonry Style */}
       <section className="py-16 px-4 mt-10">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl 2xl:max-w-6xl 3xl:max-w-350 4xl:max-w-400 mx-auto">
           {/* CSS Columns for masonry effect - images keep natural size */}
           <div className="columns-1 lg:columns-3 gap-4">
             {images.map((image, index) => (

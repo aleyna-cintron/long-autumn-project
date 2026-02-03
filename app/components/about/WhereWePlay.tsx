@@ -9,7 +9,7 @@ const regions = [
 
 export default function WhereWePlay() {
   return (
-    <div className="max-w-7xl 2xl:max-w-[1400px] 3xl:max-w-[1700px] 4xl:max-w-[2000px] mx-auto py-12 md:py-16 3xl:py-20 text-center relative">
+    <div className="max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl 2xl:max-w-6xl 3xl:max-w-350 4xl:max-w-400 mx-auto py-12 md:py-16 3xl:py-20 text-center relative">
       {/* Backdrop for better readability */}
       <div className="absolute inset-0 -m-8 3xl:-m-12 border-2 backdrop-blur-sm rounded-2xl" />
 
@@ -21,7 +21,7 @@ export default function WhereWePlay() {
           Shows within a 4-hour radius of Boston
         </p>
 
-        <div className="flex flex-wrap justify-center gap-3 md:gap-4 2xl:gap-5 3xl:gap-6 max-w-3xl 2xl:max-w-4xl 3xl:max-w-5xl 4xl:max-w-6xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-3 md:gap-4 2xl:gap-5 3xl:gap-6 max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl 2xl:max-w-5xl 3xl:max-w-6xl mx-auto">
           {regions.map(region => (
             <div
               key={region}

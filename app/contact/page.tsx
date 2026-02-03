@@ -66,7 +66,7 @@ export default function ContactPage() {
                                     looking for new opportunities.
                                 </p>
                                 <div className="flex items-center text-text-secondary p-4 bg-muted/30 rounded-sm border border-border text-base md:text-base lg:text-lg 3xl:text-lg 4xl:text-xl">
-                                    <Mail className="mr-3 text-brutal-red flex-shrink-0 w-5 h-5 3xl:w-6 3xl:h-6" />
+                                    <Mail className="mr-3 text-brutal-red shrink-0 w-5 h-5 3xl:w-6 3xl:h-6" />
                                     <a
                                         href="mailto:contact@longautumn.com"
                                         className="hover:text-brutal-red transition-colors break-all"

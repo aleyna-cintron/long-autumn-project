@@ -7,6 +7,7 @@ import ShinyText from '@/components/ShinyText';
 
 // Convert band members to card data
 const cardData: BandMemberCardData[] = bandMembers.map((member, index) => ({
+  id: `member-${index}`,
   name: member.name,
   role: member.role,
   imageUrl: member.imageUrl,

@@ -17,7 +17,7 @@ export default function ShowCard({ event, isPast = false }: ShowCardProps) {
   return (
     <div
       className={`
-        relative border-2 rounded-sm p-6 transition-all duration-300
+        relative border-2 rounded-sm p-4 md:p-6 transition-all duration-300
         ${isPast
           ? `
             bg-black/90
@@ -35,15 +35,15 @@ export default function ShowCard({ event, isPast = false }: ShowCardProps) {
           `}
       `}
     >
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 md:gap-6">
 
         {/* LEFT: DATE + INFO */}
-        <div className="flex items-start gap-6 flex-1">
+        <div className="flex items-start gap-3 md:gap-6 flex-1">
 
           {/* DATE BLOCK */}
           <div
             className={`
-               w-28 aspect-square
+               w-16 sm:w-20 md:w-24 lg:w-28 aspect-square flex-shrink-0
                 border-2 rounded-sm
                 flex flex-col items-center justify-center
                 text-center
@@ -52,42 +52,42 @@ export default function ShowCard({ event, isPast = false }: ShowCardProps) {
                 : 'border-brutal-red bg-brutal-red/10 text-brutal-red'}
             `}
           >
-            <div className="text-lg uppercase tracking-widest">
+            <div className="text-[10px] sm:text-xs md:text-sm lg:text-base uppercase tracking-widest">
               {month}
             </div>
-            <div className="text-5xl font-black leading-none">
+            <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-none">
               {day}
             </div>
-            <div className="text-lg mt-1 tracking-wide">
+            <div className="text-[10px] sm:text-xs md:text-sm lg:text-base mt-0.5 md:mt-1 tracking-wide">
               {year}
             </div>
           </div>
 
           {/* EVENT INFO */}
-          <div className="space-y-2">
+          <div className="space-y-1 md:space-y-2 min-w-0">
             <h3
               className={`
-                text-2xl tracking-wide
+                text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide
                 ${isPast ? 'text-white/80' : 'text-white'}
               `}
             >
               {event.venue.name}
             </h3>
 
-            <div className="flex flex-wrap gap-4 text-lg">
-              <div className="flex items-center gap-2 text-white/60">
-                <MapPin size={16} />
+            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-1 sm:gap-3 md:gap-4 text-xs sm:text-sm md:text-base lg:text-lg">
+              <div className="flex items-center gap-1.5 md:gap-2 text-white/60">
+                <MapPin className="w-3 h-3 sm:w-4 sm:h-4" />
                 <span>{event.venue.city}, {event.venue.region}</span>
               </div>
 
-              <div className="flex items-center gap-2 text-white/60 text-lg">
-                <Music size={16} />
+              <div className="flex items-center gap-1.5 md:gap-2 text-white/60">
+                <Music className="w-3 h-3 sm:w-4 sm:h-4" />
                 <span>{time}</span>
               </div>
             </div>
 
             {!isPast && event.offers && event.offers.length > 0 && (
-              <span className="inline-block mt-2 px-4 py-1 text-xs uppercase tracking-widest bg-brutal-red text-black font-bold">
+              <span className="inline-block mt-1 md:mt-2 px-2 md:px-4 py-0.5 md:py-1 text-[10px] md:text-xs uppercase tracking-widest bg-brutal-red text-black font-bold">
                 On Sale
               </span>
             )}
@@ -95,9 +95,9 @@ export default function ShowCard({ event, isPast = false }: ShowCardProps) {
         </div>
 
         {/* RIGHT: ACTION */}
-        <div className="flex-shrink-0">
+        <div className="flex-shrink-0 self-end sm:self-center">
           {isPast ? (
-            <div className="border-2 border-brutal-red/20 text-white/50 px-6 py-3 rounded-sm">
+            <div className="border-2 border-brutal-red/20 text-white/50 px-3 md:px-6 py-2 md:py-3 rounded-sm text-xs md:text-sm lg:text-base">
               Past Event
             </div>
           ) : event.url ? (
@@ -106,18 +106,18 @@ export default function ShowCard({ event, isPast = false }: ShowCardProps) {
               target="_blank"
               rel="noopener noreferrer"
               className="
-                inline-flex items-center gap-2
+                inline-flex items-center gap-1.5 md:gap-2
                 border-2 border-brutal-red text-brutal-red
-                px-6 py-3 rounded-sm uppercase tracking-widest font-semibold
+                px-3 md:px-6 py-2 md:py-3 rounded-sm uppercase tracking-widest font-semibold
                 hover:bg-brutal-red hover:text-black
-                transition-all duration-300
+                transition-all duration-300 text-xs md:text-sm lg:text-base
               "
             >
-              <ExternalLink size={16} />
+              <ExternalLink className="w-3 h-3 md:w-4 md:h-4" />
               Tickets
             </a>
           ) : (
-            <div className="border-2 border-brutal-red/20 text-white/50 px-6 py-3 rounded-sm">
+            <div className="border-2 border-brutal-red/20 text-white/50 px-3 md:px-6 py-2 md:py-3 rounded-sm text-xs md:text-sm lg:text-base">
               Info Soon
             </div>
           )}

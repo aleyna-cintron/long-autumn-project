@@ -1,24 +1,42 @@
 export default function GalleryHero() {
   return (
-    <section className="relative h-screen flex items-end overflow-hidden">
-        <div className="absolute inset-0">
-          {/* Gradient overlay to bg-main */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg-main z-10" />
-          {/* Image overlay for readability */}
-          <div className="absolute inset-0 bg-bg-main/40 z-[5]" />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/gallery/la-shask.JPG"
-            alt="Long Autumn live performance"
-            className="w-full h-full object-cover object-[center_30%]"
-          />
+    <section className="relative pt-28 pb-20 overflow-hidden bg-background/60">
+      <div className="max-w-6xl 3xl:max-w-7xl 4xl:max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Distressed text container */}
+        <div className="relative mb-12">
+          {/* Glitch shadow layers */}
+          <h1
+            className="absolute inset-0 text-5xl md:text-6xl lg:text-7xl 2xl:text-8xl 3xl:text-8xl 4xl:text-9xl tracking-wider uppercase text-brutal-red/20 blur-sm text-center"
+            style={{ transform: 'translate(-4px, -4px)' }}
+          >
+            Visual Archive
+          </h1>
+          <h1
+            className="absolute inset-0 text-5xl md:text-6xl lg:text-7xl 2xl:text-8xl 3xl:text-8xl 4xl:text-9xl tracking-wider uppercase text-white/10 text-center"
+            style={{ transform: 'translate(4px, 4px)' }}
+          >
+            Visual Archive
+          </h1>
+
+          {/* Main text */}
+          <h1
+            className="relative text-5xl md:text-6xl lg:text-7xl 2xl:text-8xl 3xl:text-8xl 4xl:text-9xl tracking-wider uppercase text-text-primary text-center"
+            style={{
+              textShadow: `
+                2px 2px 0 rgba(49, 10, 81, 0.5),
+                4px 4px 0 rgba(49, 10, 81, 0.3)
+              `,
+            }}
+          >
+            Visual Archive
+          </h1>
         </div>
-        <div className="relative z-20 max-w-7xl 3xl:max-w-[1800px] 4xl:max-w-[2200px] mx-auto px-4 sm:px-6 lg:px-8 pb-20 pt-24 w-full">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl 2xl:text-8xl 3xl:text-8xl 4xl:text-9xl text-text-primary mb-4 md:mb-6 leading-none">Visual Archive</h1>
-          <p className="text-lg md:text-xl lg:text-2xl 2xl:text-2xl 3xl:text-3xl 4xl:text-3xl text-text-secondary max-w-2xl 3xl:max-w-3xl italic">
-            Moments from the road, the stage, and everything in between
-          </p>
-        </div>
-      </section>
+
+        {/* Subtitle */}
+        <p className="text-center text-text-secondary max-w-2xl 3xl:max-w-3xl mx-auto text-base md:text-lg lg:text-lg 2xl:text-xl 3xl:text-xl 4xl:text-2xl italic">
+          Moments from the road, the stage, and everything in between
+        </p>
+      </div>
+    </section>
   );
 }

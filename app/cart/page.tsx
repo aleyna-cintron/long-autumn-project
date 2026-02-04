@@ -1,19 +1,19 @@
+'use client'
+
 import Cart from "../components/cart/Cart"
+import { useCartStore } from "../store/cart-store-provider"
 
 export default function CheckoutPage() {
-  return (
-    <div className="min-h-screen bg-background pt-36 pb-20">
-      <section className="max-w-6xl mx-auto px-6">
-        <div className="mb-12 text-center">
-          <h1 className="text-6xl font-bold uppercase tracking-wider mb-4">
-            Cart
-          </h1>
-          <p className="text-muted-foreground uppercase tracking-widest">
-            Review your items before checkout
-          </p>
-        </div>
+  const items = useCartStore(state => state.items)
+  const itemCount = items.reduce((sum, item) => sum + item.quantity, 0)
 
-        <Cart />
+  return (
+    <div className="min-h-screen">
+      {/* Cart Content */}
+      <section className="py-40 pb-20 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <Cart />
+        </div>
       </section>
     </div>
   )

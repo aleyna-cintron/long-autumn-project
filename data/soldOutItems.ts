@@ -2,7 +2,7 @@
 export const soldOutItems = [
   {
     name: "Long Autumn Limited Tee",
-    frontImage: "/sold-out/LAShirt1front.webp",
+    frontImage: "/sold-out/LAshirt1front.webp",
     backImage: "/sold-out/LAshirt1back.webp",
     totalPrints: 100,
     remaining: 0,

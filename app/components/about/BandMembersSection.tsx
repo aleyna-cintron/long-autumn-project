@@ -50,7 +50,7 @@ const renderFront = (card: BandMemberCardData) => (
             <div className="px-1 pt-2">
               <div className="relative py-1.5 px-2 border border-red-900/50 rounded bg-black/80">
                 <h3 className="text-center">
-                  <ShinyText text={card.name.toUpperCase()} speed={5} delay={2} className="text-sm font-black tracking-wide" color="#ffffff" shineColor="#c41e3a" />
+                  <ShinyText text={card.name.toUpperCase()} speed={5} delay={2} className="text-lg font-black tracking-wide" color="#ffffff" shineColor="#c41e3a" />
                 </h3>
               </div>
             </div>
@@ -70,58 +70,94 @@ const renderFront = (card: BandMemberCardData) => (
   </div>
 );
 
+// Helper to parse bio and get color for each key (using website palette)
+const getKeyColor = (key: string): string => {
+  const colors: Record<string, string> = {
+    'From': 'text-purple-300',
+    'Likes': 'text-text-secondary',
+    'Dislikes': 'text-brutal-red',
+    'Genres': 'text-purple-400',
+    'Fun fact': 'text-text-primary',
+  };
+  return colors[key] || 'text-text-muted';
+};
+
+// Parse bio string into structured data
+const parseBio = (bio: string) => {
+  const parts = bio.split(' | ');
+  const entries: { key: string; value: string }[] = [];
+  let quote = '';
+
+  parts.forEach(part => {
+    if (part.startsWith('"') && part.endsWith('"')) {
+      quote = part;
+    } else {
+      const colonIndex = part.indexOf(':');
+      if (colonIndex > -1) {
+        const key = part.slice(0, colonIndex).trim();
+        const value = part.slice(colonIndex + 1).trim();
+        entries.push({ key, value });
+      }
+    }
+  });
+
+  return { entries, quote };
+};
+
 // Card back render
-const renderBack = (card: BandMemberCardData) => (
-  <div className="w-full h-full rounded-lg shadow-2xl overflow-hidden relative" style={{ background: '#0a0a0a' }}>
-    <div className="absolute inset-0 p-[3px]">
-      <div className="w-full h-full rounded-lg" style={{ background: 'linear-gradient(180deg, #8b0000 0%, #4a0080 50%, #8b0000 100%)', padding: '2px' }}>
-        <div className="w-full h-full rounded-lg overflow-hidden flex flex-col" style={{ background: 'linear-gradient(180deg, #151515 0%, #0a0a0a 50%, #0d0d12 100%)' }}>
-          <div className="w-full h-full p-3 flex flex-col relative">
-            <div className="absolute inset-3 rounded border border-purple-800/40 pointer-events-none" />
+const renderBack = (card: BandMemberCardData) => {
+  const { entries, quote } = parseBio(card.bio);
 
-            {/* Header */}
-            <div className="flex justify-center items-center mb-3">
-              <span className="text-xs font-black tracking-widest text-red-600">BIOGRAPHY</span>
-            </div>
+  return (
+    <div className="w-full h-full rounded-lg shadow-2xl overflow-hidden relative" style={{ background: '#0a0a0a' }}>
+      <div className="absolute inset-0 p-[3px]">
+        <div className="w-full h-full rounded-lg" style={{ background: 'linear-gradient(180deg, #8b0000 0%, #4a0080 50%, #8b0000 100%)', padding: '2px' }}>
+          <div className="w-full h-full rounded-lg overflow-hidden flex flex-col" style={{ background: 'linear-gradient(180deg, #151515 0%, #0a0a0a 50%, #0d0d12 100%)' }}>
+            <div className="w-full h-full p-3 flex flex-col relative">
+              <div className="absolute inset-3 rounded border border-purple-800/40 pointer-events-none" />
 
-            {/* Name */}
-            <div className="relative py-1.5 px-2 border border-purple-800/50 rounded bg-black/80 mb-3">
-              <h3 className="text-center">
-                <ShinyText text={card.name.toUpperCase()} speed={5} delay={2} className="text-sm font-black tracking-wide" color="#ffffff" shineColor="#c41e3a" />
-              </h3>
-            </div>
-
-            {/* Stats */}
-            <div className="grid grid-cols-2 gap-2 mb-3">
-              <div className="bg-gradient-to-b from-purple-950/80 to-black/60 border border-purple-700/60 rounded p-2 text-center">
-                <p className="text-[10px] text-purple-400 uppercase tracking-wider mb-0.5 font-semibold">Role</p>
-                <p className="text-xs font-black text-purple-100">{card.role.split(",")[0].trim()}</p>
+              {/* Header */}
+              <div className="flex justify-center items-center mb-2">
+                <span className="text-sm font-black tracking-widest text-red-600">BIOGRAPHY</span>
               </div>
-              <div className="bg-gradient-to-b from-red-950/80 to-black/60 border border-red-800/60 rounded p-2 text-center">
-                <p className="text-[10px] text-red-400 uppercase tracking-wider mb-0.5 font-semibold">Since</p>
-                <p className="text-xs font-black text-red-100">{card.joinedYear}</p>
+
+              {/* Name */}
+              <div className="relative py-1 px-2 border border-purple-800/50 rounded bg-black/80 mb-2">
+                <h3 className="text-center">
+                  <ShinyText text={card.name.toUpperCase()} speed={5} delay={2} className="text-lg font-black tracking-wide" color="#ffffff" shineColor="#c41e3a" />
+                </h3>
               </div>
-            </div>
 
-            {/* Bio */}
-            <div className="flex-1 bg-black/60 border border-purple-800/50 rounded p-2 mb-2">
-              <p className="text-[11px] text-white/90 leading-relaxed">
-                {card.bio}
-              </p>
-            </div>
+              {/* Bio entries */}
+              <div className="flex-1 bg-black/60 border border-purple-800/50 rounded p-3 mb-2 overflow-y-auto">
+                <div className="space-y-2">
+                  {entries.map((entry, idx) => (
+                    <div key={idx} className="text-base leading-snug">
+                      <span className={`font-bold ${getKeyColor(entry.key)}`}>{entry.key}:</span>
+                      <span className="text-text-primary ml-1.5">{entry.value}</span>
+                    </div>
+                  ))}
+                </div>
+                {quote && (
+                  <div className="mt-3 pt-2 border-t border-purple-800/30">
+                    <p className="text-base italic text-brutal-red/80">{quote}</p>
+                  </div>
+                )}
+              </div>
 
-            {/* Bottom brand */}
-            <div className="text-center">
-              <p className="text-[9px] text-red-500 tracking-widest font-bold">
-                ◆ LONG AUTUMN ◆
-              </p>
+              {/* Bottom brand */}
+              <div className="text-center">
+                <p className="text-[9px] text-red-500 tracking-widest font-bold">
+                  ◆ LONG AUTUMN ◆
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default function BandMembersSection() {
   return (

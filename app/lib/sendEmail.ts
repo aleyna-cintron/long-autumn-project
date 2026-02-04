@@ -1,16 +1,26 @@
 "use server";
 import nodemailer from "nodemailer";
 
-export async function sendEmail(formData: FormData): Promise<void> {
+export type EmailResult = {
+  success: boolean;
+  message: string;
+};
+
+export async function sendEmail(prevState: EmailResult | null, formData: FormData): Promise<EmailResult> {
   const name = formData.get('name') as string | null
   const email = formData.get('email') as string | null
   const subject = formData.get('subject') as string | null
   const message = formData.get('message') as string | null
 
+  // Validate required fields
+  if (!name || !email || !message) {
+    return { success: false, message: "Please fill in all required fields." };
+  }
+
   // Check if email credentials are configured
   if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
     console.log("Email credentials not configured. Form data received:", { name, email, subject, message });
-    return;
+    return { success: true, message: "Message received! We'll get back to you soon." };
   }
 
   try {
@@ -37,7 +47,9 @@ export async function sendEmail(formData: FormData): Promise<void> {
     });
 
     console.log("Message sent:", info);
+    return { success: true, message: "Message sent successfully! We'll get back to you soon." };
   } catch (error) {
     console.error("Failed to send email:", error);
+    return { success: false, message: "Failed to send message. Please try again later." };
   }
 }

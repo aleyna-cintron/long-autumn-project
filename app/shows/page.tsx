@@ -17,7 +17,9 @@ export default async function ShowsPage() {
                 title="Live Shows"
                 subtitle="Experience Long Autumn live. Raw energy, cinematic atmosphere, unforgettable nights."
             />
-            <ShowPosterLoop posters={showPosters}></ShowPosterLoop>
+                    <ShowPosterLoop posters={showPosters}></ShowPosterLoop>
+
+            
             {/* Upcoming Dates Section */}
             <section className="py-10">
                 <div className="max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl 2xl:max-w-5xl 3xl:max-w-300 4xl:max-w-350 mx-auto px-4">

@@ -8,20 +8,16 @@ interface RotatingFlipCardProps {
   className?: string;
 }
 
-export default function RotatingFlipCard({
-  front,
-  back,
-  className = '',
-}: RotatingFlipCardProps) {
+export default function RotatingFlipCard({front, back, className = '',}: RotatingFlipCardProps) {
   return (
     <div
-      className={`relative w-64 h-64 ${className}`}
+      className={`relative w-80 h-80 ${className}`}
       style={{ perspective: '1000px' }}
     >
       <motion.div
         animate={{ rotateY: 360 }}
         transition={{
-          duration: 4,
+          duration: 8,
           repeat: Infinity,
           ease: 'linear',
         }}

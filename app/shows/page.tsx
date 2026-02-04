@@ -3,6 +3,8 @@ import ShowCard from '../components/shows/ShowCard';
 import PastShowsList from '../components/shows/PastShowsList';
 import { PanelCard } from '../components/ui/PanelCard';
 import PageHero from '../components/ui/PageHeader';
+import ShowPosterLoop from '../components/ui/ShowPosterLoop';
+import { showPosters } from '@/data/showPosters';
 
 export default async function ShowsPage() {
     // Server-side data fetching
@@ -15,9 +17,9 @@ export default async function ShowsPage() {
                 title="Live Shows"
                 subtitle="Experience Long Autumn live. Raw energy, cinematic atmosphere, unforgettable nights."
             />
-
+            <ShowPosterLoop posters={showPosters}></ShowPosterLoop>
             {/* Upcoming Dates Section */}
-            <section className="py-20">
+            <section className="py-10">
                 <div className="max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl 2xl:max-w-5xl 3xl:max-w-300 4xl:max-w-350 mx-auto px-4">
                     <PanelCard title="Upcoming Shows">
 
@@ -61,6 +63,7 @@ export default async function ShowsPage() {
                     </PanelCard>
                 </div>
             </section>
+            <ShowPosterLoop posters={showPosters} direction = "right" ></ShowPosterLoop>
         </div>
     );
 }

@@ -1,15 +1,12 @@
 import { Mail, Instagram, Twitter } from 'lucide-react';
 import ContactForm from "../components/ui/ContactForm";
 import { PanelCard } from "../components/ui/PanelCard";
-import PageHero from "../components/ui/PageHeader";
+import PageHeader from '../components/ui/PageHeader';
 
 export default function ContactPage() {
     return (
         <div className="w-full min-h-screen text-text-primary md:pt-20 lg:pt-24 pb-20">
-            <PageHero
-                title="Get In Touch"
-                subtitle="Bookings, press inquiries, or just to say hello"
-            />
+            <PageHeader title='Get In Touch' subtitle='Bookings, press inquiries, or just to say hello'></PageHeader>
 
             {/* Contact Form & Info Section */}
             <section className="py-12 lg:py-16 2xl:py-12 3xl:py-16">

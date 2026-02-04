@@ -7,7 +7,7 @@ export function HeroEffects() {
             absolute inset-0
             bg-linear-to-b
             from-transparent from-65%
-            via-black/100 via-90%
+            via-black via-90%
             to-black to-100%
         "
         />

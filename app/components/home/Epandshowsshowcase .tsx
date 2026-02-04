@@ -69,19 +69,19 @@ export default async function EPAndShowsShowcase() {
                     </h3>
 
                     <div className="space-y-3 mb-6">
-                      <div className="flex items-center gap-3">
-                        <Calendar size={20} className="text-brutal-red" />
-                        <span className="text-white font-semibold text-lg">{date}</span>
+                      <div className="flex items-center gap-2 sm:gap-3">
+                        <Calendar size={16} className="text-brutal-red shrink-0 sm:w-5 sm:h-5" />
+                        <span className="text-white font-semibold text-sm sm:text-lg">{date}</span>
                       </div>
 
-                      <div className="flex items-center gap-3">
-                        <Clock size={20} className="text-brutal-red" />
-                        <span className="text-white font-semibold text-lg">{time}</span>
+                      <div className="flex items-center gap-2 sm:gap-3">
+                        <Clock size={16} className="text-brutal-red shrink-0 sm:w-5 sm:h-5" />
+                        <span className="text-white font-semibold text-sm sm:text-lg">{time}</span>
                       </div>
 
-                      <div className="flex items-center gap-3">
-                        <MapPin size={20} className="text-brutal-red" />
-                        <span className="text-white font-medium text-base">
+                      <div className="flex items-center gap-2 sm:gap-3">
+                        <MapPin size={16} className="text-brutal-red shrink-0 sm:w-5 sm:h-5" />
+                        <span className="text-white font-medium text-sm sm:text-base">
                           {show.venue.name}, {show.venue.city}, {show.venue.region}
                         </span>
                       </div>

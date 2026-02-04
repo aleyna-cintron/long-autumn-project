@@ -1,4 +1,5 @@
-import { Mail, Instagram, Twitter } from 'lucide-react';
+import { Mail, Instagram } from 'lucide-react';
+import { SiLinktree } from 'react-icons/si';
 import ContactForm from "../components/ui/ContactForm";
 import { PanelCard } from "../components/ui/PanelCard";
 import PageHeader from '../components/ui/PageHeader';
@@ -51,17 +52,17 @@ export default function ContactPage() {
                                         rel="noopener noreferrer"
                                         className="flex items-center text-text-secondary hover:text-brutal-red transition-colors p-4 bg-muted/30 rounded-sm border border-border hover:border-brutal-red text-base md:text-base lg:text-lg 3xl:text-lg 4xl:text-xl"
                                     >
-                                        <Instagram className="mr-3 flex-shrink-0 w-5 h-5 3xl:w-6 3xl:h-6" />
+                                        <Instagram className="mr-3 shrink-0 w-5 h-5 3xl:w-6 3xl:h-6" />
                                         @longautumnmusic
                                     </a>
                                     <a
-                                        href="https://twitter.com/longautumnmusic"
+                                        href="https://linktr.ee/longautumn"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="flex items-center text-text-secondary hover:text-brutal-red transition-colors p-4 bg-muted/30 rounded-sm border border-border hover:border-brutal-red text-base md:text-base lg:text-lg 3xl:text-lg 4xl:text-xl"
                                     >
-                                        <Twitter className="mr-3 flex-shrink-0 w-5 h-5 3xl:w-6 3xl:h-6" />
-                                        @longautumnmusic
+                                        <SiLinktree className="mr-3 shrink-0 w-5 h-5 3xl:w-6 3xl:h-6" />
+                                        linktr.ee/longautumn
                                     </a>
                                 </div>
                             </PanelCard>

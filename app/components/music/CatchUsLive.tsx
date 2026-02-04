@@ -6,7 +6,7 @@ interface CatchUsLiveProps {
 
 export default function CatchUsLive({ states }: CatchUsLiveProps) {
   return (
-    <section className="relative w-full mt-32 mb-24 px-6">
+    <section className="relative w-full mt-16 md:mt-20 lg:mt-24 xl:mt-28 2xl:mt-32 mb-24 px-6">
       <div className="mx-auto max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl 2xl:max-w-4xl 3xl:max-w-5xl 4xl:max-w-6xl rounded-2xl border border-white/10 bg-black/60 backdrop-blur-md p-8 md:p-10 3xl:p-12 text-center">
 
         <h3 className="text-2xl md:text-3xl lg:text-4xl 2xl:text-4xl 3xl:text-5xl 4xl:text-5xl font-bold uppercase tracking-wide mb-4 text-text-primary">

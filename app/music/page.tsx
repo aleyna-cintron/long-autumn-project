@@ -38,7 +38,7 @@ export default function MusicPage() {
       </section>
 
       {/* DISCOGRAPHY */}
-      <div className="relative z-10 w-full min-h-screen">
+      <div className="relative z-10 w-full min-h-screen xl:min-h-0">
         <DiscographyServer currentEP={selectedEP} onSelectEP={setSelectedEP} />
       </div>
       

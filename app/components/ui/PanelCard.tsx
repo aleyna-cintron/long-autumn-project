@@ -2,7 +2,7 @@ import GrayscaleCosmicBg from './GrayscaleCosmicBg'
 
 interface PanelCardProps {
   children: React.ReactNode
-  title?: string
+  title?: React.ReactNode
   background?: boolean
   className?: string
   fillParent?: boolean

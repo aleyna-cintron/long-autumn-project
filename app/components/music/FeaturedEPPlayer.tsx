@@ -150,11 +150,6 @@ export default function FeaturedEPPlayer({ ep }: FeaturedEPPlayerProps) {
                 className="object-cover"
               />
 
-              {ep.isLatest && (
-                <div className="absolute top-2 right-2 md:top-4 md:right-4 bg-brutal-red text-white px-2 py-1 md:px-4 md:py-2 text-[10px] md:text-xs font-bold uppercase tracking-wider shadow-lg z-10">
-                  EP • {epYear}
-                </div>
-              )}
             </div>
           </div>
         </div>
@@ -168,10 +163,20 @@ export default function FeaturedEPPlayer({ ep }: FeaturedEPPlayerProps) {
       </div>
 
         {/* Right Side - Track Info & Player */}
-        <PanelCard title={`${ep.title} • ${epYear}`} className="lg:max-w-200">
+        <PanelCard
+          title={
+            <div className="flex items-center justify-center gap-3">
+              <span>{ep.title} • {epYear}</span>
+              {ep.isLatest && (
+                <span className="bg-brutal-red text-white px-2 py-0.5 md:px-3 md:py-1 text-[10px] md:text-xs font-bold uppercase tracking-wider">
+                  Latest
+                </span>
+              )}
+            </div>
+          }
+          className="lg:max-w-200"
+        >
           <div className="flex flex-col">
-            {/* <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4">{ep.title}</h1> */}
-
             {/* Track List with Now Playing */}
             <div className="bg-background border border-muted rounded-lg overflow-hidden">
               {/* Now Playing Header */}

@@ -18,9 +18,9 @@ export default function AboutPage() {
       </section>
 
       {/* Where We Play Section */}
-      <section className="px-8 md:px-16 lg:px-20 py-16 md:py-20">
+      {/* <section className="px-8 md:px-16 lg:px-20 py-16 md:py-20">
         <WhereWePlay />
-      </section>
+      </section> */}
 
       {/* Band Running Section */}
       <section className="px-8 md:px-16 lg:px-20 3xl:px-32 py-16 md:py-20 w-full">

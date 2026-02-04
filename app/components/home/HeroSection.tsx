@@ -32,7 +32,7 @@ export default function HeroSection() {
       ====================================================== */}
       <div className="lg:hidden relative z-20 flex flex-col min-h-screen px-4 py-8">
         {/* Logo */}
-        <div className="max-w-xs w-full pt-40 mx-auto">
+        <div className="max-w-xs w-full pt-24 mx-auto">
           <img
             src="/LA_Logo_Clean_White.png"
             alt="Long Autumn"
@@ -44,15 +44,13 @@ export default function HeroSection() {
         <div className="flex-1" />
 
         {/* Tagline + CTA */}
-        <div className="flex flex-col items-center pb-4">
+        <div className="flex flex-col items-center pb-4 mb-18">
           <p className="text-off-white text-base tracking-widest mb-6 text-center uppercase">
             ALT-ROCK FROM MANCHESTER, NH / BOSTON, MA
           </p>
 
-          <div className="flex flex-col gap-3 w-full max-w-sm">
-            {ctaButtons.map((button) => (
-              <Button key={button.label} {...button} className="w-full" />
-            ))}
+          <div className="w-full max-w-sm">
+            <Button {...ctaButtons[0]} className="w-full" />
           </div>
         </div>
       </div>

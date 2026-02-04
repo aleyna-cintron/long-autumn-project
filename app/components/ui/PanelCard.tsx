@@ -17,8 +17,8 @@ export function PanelCard({
 }: PanelCardProps) {
   return (
     <div
-      className={`relative rounded-xl border-3 border-brutal-red/30 overflow-hidden ${
-        fillParent ? 'flex flex-col flex-1' : ''
+      className={`relative rounded-xl border-3 border-brutal-red/30 flex flex-col ${
+        fillParent ? 'flex-1' : ''
       } ${className}`}
     >
       {background && (

@@ -15,8 +15,8 @@ export default async function ProductsPage() {
         subtitle="Support the band and rep Long Autumn"
       />
       {/* Featured Item Section */}
-      <section className="py-20">
-        <div className="max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl 2xl:max-w-6xl 3xl:max-w-350 4xl:max-w-400 mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-10 md:py-20 px-4 sm:px-6 md:px-12 lg:px-20 xl:px-40 2xl:px-60">
+        <div className="w-full">
           {!product ? (
             <PanelCard title="Featured Item">
               <div className="p-12 text-center">
@@ -25,7 +25,7 @@ export default async function ProductsPage() {
               </div>
             </PanelCard>
           ) : (
-            <PanelCard title="Featured Item">
+            <PanelCard title="Featured Item" className="lg:min-h-200">
               <ProductDetails product={product} />
             </PanelCard>   
           )}

@@ -18,18 +18,18 @@ export default function AddToCartButton({ item }: {item : CartItem}) {
   }
   const sum = quantity * price;
   return (
-    <div className="flex items-center gap-4">
+    <div className="space-y-2">
+      {quantity > 0 && (
+        <p className="text-sm text-muted-foreground">
+          <span className="text-foreground font-semibold">{quantity}</span> in cart · <span className="text-foreground">${sum.toFixed(2)}</span>
+        </p>
+      )}
       <button
         onClick={handleAddToCart}
-        className="px-8 py-4 border-2 bg-brutal-red hover:bg-deep-black text-deep-black hover:text-brutal-red border-brutal-red font-bold flex items-center justify-center gap-3 uppercase tracking-wider text-sm rounded-sm transition-all duration-300"
+        className="w-full px-8 py-4 border-2 bg-brutal-red hover:bg-deep-black text-deep-black hover:text-brutal-red border-brutal-red font-bold flex items-center justify-center gap-3 uppercase tracking-wider text-sm rounded-sm transition-all duration-300"
       >
         Add to Cart
       </button>
-      {quantity > 0 && (
-        <p className="text-gray-400">
-          {quantity} in cart · ${sum.toFixed(2)}
-        </p>
-      )}
     </div>
   )
 }

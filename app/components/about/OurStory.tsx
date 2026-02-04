@@ -8,13 +8,19 @@ export default function OurStory() {
         {/* Left Column - Bio */}
         <div className="lg:w-1/2 space-y-6 2xl:space-y-8 text-foreground leading-relaxed text-base md:text-base lg:text-lg 2xl:text-lg 3xl:text-xl 4xl:text-xl">
           <p>
-            Long Autumn started in 2019, when lead singer Johnny Mark, bassist Kolbe Maloney, and guitarist Nick Harvey began playing together in a small, rundown garage in Acton, Massachusetts. Drawn together by a shared love of alt-rock and indie music, they soon added drummer Conor Moran, expanding their sound. By January 2020, guitarist and backing vocalist Jam Templeton joined, completing the five-piece lineup.
+            Long Autumn was formed in late 2019, when lead singer Johnny Mark, bassist Tim Donovan, and guitarist Nick Harvey started playing together in a small, junk-filled garage in Acton, Massachusetts. It was cold af in that garage, but that didn&apos;t deter Conor Moran from joining up on the drums. The four played a few shows but decided that they wanted to complete their sound as a five-piece. Guitarist and backing vocalist Jam Templeton joined in January of 2020 after he discovered the band by spontaneously tagging along with the band&apos;s photographer for a photo shoot.
           </p>
           <p>
-            Coming out of Boston&apos;s vibrant music scene, Long Autumn quickly took to the stage, developing a live energy that reflected their diverse influences. Over the years, they&apos;ve shared the stage with bands like Valleyheart and The Backfires, honing their performance style along the way.
+            The five wasted no time in booking as many shows as they could, playing at various bars and venues, including College Street Music Hall in New Haven, CT, and Opus Underground in Salem, MA. Between shows, they were always writing. Each member has very different music tastes, ranging from The Neighbourhood to Slipknot to John Mayer. All these influences come together and contrast to define Long Autumn&apos;s ethereal, ecoindustrial vibe. Their music leans into alt-rock, but the edges are colored by the members&apos; individual influences, giving the band a sound that feels familiar yet distinctly their own.
           </p>
           <p>
-            Known for crafting emotive alt-rock, the band focuses on creating music that connects with listeners on a personal level. Their upcoming EP, Happy Hour, set for release in early 2024, reflects this evolution, blending their signature sound with new textures and ideas.
+            In early 2025, Long Autumn experienced their first major shift when founding bassist Tim Donovan decided to move on from the group. His departure marked the end of the band&apos;s original era, but opened the door for new bassist Kolbe Maloney, who is a childhood friend of Jam and a member of his first band Jam Pact.
+          </p>
+          <p>
+            Long Autumn&apos;s upcoming EP, &quot;Fading,&quot; is set for release in early 2026. It blends their established sound with heavier textures, deeper emotional themes, and a more refined sense of what it means to run an offshore ecoindustrial fracking operation 2000 miles inland from the coast.
+          </p>
+          <p>
+            Long Autumn makes music based on how they are feeling each day that they write, and that&apos;s what their story is all about. One might say that is what it is all about. Perchance.
           </p>
         </div>
 

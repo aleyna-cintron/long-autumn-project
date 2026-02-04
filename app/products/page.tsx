@@ -1,10 +1,14 @@
 import { PanelCard } from "../components/ui/PanelCard";
 import ProductDetails from "../components/product/ProductDetails";
+import SoldOutCard from "../components/product/SoldOutCard";
 import PageHero from "../components/ui/PageHeader";
 import FanGallery from "../components/product/FanGallery";
 import ConnectSection from "../components/product/ConnectSection";
 import { products } from "@/data/product";
+import { soldOutItems } from "@/data/soldOutItems";
+
 const product = products[0];
+
 
 export default async function ProductsPage() {
   return (
@@ -31,6 +35,30 @@ export default async function ProductsPage() {
           )}
         </div>
       </section>
+
+      {/* Sold Out Items Section */}
+      {soldOutItems.length > 0 && (
+        <section className="py-10 md:py-20 px-4 sm:px-6 md:px-12 lg:px-20 xl:px-40 2xl:px-60">
+          <h2 className="text-2xl md:text-3xl font-bold text-text-primary uppercase tracking-wide mb-8 text-center">
+            Previously Available
+          </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {soldOutItems.map((item, index) => (
+              <div
+                key={index}
+                className={
+                  soldOutItems.length % 3 === 1 && index === soldOutItems.length - 1
+                    ? "lg:col-span-3 flex justify-center"
+                    : soldOutItems.length % 3 === 2 && index >= soldOutItems.length - 2
+                    ? "lg:col-span-3 flex justify-center gap-6"
+                    : "" }>
+                  <SoldOutCard {...item} />
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
       <FanGallery />
       <ConnectSection />
     </div>

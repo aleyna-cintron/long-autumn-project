@@ -19,15 +19,15 @@ export default function ProductInfo({
         {name}
       </h3>
 
-      <p className="text-brutal-red uppercase tracking-wider text-xs sm:text-sm font-medium">
+      <p className="text-brutal-red uppercase tracking-wider text-sm md:text-xl font-medium">
         {dropContext}
       </p>
 
-      <p className="text-muted-foreground text-sm sm:text-base">
+      <p className="text-muted-foreground text-sm sm:text-lg">
         <span className="text-foreground font-semibold">{stockCount}</span> left in stock — selling fast
       </p>
 
-      <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
+      <p className="text-muted-foreground leading-relaxed text-sm sm:text-lg">
         {description || DEFAULT_DESCRIPTION}
       </p>
     </>

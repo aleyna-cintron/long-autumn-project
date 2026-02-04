@@ -16,9 +16,10 @@ export default function SizeSelector({ selectedSize, onSizeChange }: SizeSelecto
     <div className="relative">
       <div className="flex items-center justify-between mb-3">
         <label className="text-foreground uppercase tracking-wide text-sm">Select Size</label>
+        {/* Toggle button - hidden on lg and above */}
         <button
           onClick={() => setSizeGuideOpen(!sizeGuideOpen)}
-          className="flex items-center gap-1 text-sm text-brutal-red hover:text-brutal-red/80 transition-colors"
+          className="flex lg:hidden items-center gap-1 text-sm text-brutal-red hover:text-brutal-red/80 transition-colors"
         >
           <Ruler size={14} />
           Size Guide
@@ -45,9 +46,8 @@ export default function SizeSelector({ selectedSize, onSizeChange }: SizeSelecto
         ))}
       </div>
 
-      {/* Size Guide - Absolute overlay */}
-      {sizeGuideOpen && (
-        <div className="absolute top-full left-0 right-0 mt-4 z-20 bg-background border border-border rounded-sm p-4 shadow-lg">
+      {/* Size Guide - Collapsible on mobile/tablet, always visible on lg+ */}
+      <div className={`${sizeGuideOpen ? 'block' : 'hidden'} lg:block absolute lg:relative top-full lg:top-auto left-0 right-0 mt-4 z-20 bg-background border border-border rounded-sm p-4 shadow-lg lg:shadow-none`}>
           <p className="text-muted-foreground text-sm mb-3">Measurements in inches</p>
           <table className="w-full text-sm">
             <thead>
@@ -66,10 +66,10 @@ export default function SizeSelector({ selectedSize, onSizeChange }: SizeSelecto
                     selectedSize === row.size ? 'bg-brutal-red/10' : ''
                   }`}
                 >
-                  <td className="py-2 text-foreground font-medium">{row.size}</td>
-                  <td className="py-2 text-muted-foreground">{row.chest}</td>
-                  <td className="py-2 text-muted-foreground">{row.length}</td>
-                  <td className="py-2 text-muted-foreground">{row.sleeve}</td>
+                  <td className="py-3 px-4 text-foreground font-medium">{row.size}</td>
+                  <td className="py-3 px-4 text-muted-foreground">{row.chest}</td>
+                  <td className="py-3 px-4 text-muted-foreground">{row.length}</td>
+                  <td className="py-3 px-4 text-muted-foreground">{row.sleeve}</td>
                 </tr>
               ))}
             </tbody>
@@ -78,7 +78,6 @@ export default function SizeSelector({ selectedSize, onSizeChange }: SizeSelecto
             <strong className="text-brutal-red">Tip:</strong> True to size. Size up for an oversized look.
           </p>
         </div>
-      )}
     </div>
   )
 }

@@ -6,7 +6,7 @@ export default function BandMemberBackground() {
         src="/thefivever2.webp"
         alt="The Five"
         fetchPriority="high"
-        className="absolute inset-0 w-full h-full object-contain object-center"
+        className="absolute inset-0 w-full h-full object-contain object-[center_86%] md:object-center"
       />
 
       {/* Cinematic dark spill */}

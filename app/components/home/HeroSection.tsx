@@ -32,7 +32,7 @@ export default function HeroSection() {
       ====================================================== */}
       <div className="lg:hidden relative z-20 flex flex-col min-h-screen px-4 py-8">
         {/* Logo */}
-        <div className="max-w-xs w-full pt-24 mx-auto">
+        <div className="max-w-xs w-full pt-20 md:pt-24 mx-auto">
           <img
             src="/LA_Logo_Clean_White.png"
             alt="Long Autumn"
@@ -44,7 +44,7 @@ export default function HeroSection() {
         <div className="flex-1" />
 
         {/* Tagline + CTA */}
-        <div className="flex flex-col items-center pb-4 mb-18">
+        <div className="flex flex-col items-center mb-58 md:pb-4 md:mb-18">
           <p className="text-off-white text-base tracking-widest mb-6 text-center uppercase">
             ALT-ROCK FROM MANCHESTER, NH / BOSTON, MA
           </p>

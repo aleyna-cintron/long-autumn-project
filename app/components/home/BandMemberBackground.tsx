@@ -1,7 +1,7 @@
 // BandMemberBackground.tsx
 export default function BandMemberBackground() {
   return (
-    <div className="relative w-full">
+    <div className="relative w-full overflow-visible">
       {/* IMAGE — defines height */}
       <img
         src="/thefivever2.webp"
@@ -17,12 +17,14 @@ export default function BandMemberBackground() {
         "
       />
 
-      {/* SINGLE gradient overlay — attached to image, moves with it */}
+      {/* SINGLE gradient overlay — spans full viewport width */}
       <div
         className="
           pointer-events-none
           absolute
-          inset-x-0
+          left-1/2
+          -translate-x-1/2
+          w-screen
           bottom-0
           h-[60%]
         "

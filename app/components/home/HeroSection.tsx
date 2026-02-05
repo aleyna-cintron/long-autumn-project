@@ -12,14 +12,14 @@ const ctaButtons = [
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full h-dvh overflow-hidden">
+    <section className="relative w-full h-dvh">
       {/* ======================================================
           BACKGROUND LAYER
       ====================================================== */}
       <div className="absolute inset-0 z-0">
         {/* Image container - centered both ways */}
         <div className="absolute inset-0 flex justify-center items-center">
-          <div className="relative w-full 2xl:max-w-600">
+          <div className="relative w-full 2xl:max-w-600 overflow-visible">
             <BandMemberBackground />
           </div>
         </div>

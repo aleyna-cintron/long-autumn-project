@@ -1,3 +1,4 @@
+// HeroSection.tsx
 import { Play, Calendar, ShoppingBag } from "lucide-react";
 import BandMemberBackground from "./BandMemberBackground";
 import { Button } from "../ui/Button";
@@ -11,50 +12,62 @@ const ctaButtons = [
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full min-h-screen overflow-hidden">
+    <section className="relative w-full h-dvh overflow-hidden">
       {/* ======================================================
-          COMPOSITING LAYER (image + effects share pixels)
+          BACKGROUND LAYER
       ====================================================== */}
       <div className="absolute inset-0 z-0">
-        {/* IMAGE (max-width applies ONLY here) */}
-        <div className="absolute inset-0 flex justify-center">
-          <div className="relative h-full w-full max-w-600">
+        {/* Image container - centered both ways */}
+        <div className="absolute inset-0 flex justify-center items-center">
+          <div className="relative w-full 2xl:max-w-600">
             <BandMemberBackground />
           </div>
         </div>
 
-        {/* EFFECTS (no background paint, all overlays) */}
+        {/* Effects layer */}
         <HeroEffects />
       </div>
+      {/* Bottom half black — mobile/tablet only */}
+      <div
+        className="absolute inset-x-0 bottom-0 h-1/2 sm:h-[45%] md:h-[40%] lg:h-[35%] xl:h-[30%] 2xl:h-[25%] z-10"
+        style={{
+          background: `linear-gradient(to top,
+            rgb(0 0 0 / 1) 0%,
+            rgb(0 0 0 / 1) 82%,
+            rgb(0 0 0 / 0) 100%
+          )`,
+        }}
+      />
 
       {/* ======================================================
           MOBILE / TABLET CONTENT
       ====================================================== */}
-      <div className="lg:hidden relative z-20 flex flex-col min-h-screen px-4 py-8">
-        {/* Logo */}
-        <div className="max-w-xs w-full pt-20 md:pt-24 mx-auto">
-          <img
-            src="/LA_Logo_Clean_White.png"
-            alt="Long Autumn"
-            className="logo w-full"
-            fetchPriority="high"
-          />
+      <div className="lg:hidden relative z-20 flex flex-col h-dvh">
+        {/* Block 1 — Logo */}
+        <div className="flex items-start justify-center mt-30 sm:mt-18 md:pt-24">
+          <div className="max-w-xs w-full">
+            <img
+              src="/LA_Logo_Clean_White.png"
+              alt="Long Autumn"
+              className="logo w-full"
+              fetchPriority="high"
+            />
+          </div>
         </div>
 
-        <div className="flex-1" />
+        {/* Block 2 — Breathing room */}
+        <div className="flex-[0.70] sm:flex-[0.58]" />
 
-        {/* Tagline + CTA */}
-        <div className="flex flex-col items-center mb-58 md:pb-4 md:mb-18">
+        {/* Block 3 — CTA (black background) */}
+        <div className="bg-black flex flex-col items-center justify-center pb-6 px-4">
           <p className="text-off-white text-base tracking-widest mb-6 text-center uppercase">
             ALT-ROCK FROM MANCHESTER, NH / BOSTON, MA
           </p>
-
           <div className="w-full max-w-sm">
             <Button {...ctaButtons[0]} className="w-full" />
           </div>
         </div>
       </div>
-
       {/* ======================================================
           DESKTOP CONTENT
       ====================================================== */}
@@ -74,7 +87,6 @@ export default function HeroSection() {
           <p className="text-off-white text-lg md:text-xl tracking-widest mb-8 text-center uppercase">
             ALT-ROCK FROM MANCHESTER, NH / BOSTON, MA
           </p>
-
           <div className="flex flex-row gap-4 items-center">
             {ctaButtons.map((button) => (
               <Button key={button.label} {...button} />

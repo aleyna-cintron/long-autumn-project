@@ -190,7 +190,7 @@ export default function FeaturedEPPlayer({ ep }: FeaturedEPPlayerProps) {
                     {isPlaying ? <Pause size={14} className="md:hidden" fill="white" /> : <Play size={14} className="md:hidden ml-0.5" fill="white" />}
                     {isPlaying ? <Pause size={18} className="hidden md:block" fill="white" /> : <Play size={18} className="hidden md:block ml-0.5" fill="white" />}
                   </button>
-                  <div className="flex-1 min-w-0">
+                  <div className="flex-1 min-w-0 px-2">
                     <p className="text-xs md:text-sm uppercase tracking-widest text-brutal-red font-bold mb-1">Now Playing</p>
                     <div className="flex items-center gap-2">
                       <p className="font-semibold text-white truncate text-sm md:text-base">{currentTrack.title}</p>

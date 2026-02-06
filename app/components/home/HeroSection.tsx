@@ -11,6 +11,7 @@ const ctaButtons = [
 ];
 
 export default function HeroSection() {
+
   return (
     <section className="relative w-full h-dvh">
       {/* ======================================================
@@ -40,12 +41,12 @@ export default function HeroSection() {
       />
 
       {/* ======================================================
-          MOBILE / TABLET CONTENT
+          UNIFIED CONTENT - Single render, responsive CSS
       ====================================================== */}
-      <div className="lg:hidden relative z-20 flex flex-col h-dvh">
-        {/* Block 1 — Logo */}
-        <div className="flex items-start justify-center mt-30 sm:mt-18 md:pt-24">
-          <div className="max-w-xs w-full">
+      <div className="relative z-20 flex flex-col h-dvh px-4">
+        {/* Logo - top on mobile, centered on desktop */}
+        <div className="flex items-start lg:items-center justify-center mt-30 sm:mt-18 md:pt-24 lg:mt-0 lg:pt-16 lg:flex-1">
+          <div className="max-w-xs lg:max-w-lg w-full">
             <img
               src="/LA_Logo_Clean_White.png"
               alt="Long Autumn"
@@ -55,39 +56,22 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Block 2 — Breathing room */}
-        <div className="flex-[0.70] sm:flex-[0.58]" />
+        {/* Spacer - only on mobile/tablet */}
+        <div className="flex-[0.70] sm:flex-[0.58] lg:hidden" />
 
-        {/* Block 3 — CTA (black background) */}
-        <div className="bg-black flex flex-col items-center justify-center pb-6 px-4">
-          <p className="text-off-white text-base tracking-widest mb-6 text-center uppercase">
+        {/* CTA Section */}
+        <div className="bg-black lg:bg-transparent flex flex-col items-center justify-center pb-6 lg:pb-12">
+          <p className="text-off-white text-base lg:text-lg xl:text-xl tracking-widest mb-6 lg:mb-8 text-center uppercase">
             ALT-ROCK FROM MANCHESTER, NH / BOSTON, MA
           </p>
-          <div className="w-full max-w-sm">
+
+          {/* Mobile: single full-width button */}
+          <div className="lg:hidden w-full max-w-sm">
             <Button {...ctaButtons[0]} className="w-full" />
           </div>
-        </div>
-      </div>
-      {/* ======================================================
-          DESKTOP CONTENT
-      ====================================================== */}
-      <div className="hidden lg:flex absolute inset-0 z-20 flex-col items-center px-4">
-        <div className="flex-1 flex items-center justify-center pt-16">
-          <div className="max-w-lg w-full">
-            <img
-              src="/LA_Logo_Clean_White.png"
-              alt="Long Autumn"
-              className="logo w-full"
-              fetchPriority="high"
-            />
-          </div>
-        </div>
 
-        <div className="flex flex-col items-center pb-12">
-          <p className="text-off-white text-lg md:text-xl tracking-widest mb-8 text-center uppercase">
-            ALT-ROCK FROM MANCHESTER, NH / BOSTON, MA
-          </p>
-          <div className="flex flex-row gap-4 items-center">
+          {/* Desktop: all buttons in a row */}
+          <div className="hidden lg:flex flex-row gap-4 items-center">
             {ctaButtons.map((button) => (
               <Button key={button.label} {...button} />
             ))}

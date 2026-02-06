@@ -226,7 +226,7 @@ const CardGridInternal = ({ cards, config, renderFront, renderBack, containerCla
       <section className="cards-section">
         {/* Header inside pinned section */}
         {header && (
-          <div className="absolute top-[15%] left-0 right-0 z-20 text-center pointer-events-none">
+          <div className="absolute top-[15%] sm:top-[18%] left-0 right-0 z-20 text-center pointer-events-none">
             {header}
           </div>
         )}
@@ -235,12 +235,6 @@ const CardGridInternal = ({ cards, config, renderFront, renderBack, containerCla
             key={card.id}
             id={card.id}
             cardClassName={cardClassName}
-            wrapperClassName="
-              scale-100
-              md:scale-125
-              lg:scale-80
-              2xl:scale-100
-            "
             ref={(el) => {
               cardRefs.current[index] = el;
             }}

@@ -8,15 +8,13 @@ interface CardProps {
     back: ReactNode;
   };
   cardClassName?: string;
-    wrapperClassName?: string;     // VISUAL ONLY
-
 }
 
 const Card = forwardRef<HTMLDivElement, CardProps>(
-  ({ id, children, cardClassName, wrapperClassName }, ref) => {
+  ({ id, children, cardClassName }, ref) => {
     return (
       <div className={`${styles.card} ${cardClassName || ""}`} id={id} ref={ref}>
-        <div className={`${styles.cardWrapper} ${wrapperClassName || ""}`}>
+        <div className={`${styles.cardWrapper} || ""}`}>
           <div className={styles.flipCardInner}>
             <div className={styles.flipCardFront}>{children?.front}</div>
             <div className={styles.flipCardBack}>{children?.back}</div>

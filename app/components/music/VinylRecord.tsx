@@ -9,11 +9,7 @@ interface VinylProps {
   onSelect: () => void;
 }
 
-export default function VinylRecord({
-  ep,
-  isSelected,
-  onSelect,
-}: VinylProps) {
+export default function VinylRecord({ ep, isSelected, onSelect }: VinylProps) {
   const coverArt = ep.coverArt ?? '/placeholder-cover.jpg';
 
   return (
@@ -22,7 +18,7 @@ export default function VinylRecord({
       className="group flex flex-col items-center focus:outline-none transition-transform duration-500 hover:scale-105 w-90 justify-content"
     >
       {/* VINYL (single structural container) */}
-      <div className="relative aspect-square w-full max-w-[420px] mb-4 rounded-full">
+      <div className="relative aspect-square w-full max-w-72 sm:max-w-96 lg:max-w-62">
 
         {/* Latest badge */}
         {ep.isLatest && (
@@ -78,18 +74,21 @@ export default function VinylRecord({
           className={`
             absolute inset-0 -z-10 rounded-full transition-all duration-500
             ${isSelected ? 'bg-brutal-red/30 blur-2xl opacity-100' : ''}
-            ${!isSelected ? 'group-hover:bg-brutal-red/20 group-hover:blur-xl group-hover:opacity-100' : ''}
+            ${!isSelected ? 'lg:group-hover:bg-brutal-red/20 lg:group-hover:blur-xl lg:group-hover:opacity-100' : ''}
           `}
         />
       </div>
 
       {/* TEXT */}
-      <h3 className="font-bold text-2xl text-gray-200 uppercase tracking-wide">
-        {ep.title}
-      </h3>
-      <p className="text-lg text-gray-500 tracking-wider">
-        {ep.year}
-      </p>
+      <div className='p-2 mt-2'>
+        <h3 className="font-bold text-2xl text-gray-200 uppercase tracking-wide">
+          {ep.title}
+        </h3>
+        <p className="text-lg text-gray-250 tracking-wider">
+          {ep.year}
+        </p>
+      </div>
+     
     </button>
   );
 }

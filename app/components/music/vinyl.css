@@ -7,12 +7,19 @@
   }
 }
 
+/* Default: no animation at all */
 .vinyl {
-  animation: vinyl-spin 12s linear infinite;
-  animation-play-state: paused;
+  animation: none;
 }
 
-.group:hover .vinyl {
-  animation-play-state: running;
-}
+/* Only enable spinning on laptops+ */
+@media (min-width: 1024px) {
+  .vinyl {
+    animation: vinyl-spin 12s linear infinite;
+    animation-play-state: paused;
+  }
 
+  .group:hover .vinyl {
+    animation-play-state: running;
+  }
+}

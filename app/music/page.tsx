@@ -18,16 +18,28 @@ export default function MusicPage() {
   return (
     <main className="w-full text-white">
       {/* NOW PLAYING */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-svh flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0 pointer-events-none">
-          <Image
-            src={selectedEP.coverArt ?? '/placeholder-cover.jpg'}
-            alt=""
-            fill
-            priority
-            className="object-cover blur-xl scale-105 saturate-50 brightness-75"
-          />
-          <div className="absolute inset-0 bg-black/50" />
+                  {/* 1. The clean, unblurred image */}
+            <Image
+              src={selectedEP.coverArt ?? '/placeholder-cover.jpg'}
+              alt=""
+              fill
+              priority
+              className="object-cover scale-110 saturate-50 brightness-75"
+            />
+
+            {/* 1.5. The Blur Layer - positioned behind the overlay but above the image */}
+            <div 
+              className="absolute inset-0 z-10"
+              style={{ 
+                backdropFilter: 'blur(24px)', // Matches blur-xl
+                WebkitBackdropFilter: 'blur(24px)' // Critical for iOS Safari
+              }} 
+            />
+
+            {/* 3. The Dark Overlay */}
+            <div className="absolute inset-0 bg-black/50 z-20" />
         </div>
 
         <div className="relative z-10 w-full max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl 2xl:max-w-6xl 3xl:max-w-350 4xl:max-w-400 mx-auto px-4 md:px-8 pt-32 md:pt-36 lg:pt-40 pb-20">

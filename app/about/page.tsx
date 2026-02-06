@@ -1,7 +1,6 @@
 "use client";
 import OurStory from '../components/about/OurStory';
 import BandMembersSection from '../components/about/BandMembersSection';
-import WhereWePlay from '../components/about/WhereWePlay';
 import Image from 'next/image';
 
 export default function AboutPage() {

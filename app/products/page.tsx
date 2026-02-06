@@ -1,9 +1,7 @@
 import Image from "next/image";
 import { PanelCard } from "../components/ui/PanelCard";
 import ProductDetails from "../components/product/ProductDetails";
-import SoldOutCard from "../components/product/SoldOutCard";
 import PageHero from "../components/ui/PageHeader";
-import FanGallery from "../components/product/FanGallery";
 import ConnectSection from "../components/product/ConnectSection";
 import { products } from "@/data/product";
 import { soldOutItems } from "@/data/soldOutItems";
@@ -82,8 +80,6 @@ export default async function ProductsPage() {
           </div>
         </section>
       )}
-
-      <FanGallery />
       <ConnectSection />
     </div>
   );

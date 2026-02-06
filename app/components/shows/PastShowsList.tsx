@@ -50,23 +50,23 @@ export default function PastShowsList({ shows }: PastShowsListProps) {
 
             {/* Pagination Controls */}
             {totalPages > 1 && (
-                <div className="mt-8 flex items-center justify-center gap-4">
+                <div className="mt-8 flex items-center justify-center gap-4 mb-2 p-4">
                     <button
                         onClick={goToPreviousPage}
                         disabled={currentPage === 1}
-                        className="bg-transparent border-2 border-gray-700 hover:border-brutal-red text-gray-400 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed font-normal py-3 px-6 rounded-none transition-all duration-300"
+                        className="bg-transparent border-2 border-gray-700 hover:border-brutal-red text-gray-400 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed font-normal py-1 px-2 sm:py-3 sm:px-6 rounded-none transition-all duration-300"
                     >
                         ← Previous
                     </button>
                     
-                    <div className="text-gray-400">
+                    <div className="text-gray-400 text-xs sm:text-sm md:text-base xl:text-xl">
                         Page <span className="text-brutal-red font-bold">{currentPage}</span> of {totalPages}
                     </div>
 
                     <button
                         onClick={goToNextPage}
                         disabled={currentPage === totalPages}
-                        className="bg-transparent border-2 border-gray-700 hover:border-brutal-red text-gray-400 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed font-normal py-3 px-6 rounded-none transition-all duration-300"
+                        className="bg-transparent border-2 border-gray-700 hover:border-brutal-red text-gray-400 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed font-normal py-1 px-2 sm:py-3 sm:px-6 rounded-none transition-all duration-300"
                     >
                         Next →
                     </button>

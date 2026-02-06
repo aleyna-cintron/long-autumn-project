@@ -109,7 +109,7 @@ export default function FeaturedEPPlayer({ ep }: FeaturedEPPlayerProps) {
       {/* Left Side - Album Art & Links */}
       <div className="flex flex-col items-center lg:pr-40">
         {/* Album Art with Rotating Vinyl */}
-        <div className="relative w-full max-w-[280px] md:max-w-md aspect-square mb-6 md:mb-8">
+        <div className="relative w-full max-w-42 sm:max-w-52 md:max-w-88 lg:max-w-96 aspect-square mb-6 md:mb-8">
           {/* Rotating Vinyl - slides out from behind sleeve */}
           <div
             className={`absolute top-0 left-0 transition-all duration-700 z-0 ${
@@ -119,7 +119,7 @@ export default function FeaturedEPPlayer({ ep }: FeaturedEPPlayerProps) {
           >
             {/* Vinyl Record */}
             <div
-              className={`relative w-full h-full rounded-full bg-gradient-to-br from-black via-gray-900 to-black shadow-2xl ${
+              className={`relative w-full h-full rounded-full bg-linear-to-br from-black via-gray-900 to-black shadow-2xl ${
                 isPlaying ? 'animate-spin-slow' : ''
               }`}
             >
@@ -155,7 +155,7 @@ export default function FeaturedEPPlayer({ ep }: FeaturedEPPlayerProps) {
         </div>
 
         {/* Streaming Links */}
-          <div className="w-full max-w-[280px] md:max-w-md space-y-2 md:space-y-3">
+          <div className="w-full max-w-full mt-2 px-8 md:px-0 space-y-4 md:space-y-3">
             <Button href='https://open.spotify.com/artist/4o9s60Nr1QgG7FGLUQakzu' label='Spotify' variant='light' external />
             <Button href='https://music.apple.com/us/artist/long-autumn/1481105151' label='Apple Music' variant='light' external />
             <Button href='https://www.youtube.com/@LongAutumn' label='YouTube Music' variant='light' external />
@@ -165,7 +165,7 @@ export default function FeaturedEPPlayer({ ep }: FeaturedEPPlayerProps) {
         {/* Right Side - Track Info & Player */}
         <PanelCard
           title={
-            <div className="flex items-center justify-center gap-3">
+            <div className="flex items-center justify-center gap-4">
               <span>{ep.title} • {epYear}</span>
               {ep.isLatest && (
                 <span className="bg-brutal-red text-white px-2 py-0.5 md:px-3 md:py-1 text-[10px] md:text-xs font-bold uppercase tracking-wider">
@@ -174,7 +174,7 @@ export default function FeaturedEPPlayer({ ep }: FeaturedEPPlayerProps) {
               )}
             </div>
           }
-          className="lg:max-w-200"
+          className="lg:max-w-400"
         >
           <div className="flex flex-col">
             {/* Track List with Now Playing */}

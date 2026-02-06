@@ -26,16 +26,7 @@ interface CardGridInternalProps extends CardGridProps {
   isMobile: boolean;
 }
 
-const CardGridInternal = ({
-  cards,
-  config,
-  renderFront,
-  renderBack,
-  containerClassName,
-  cardClassName,
-  header,
-  isMobile,
-}: CardGridInternalProps) => {
+const CardGridInternal = ({ cards, config, renderFront, renderBack, containerClassName, cardClassName, header, isMobile}: CardGridInternalProps) => {
   const container = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -231,7 +222,7 @@ const CardGridInternal = ({
   );
 
   return (
-    <div className={containerClassName || ""} ref={container}>
+    <div className={containerClassName || ""} ref={container} >
       <section className="cards-section">
         {/* Header inside pinned section */}
         {header && (
@@ -244,7 +235,15 @@ const CardGridInternal = ({
             key={card.id}
             id={card.id}
             cardClassName={cardClassName}
-            ref={(el) => { cardRefs.current[index] = el; }}
+            wrapperClassName="
+              scale-100
+              md:scale-125
+              lg:scale-80
+              2xl:scale-100
+            "
+            ref={(el) => {
+              cardRefs.current[index] = el;
+            }}
           >
             {{
               front: renderFront(card),
@@ -257,15 +256,7 @@ const CardGridInternal = ({
   );
 };
 
-const CardGrid = ({
-  cards,
-  config,
-  renderFront,
-  renderBack,
-  containerClassName,
-  cardClassName,
-  header,
-}: CardGridProps) => {
+const CardGrid = ({ cards, config, renderFront, renderBack, containerClassName, cardClassName, header}: CardGridProps) => {
   const mergedConfig = { ...DEFAULT_CONFIG, ...config };
   const [isMobile, setIsMobile] = useState(false);
 

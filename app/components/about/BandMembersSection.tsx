@@ -19,7 +19,7 @@ const cardData: BandMemberCardData[] = bandMembers.map((member, index) => ({
 // Card front render
 const renderFront = (card: BandMemberCardData) => (
   <div className="w-full h-full rounded-lg shadow-2xl overflow-hidden relative" style={{ background: '#0a0a0a' }}>
-    <div className="absolute inset-0 p-[3px]">
+    <div className="absolute inset-0 p-0.75">
       <div className="w-full h-full rounded-lg" style={{ background: 'linear-gradient(180deg, #8b0000 0%, #4a0080 50%, #8b0000 100%)', padding: '2px' }}>
         <div className="w-full h-full rounded-lg overflow-hidden" style={{ background: 'linear-gradient(180deg, #151515 0%, #0a0a0a 50%, #0d0d12 100%)' }}>
           <div className="w-full h-full p-3 relative flex flex-col">

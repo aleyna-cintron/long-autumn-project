@@ -8,7 +8,7 @@ export default function AboutPage() {
   return (
     <div className="w-full bg-transparent text-foreground scroll-smooth">
       {/* Our Story Section */}
-      <section className="min-h-screen flex items-center justify-center pt-32 md:pt-36 lg:pt-40 px-8 md:px-16 lg:px-20 pb-20">
+      <section className="min-h-screen flex items-center justify-center pt-24 md:pt-36 lg:pt-40 px-8 md:px-16 lg:px-20 pb-20">
         <OurStory />
       </section>
 

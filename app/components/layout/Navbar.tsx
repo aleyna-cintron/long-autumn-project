@@ -51,7 +51,7 @@ export default function NavBar() {
                 alt="Long Autumn Logo"
                 width={400}
                 height={133}
-                className="font-logo h-8 w-auto"
+                className="font-logo h-6 w-auto"
               />
             </Link>
           )}

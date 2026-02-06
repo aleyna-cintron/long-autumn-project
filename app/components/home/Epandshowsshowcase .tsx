@@ -22,8 +22,8 @@ export default async function EPAndShowsShowcase() {
           <div>
             
             <PanelCard title="New EP - Listen Now">
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-      
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
       <PanelCard
         title={latestEP.title}
         background
@@ -34,7 +34,7 @@ export default async function EPAndShowsShowcase() {
         </div>
       </PanelCard>
 
-      <div className="flex flex-col gap-3 px-4 md:px-0 pb-4 md:pb-0">
+      <div className="flex flex-col gap-3 px-4 lg:px-0 pb-4 lg:pb-0">
         <Button
           href="https://open.spotify.com/artist/4o9s60Nr1QgG7FGLUQakzu"
           label="Listen on Spotify"

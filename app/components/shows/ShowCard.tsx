@@ -17,14 +17,14 @@ export default function ShowCard({ event, isPast = false }: ShowCardProps) {
   return (
     <div
       className={`
-        relative border-2 rounded-sm p-4 md:p-6 transition-all duration-300
+        relative border-2 rounded-sm p-4 sm:p-5 md:p-6 transition-all duration-300 m-4 sm:m-0
         ${isPast
           ? `
             bg-black/90
-            bg-gradient-to-br from-brutal-red/5 via-black to-black
+            bg-linear-to-br from-brutal-red/5 via-black to-black
             border-brutal-red/20
             hover:border-brutal-red/40
-            hover:-translate-y-[2px]
+            hover:-translate-y-0.5
           `
           : `
             bg-black
@@ -35,15 +35,16 @@ export default function ShowCard({ event, isPast = false }: ShowCardProps) {
           `}
       `}
     >
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 md:gap-6">
+      <div className="flex flex-col sm:flex-row sm:items-center gap-4 md:gap-6">
+
 
         {/* LEFT: DATE + INFO */}
-        <div className="flex items-start gap-3 md:gap-6 flex-1">
+        <div className="order-1 sm:order-0 flex items-start gap-3 md:gap-6 flex-1 pl-0">
 
           {/* DATE BLOCK */}
           <div
             className={`
-               w-16 sm:w-20 md:w-24 lg:w-28 aspect-square flex-shrink-0
+               w-16 p-2 mr-4 sm:mr-0 sm:w-20 md:w-24 lg:w-28 aspect-square shrink-0
                 border-2 rounded-sm
                 flex flex-col items-center justify-center
                 text-center
@@ -95,9 +96,9 @@ export default function ShowCard({ event, isPast = false }: ShowCardProps) {
         </div>
 
         {/* RIGHT: ACTION */}
-        <div className="flex-shrink-0 self-end sm:self-center">
+        <div className="order-2 sm:order-0 flex sm:shrink-0 sm:self-center">
           {isPast ? (
-            <div className="border-2 border-brutal-red/20 text-white/50 px-3 md:px-6 py-2 md:py-3 rounded-sm text-xs md:text-sm lg:text-base">
+            <div className="hidden sm:block border-2 border-brutal-red/20 text-white/50 px-3 md:px-6 py-2 md:py-3 rounded-sm text-xs md:text-sm lg:text-base">
               Past Event
             </div>
           ) : event.url ? (
@@ -106,13 +107,15 @@ export default function ShowCard({ event, isPast = false }: ShowCardProps) {
               target="_blank"
               rel="noopener noreferrer"
               className="
-                inline-flex items-center gap-1.5 md:gap-2
+                w-full sm:w-auto
+                inline-flex items-center justify-center gap-1.5 md:gap-2
                 border-2 border-brutal-red text-brutal-red
-                px-3 md:px-6 py-2 md:py-3 rounded-sm uppercase tracking-widest font-semibold
+                px-3 md:px-6 py-2 md:py-3
+                rounded-sm uppercase tracking-widest font-semibold
                 hover:bg-brutal-red hover:text-black
-                transition-all duration-300 text-xs md:text-sm lg:text-base
-              "
-            >
+                transition-all duration-300
+                text-xs md:text-sm lg:text-base
+              ">
               <ExternalLink className="w-3 h-3 md:w-4 md:h-4" />
               Tickets
             </a>

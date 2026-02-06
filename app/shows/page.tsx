@@ -33,7 +33,7 @@ export default async function ShowsPage() {
                     </div>
                 ) : (
                     /* Show Listings */
-                    <div className="space-y-4">
+                    <div className="space-y-4 sm:space-y-6">
                         {upcomingShows.map((event) => (
                             <ShowCard key={event.id} event={event} />
                         ))}

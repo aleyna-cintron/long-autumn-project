@@ -105,7 +105,7 @@ export default function FeaturedEPPlayer({ ep }: FeaturedEPPlayerProps) {
   return (
     <>
       {/* Content */}
-      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center pt-10">
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-20 md:gap-12 items-center pt-10">
       {/* Left Side - Album Art & Links */}
       <div className="flex flex-col items-center lg:pr-40">
         {/* Album Art with Rotating Vinyl */}
@@ -165,18 +165,19 @@ export default function FeaturedEPPlayer({ ep }: FeaturedEPPlayerProps) {
         {/* Right Side - Track Info & Player */}
         <PanelCard
           title={
-            <div className="flex items-center justify-center gap-4">
+            <div className="flex items-center justify-center gap-4 p-2">
               <span>{ep.title} • {epYear}</span>
               {ep.isLatest && (
-                <span className="bg-brutal-red text-white px-2 py-0.5 md:px-3 md:py-1 text-[10px] md:text-xs font-bold uppercase tracking-wider">
+                <span className="bg-brutal-red text-white px-4 py-0.5 md:px-3 md:py-1 text-[10px] md:text-xs font-bold uppercase tracking-wider">
                   Latest
                 </span>
               )}
             </div>
+            
           }
-          className="lg:max-w-400"
+          className="lg:max-w-400 !border-0 !border-t min-h-[30rem]"
         >
-          <div className="flex flex-col">
+          <div className="flex flex-col p-4">
             {/* Track List with Now Playing */}
             <div className="bg-background border border-muted rounded-lg overflow-hidden">
               {/* Now Playing Header */}

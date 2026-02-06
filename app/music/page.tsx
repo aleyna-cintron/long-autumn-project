@@ -42,7 +42,8 @@ export default function MusicPage() {
             <div className="absolute inset-0 bg-black/50 z-20" />
         </div>
 
-        <div className="relative z-10 w-full max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl 2xl:max-w-6xl 3xl:max-w-350 4xl:max-w-400 mx-auto px-4 md:px-8 pt-32 md:pt-36 lg:pt-40 pb-20">
+        <div className="relative min-h-fit
+  overflow-hidden z-10 w-full max-w-2xl md:max-w-3xl xl:max-w-7xl 3xl:max-w-350 4xl:max-w-400 mx-auto px-4 md:px-8 pt-24 sm:pt-32 md:pt-36 lg:pt-40 pb-20 xl:px-20">
           <PanelCard title="Now Playing">
             <FeaturedEPPlayer ep={selectedEP} />
           </PanelCard>

@@ -19,7 +19,7 @@ const DEFAULT_CONFIG: CardGridConfig = {
   staggerDelay: 0.05,
 };
 
-const MOBILE_BREAKPOINT = 768;
+const MOBILE_BREAKPOINT = 1024;
 
 interface CardGridInternalProps extends CardGridProps {
   config: CardGridConfig;

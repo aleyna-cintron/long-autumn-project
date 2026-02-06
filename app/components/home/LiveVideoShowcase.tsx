@@ -2,8 +2,8 @@ import { PanelCard } from '../ui/PanelCard'
 
 export default function LiveVideoShowcase() {
   return (
-    <section className="w-full bg-transparent py-20 px-8 md:px-16 lg:px-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section className="w-full bg-transparent py-20 px-4 sm:px-8 md:px-16 lg:px-20">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 relative z-10">
         <PanelCard title="Long Autumn Live">
           {/* YouTube Video Embed - 16:9 Aspect Ratio */}
           <div className="aspect-video rounded-lg overflow-hidden border border-border">

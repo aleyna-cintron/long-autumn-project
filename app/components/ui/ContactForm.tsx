@@ -40,7 +40,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form ref={formRef} action={handleSubmit} className="space-y-6">
+    <form ref={formRef} action={handleSubmit} className="space-y-6 p-4 sm:p-0">
       <div>
         <label htmlFor="name" className="block text-foreground mb-2 uppercase tracking-wide">
           Name

@@ -21,16 +21,16 @@ export default function ContactPage() {
                         </div>
 
                         {/* Contact Info */}
-                        <div className="space-y-6 lg:space-y-6 2xl:space-y-4 3xl:space-y-6">
+                        <div className="space-y-6 lg:space-y-6 2xl:space-y-4 3xl:space-y-6 ">
                             {/* All Inquiries */}
                             <PanelCard title="All Inquiries">
-                                <p className="text-text-secondary mb-6 leading-relaxed text-base md:text-base lg:text-lg 3xl:text-lg 4xl:text-xl">
+                                <p className="text-text-secondary mb-6 leading-relaxed text-base md:text-base lg:text-lg 3xl:text-lg 4xl:text-xl p-4 sm:p-0">
                                     Booking requests, collaborations, general questions, or just want to say hello?
                                     Reach out to us — we play within a 4-hour radius of Boston and are always
                                     looking for new opportunities.
                                 </p>
-                                <div className="flex items-center text-text-secondary p-4 bg-muted/30 rounded-sm border border-border text-base md:text-base lg:text-lg 3xl:text-lg 4xl:text-xl">
-                                    <Mail className="mr-3 text-brutal-red shrink-0 w-5 h-5 3xl:w-6 3xl:h-6" />
+                                <div className="flex items-center text-text-secondary p-4 m-2 sm:m-0 bg-muted/30 rounded-sm border border-border text-base md:text-base lg:text-lg 3xl:text-lg 4xl:text-xl ">
+                                    <Mail className="mr-3 text-brutal-red shrink-0 w-5 h-5 3xl:w-6 3xl:h-6 " />
                                     <a
                                         href="mailto:contact@longautumn.com"
                                         className="hover:text-brutal-red transition-colors break-all"
@@ -42,10 +42,10 @@ export default function ContactPage() {
 
                             {/* Follow Us */}
                             <PanelCard title="Follow Us">
-                                <p className="text-text-secondary mb-6 leading-relaxed text-base md:text-base lg:text-lg 3xl:text-lg 4xl:text-xl">
+                                <p className="text-text-secondary mb-6 leading-relaxed text-base md:text-base lg:text-lg 3xl:text-lg 4xl:text-xl p-4 sm:p-0">
                                     Stay connected and catch our latest updates, show announcements, and behind-the-scenes content.
                                 </p>
-                                <div className="space-y-3">
+                                <div className="space-y-3 p-4 sm:p-0">
                                     <a
                                         href="https://instagram.com/longautumnmusic"
                                         target="_blank"

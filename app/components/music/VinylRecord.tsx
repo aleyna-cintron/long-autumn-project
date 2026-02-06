@@ -15,10 +15,10 @@ export default function VinylRecord({ ep, isSelected, onSelect }: VinylProps) {
   return (
     <button
       onClick={onSelect}
-      className="group flex flex-col items-center focus:outline-none transition-transform duration-500 hover:scale-105 w-90 justify-content"
+      className="group flex flex-col items-center focus:outline-none transition-transform duration-500 hover:scale-105 w-90 justify-content  2xl:gap-2"
     >
       {/* VINYL (single structural container) */}
-      <div className="relative aspect-square w-full max-w-72 sm:max-w-96 lg:max-w-62">
+      <div className="relative aspect-square w-full max-w-72 sm:max-w-86 lg:max-w-64 2xl:max-w-100">
 
         {/* Latest badge */}
         {ep.isLatest && (

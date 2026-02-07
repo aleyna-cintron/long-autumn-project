@@ -22,12 +22,12 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
   const priceId = selectedSizeOption?.priceId
 
   return (
-    <div className="flex flex-col lg:grid lg:grid-cols-[30%_1fr] gap-6 lg:gap-12 items-start w-full">
+    <div className="flex flex-col mt-4 lg:grid lg:grid-cols-[30%_1fr] gap-6 lg:gap-12 items-start w-full">
       {/* Image Gallery */}
       <ProductGallery images={product.images} />
 
       {/* Product Info Section */}
-      <div className="flex flex-col lg:grid lg:grid-cols-[1fr_auto] gap-6 lg:gap-8 items-start w-full">
+      <div className="flex flex-col lg:grid lg:grid-cols-[1fr_auto] gap-6 lg:gap-8 items-start w-full p-4">
         {/* Info + Size */}
         <div className="space-y-5 w-full">
           <ProductInfo

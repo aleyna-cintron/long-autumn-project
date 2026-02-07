@@ -88,12 +88,12 @@ export default function Cart() {
             <div className="flex justify-end -mt-4 mb-4">
               <button
                 onClick={handleClearCart}
-                className="text-sm text-muted-foreground hover:text-brutal-red transition-colors uppercase tracking-wider"
+                className="text-sm mt-8 px-4 md:px-0 md:mt-0 text-muted-foreground hover:text-brutal-red transition-colors uppercase tracking-wider"
               >
                 Clear All
               </button>
             </div>
-            <div className="divide-y divide-brutal-red/20">
+            <div className="divide-y divide-brutal-red/20 p-4 md:p-0">
               {items.map((item) => (
                 <div key={item.id} className="py-6 first:pt-0 last:pb-0 hover:bg-brutal-red/5 transition-colors -mx-8 px-8">
                   <div className="flex gap-6">
@@ -144,7 +144,7 @@ export default function Cart() {
                         </div>
 
                         {/* Price */}
-                        <div className="flex items-center gap-6">
+                        <div className="flex items-center md:gap-6">
                           <span className="text-xl text-foreground uppercase tracking-wider">
                             ${(item.price * item.quantity).toFixed(2)}
                           </span>
@@ -167,8 +167,7 @@ export default function Cart() {
           {/* Continue Shopping Link */}
           <Link
             href="/products"
-            className="inline-flex items-center gap-2 text-brutal-red hover:text-brutal-red/80 transition-colors uppercase tracking-wider"
-          >
+            className="inline-flex items-center gap-2 text-brutal-red hover:text-brutal-red/80 transition-colors uppercase tracking-wider">
             <ArrowLeft size={20} />
             Continue Shopping
           </Link>
@@ -178,9 +177,9 @@ export default function Cart() {
         <div className="lg:col-span-1">
           <div className="sticky top-24">
             <PanelCard title="Order Summary">
-              <div className="space-y-4">
+              <div className="space-y-4 p-4 md:p-0">
                 {/* Subtotal */}
-                <div className="flex justify-between text-muted-foreground uppercase tracking-wider">
+                <div className="flex justify-between text-muted-foreground uppercase tracking-wider mt-2">
                   <span>Subtotal ({totalItems} {totalItems === 1 ? 'item' : 'items'})</span>
                   <span>${subtotal.toFixed(2)}</span>
                 </div>
@@ -216,16 +215,17 @@ export default function Cart() {
                 </button>
 
                 {/* Trust Badges */}
-                <div className="mt-6 pt-6 border-t border-brutal-red/20 space-y-3">
-                  <div className="flex items-start gap-3 text-sm text-muted-foreground">
-                    <Package className="flex-shrink-0 h-5 w-5 text-brutal-red mt-0.5" />
+                <div className="mt-6 pt-6 border-t border-brutal-red/20 flex flex-row md:flex-col gap-6 mb-2 md:mb-0">
+                  <div className="flex items-start gap-3 text-sm text-muted-foreground flex-1">
+                    <Package className="shrink-0 h-5 w-5 text-brutal-red mt-0.5" />
                     <div>
                       <p className="uppercase tracking-wider mb-1">Free Returns</p>
                       <p className="text-xs opacity-80">30-day return policy</p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-3 text-sm text-muted-foreground">
-                    <ShoppingBag className="flex-shrink-0 h-5 w-5 text-brutal-red mt-0.5" />
+
+                  <div className="flex items-start gap-3 text-sm text-muted-foreground flex-1">
+                    <ShoppingBag className="shrink-0 h-5 w-5 text-brutal-red mt-0.5" />
                     <div>
                       <p className="uppercase tracking-wider mb-1">Secure Checkout</p>
                       <p className="text-xs opacity-80">Your info is protected</p>
@@ -241,7 +241,7 @@ export default function Cart() {
       {/* Promotional Section */}
       <section className="mt-12">
         <PanelCard title="Support the Band">
-          <div className="py-4 text-center">
+          <div className="py-4 m-2 md:m-0 text-center">
             <p className="text-lg text-muted-foreground mb-4 uppercase tracking-wider">
               Every purchase directly supports Long Autumn
             </p>

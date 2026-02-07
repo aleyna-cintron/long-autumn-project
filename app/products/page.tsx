@@ -39,7 +39,7 @@ export default async function ProductsPage() {
       {/* Sold Out Items Section */}
       {soldOutItems.length > 0 && (
         <section className="py-10 md:py-20 px-4 sm:px-6 md:px-12 lg:px-2 xl:px-2 2xl:px-10">
-          <h2 className="text-2xl md:text-3xl font-bold text-text-primary uppercase tracking-wide mb-8 text-center">
+          <h2 className="text-3xl md:text-3xl font-bold text-text-primary uppercase tracking-wide mb-8 text-center">
             Previously Available
           </h2>
           <div className={`grid grid-cols-1 gap-40 ${
@@ -55,7 +55,7 @@ export default async function ProductsPage() {
                     ? "lg:col-span-3 flex justify-center"
                     : ""}>
                 <PanelCard background className="w-full max-w-md">
-                  <div className="flex flex-col items-center gap-4">
+                  <div className="flex flex-col items-center gap-4 p-6">
                     <span className="bg-brutal-red/80 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">
                       Sold Out
                     </span>
@@ -64,7 +64,7 @@ export default async function ProductsPage() {
                       back={<Image src={item.backImage} alt={`${item.name} back`} fill className="object-cover rounded-lg" />}
                     />
                     <PanelCard className="w-full">
-                      <div className="flex flex-col items-center gap-2">
+                      <div className="flex flex-col items-center gap-2 p-2">
                         <h3 className="text-lg font-bold text-text-primary text-center">{item.name}</h3>
                         <div className="flex flex-col items-center gap-1 text-sm text-gray-400">
                           <p>Printed: {item.totalPrints}</p>

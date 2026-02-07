@@ -11,7 +11,7 @@ interface RotatingFlipCardProps {
 export default function RotatingFlipCard({front, back, className = '',}: RotatingFlipCardProps) {
   return (
     <div
-      className={`relative w-80 h-80 ${className}`}
+      className={`relative w-full max-w-80 aspect-square ${className}`}
       style={{ perspective: '1000px' }}
     >
       <motion.div

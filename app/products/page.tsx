@@ -42,7 +42,7 @@ export default async function ProductsPage() {
           <h2 className="text-3xl md:text-3xl font-bold text-text-primary uppercase tracking-wide mb-8 text-center">
             Previously Available
           </h2>
-          <div className={`grid grid-cols-1 gap-40 ${
+          <div className={`grid grid-cols-1 gap-8 lg:gap-12 3xl:gap-16 ${
             soldOutItems.length === 1 ? "lg:grid-cols-1 justify-items-center" :
             soldOutItems.length === 2 ? "lg:grid-cols-2 justify-items-center max-w-3xl mx-auto" :
             "lg:grid-cols-3"

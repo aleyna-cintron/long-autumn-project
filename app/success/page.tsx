@@ -164,9 +164,9 @@ function SuccessContent() {
               </p>
             )}
             {session.customer_email && (
-              <p className="text-muted-foreground/70 text-sm mt-3 flex items-center justify-center gap-2">
-                <Mail size={14} />
-                {isStale ? 'A receipt was sent to' : 'A receipt has been sent to'}{' '}
+              <p className="text-muted-foreground/70 text-sm mt-3 flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
+                <Mail size={14} className="shrink-0" />
+                <span>{isStale ? 'A receipt was sent to' : 'A receipt has been sent to'}</span>
                 <span className="text-foreground">{session.customer_email}</span>
               </p>
             )}
@@ -195,7 +195,7 @@ function SuccessContent() {
                     </div>
                   )}
                   <div className="flex-1 min-w-0">
-                    <p className="text-foreground uppercase tracking-wide truncate">
+                    <p className="text-foreground uppercase tracking-wide wrap-break-word">
                       {item.description}
                     </p>
                     <p className="text-sm text-muted-foreground uppercase tracking-wider">

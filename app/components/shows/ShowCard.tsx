@@ -17,9 +17,9 @@ export default function ShowCard({ event, isPast = false }: ShowCardProps) {
   return (
     <div
       className={`
-        relative border-2 rounded-sm p-4 sm:p-5 md:p-6 transition-all duration-300 m-4 sm:m-0
+        relative border-2 rounded-sm p-4 sm:p-5 md:p-6 transition-all duration-300 m-4 sm:mx-0 sm:mb-6
         ${isPast
-          ? `
+        ? `
             bg-black/90
             bg-linear-to-br from-brutal-red/5 via-black to-black
             border-brutal-red/20

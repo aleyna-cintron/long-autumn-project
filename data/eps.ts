@@ -6,7 +6,7 @@ export const tooMinded: EP = {
   id: "too-minded",
   title: "Too Minded",
   year: 2019,
-  coverArt: "/EPart/tooMinded.jpg",
+  coverArt: "/EPart/tooMinded.webp",
   tracks: [
     { title: "Hands in the Soil", src: `${basePath}/EP1_TooMinded/HandsInTheSoil.mp3`, duration: "3:15" },
     { title: "Poison", src: `${basePath}/EP1_TooMinded/Poison.mp3`, duration: "4:03" },
@@ -21,7 +21,7 @@ export const change: EP = {
   id: "change",
   title: "Change",
   year: 2021,
-  coverArt: "/EPart/change.png",
+  coverArt: "/EPart/change.webp",
   tracks: [
     { title: "Hard One", src: `${basePath}/EP2_Change/HardOne_FinalMasterMP3.mp3`, duration: "3:41" },
     { title: "Carry You Home", src: `${basePath}/EP2_Change/CarryYouHome_FinalMaster.mp3`, duration: "4:26" },
@@ -34,7 +34,7 @@ export const coldSun: EP = {
   id: "cold-sun",
   title: "Cold Sun",
   year: 2022,
-  coverArt: "/EPart/coldSun.jpg",
+  coverArt: "/EPart/coldSun.webp",
   tracks: [
     { title: "D9", src: `${basePath}/EP3_ColdSun/D9.mp3`, duration: "4:21" },
     { title: "Locked Lips", src: `${basePath}/EP3_ColdSun/LockedLips.mp3`, duration: "4:15" },
@@ -48,7 +48,7 @@ export const happyHour: EP = {
   id: "happy-hour",
   title: "Happy Hour",
   year: 2024,
-  coverArt: "/EPart/happyHour.png",
+  coverArt: "/EPart/happyHour.webp",
   tracks: [
     { title: "Sky", src: `${basePath}/EP4_HappyHour/01 - Long Autumn - Sky.mp3`, duration: "3:37" },
     { title: "Mood", src: `${basePath}/EP4_HappyHour/02 - Long Autumn - Mood.mp3`, duration: "2:34" },
@@ -61,8 +61,8 @@ export const fading: EP = {
   id: "fading",
   title: "Fading",
   year: 2025,
-  coverArt: "/EPart/fading.png",
-  backsideArt: "/EPart/fading-backside.jpeg",
+  coverArt: "/EPart/fading.webp",
+  backsideArt: "/EPart/fading-backside.webp",
   isLatest: true,
   tracks: [
     { title: "My Luck", src: `${basePath}/EP5_Fading/Single1_MyLuck/MyLuckFinalMasterMP3.mp3`, duration: "4:27" },

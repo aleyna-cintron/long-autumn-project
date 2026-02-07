@@ -21,7 +21,7 @@ export default async function ShowsPage() {
 
             
             {/* Upcoming Dates Section */}
-            <section className="py-10">
+            <section>
                 <div className="max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl 2xl:max-w-5xl 3xl:max-w-300 4xl:max-w-350 mx-auto px-4">
                     <PanelCard title="Upcoming Shows">
 
@@ -58,7 +58,7 @@ export default async function ShowsPage() {
             </section>
 
             {/* Previous Shows Section */}
-            <section className="py-20">
+            <section className="py-8 md:py-20">
                 <div id="previous-shows" className="max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl 2xl:max-w-5xl 3xl:max-w-300 4xl:max-w-350 mx-auto px-4">
                     <PanelCard title="Previous Shows">
                         <PastShowsList shows={pastShows} />

@@ -15,24 +15,14 @@ interface ShowPosterLoopProps {
 }
 
 export default function ShowPosterLoop({ posters, height = 400, speed = 40, direction = "left" }: ShowPosterLoopProps) {
-  // Calculate logoHeight to fit within container including hover scale padding
-  const logoHeight = Math.floor(height / 1.2);
-
   return (
-    <div
-      style={{
-        height,
-        position: "relative",
-        overflow: "hidden",
-      }}
-    >
+    <div>
       <LogoLoop
         logos={posters}
+        logoHeight={400}  // 400px on desktop, CSS handles mobile
         speed={speed}
         direction={direction}
-        logoHeight={logoHeight}
         gap={40}
-        // hoverSpeed={0}
         scaleOnHover
         fadeOut
         fadeOutColor="#0B0B0D"

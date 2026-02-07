@@ -10,9 +10,8 @@ interface ShowCardProps {
 }
 
 export default function ShowCard({ event, isPast = false }: ShowCardProps) {
-  const { month, day } = formatDate(event.datetime);
+  const { month, day, year } = formatDate(event.datetime);
   const time = formatTime(event.datetime);
-  const year = isPast ? '2024' : '2025';
 
   return (
     <div

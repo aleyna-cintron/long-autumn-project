@@ -32,12 +32,13 @@ export async function getPastShows(): Promise<BandEvent[]> {
     }
 }
 
-// Format the date to show month abbreviation and day
+// Format the date to show month abbreviation, day, and year
 export function formatDate(isoDate: string) {
     const eventDate = new Date(isoDate);
     const month = eventDate.toLocaleDateString('en-US', { month: 'short' }).toUpperCase();
     const day = eventDate.getDate();
-    return { month, day };
+    const year = eventDate.getFullYear().toString();
+    return { month, day, year };
 }
 
 // Format time

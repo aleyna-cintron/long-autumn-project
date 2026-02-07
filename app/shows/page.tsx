@@ -9,7 +9,7 @@ import { showPosters } from '@/data/showPosters';
 export default async function ShowsPage() {
     // Server-side data fetching
     const upcomingShows = await getUpcomingShows();
-    const pastShows = await getPastShows();
+    const pastShows = (await getPastShows()).reverse();
 
     return (
         <div className="w-full min-h-screen text-text-primary md:pt-20 lg:pt-24 pb-20">

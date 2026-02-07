@@ -59,7 +59,7 @@ export default function PastShowsList({ shows }: PastShowsListProps) {
                         ← Previous
                     </button>
                     
-                    <div className="text-gray-400 text-xs sm:text-sm md:text-base xl:text-xl">
+                    <div className="text-gray-400 text-xs sm:text-sm md:text-base 3xl:text-lg">
                         Page <span className="text-brutal-red font-bold">{currentPage}</span> of {totalPages}
                     </div>
 

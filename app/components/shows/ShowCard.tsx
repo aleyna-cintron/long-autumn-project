@@ -16,7 +16,7 @@ export default function ShowCard({ event, isPast = false }: ShowCardProps) {
   return (
     <div
       className={`
-        relative border-2 rounded-sm p-4 sm:p-5 md:p-6 transition-all duration-300 m-4 sm:mx-0 sm:mb-6
+        relative border-2 rounded-sm p-4 sm:p-5 3xl:p-6 transition-all duration-300 m-4 sm:mx-0 sm:mb-6
         ${isPast
         ? `
             bg-black/90
@@ -34,16 +34,16 @@ export default function ShowCard({ event, isPast = false }: ShowCardProps) {
           `}
       `}
     >
-      <div className="flex flex-col sm:flex-row sm:items-center gap-4 md:gap-6">
+      <div className="flex flex-col sm:flex-row sm:items-center gap-4 3xl:gap-6">
 
 
         {/* LEFT: DATE + INFO */}
-        <div className="order-1 sm:order-0 flex items-start gap-3 md:gap-6 flex-1 pl-0">
+        <div className="order-1 sm:order-0 flex items-start gap-3 3xl:gap-6 flex-1 pl-0">
 
           {/* DATE BLOCK */}
           <div
             className={`
-               w-16 p-2 mr-4 sm:mr-0 sm:w-20 md:w-24 lg:w-28 aspect-square shrink-0
+               w-16 p-2 mr-4 sm:mr-0 sm:w-20 3xl:w-24 4xl:w-28 aspect-square shrink-0
                 border-2 rounded-sm
                 flex flex-col items-center justify-center
                 text-center
@@ -52,13 +52,13 @@ export default function ShowCard({ event, isPast = false }: ShowCardProps) {
                 : 'border-brutal-red bg-brutal-red/10 text-brutal-red'}
             `}
           >
-            <div className="text-[10px] sm:text-xs md:text-sm lg:text-base uppercase tracking-widest">
+            <div className="text-[10px] sm:text-xs 3xl:text-sm 4xl:text-base uppercase tracking-widest">
               {month}
             </div>
-            <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-none">
+            <div className="text-2xl sm:text-3xl 3xl:text-4xl 4xl:text-5xl font-black leading-none">
               {day}
             </div>
-            <div className="text-[10px] sm:text-xs md:text-sm lg:text-base mt-0.5 md:mt-1 tracking-wide">
+            <div className="text-[10px] sm:text-xs 3xl:text-sm 4xl:text-base mt-0.5 md:mt-1 tracking-wide">
               {year}
             </div>
           </div>
@@ -67,14 +67,14 @@ export default function ShowCard({ event, isPast = false }: ShowCardProps) {
           <div className="space-y-1 md:space-y-2 min-w-0">
             <h3
               className={`
-                text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide
+                text-base sm:text-lg 3xl:text-xl 4xl:text-2xl tracking-wide
                 ${isPast ? 'text-white/80' : 'text-white'}
               `}
             >
               {event.venue.name}
             </h3>
 
-            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-1 sm:gap-3 md:gap-4 text-xs sm:text-sm md:text-base lg:text-lg">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-1 sm:gap-3 md:gap-4 text-xs sm:text-sm 3xl:text-base 4xl:text-lg">
               <div className="flex items-center gap-1.5 md:gap-2 text-white/60">
                 <MapPin className="w-3 h-3 sm:w-4 sm:h-4" />
                 <span>{event.venue.city}, {event.venue.region}</span>
@@ -97,7 +97,7 @@ export default function ShowCard({ event, isPast = false }: ShowCardProps) {
         {/* RIGHT: ACTION */}
         <div className="order-2 sm:order-0 flex sm:shrink-0 sm:self-center">
           {isPast ? (
-            <div className="hidden sm:block border-2 border-brutal-red/20 text-white/50 px-3 md:px-6 py-2 md:py-3 rounded-sm text-xs md:text-sm lg:text-base">
+            <div className="hidden sm:block border-2 border-brutal-red/20 text-white/50 px-3 md:px-6 py-2 md:py-3 rounded-sm text-xs 3xl:text-sm 4xl:text-base">
               Past Event
             </div>
           ) : event.url ? (
@@ -113,13 +113,13 @@ export default function ShowCard({ event, isPast = false }: ShowCardProps) {
                 rounded-sm uppercase tracking-widest font-semibold
                 hover:bg-brutal-red hover:text-black
                 transition-all duration-300
-                text-xs md:text-sm lg:text-base
+                text-xs 3xl:text-sm 4xl:text-base
               ">
               <ExternalLink className="w-3 h-3 md:w-4 md:h-4" />
               Tickets
             </a>
           ) : (
-            <div className="border-2 border-brutal-red/20 text-white/50 px-3 md:px-6 py-2 md:py-3 rounded-sm text-xs md:text-sm lg:text-base">
+            <div className="border-2 border-brutal-red/20 text-white/50 px-3 md:px-6 py-2 md:py-3 rounded-sm text-xs 3xl:text-sm 4xl:text-base">
               Info Soon
             </div>
           )}

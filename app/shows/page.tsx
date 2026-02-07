@@ -27,9 +27,9 @@ export default async function ShowsPage() {
 
                 {upcomingShows.length === 0 ? (
                     /* TBD Message */
-                    <div className="bg-gray border border-gray-800 rounded-lg p-12 text-center">
-                        <p className="text-3xl md:text-4xl 3xl:text-5xl font-bold text-text-muted mb-2">TBD</p>
-                        <p className="text-text-secondary text-base md:text-lg 3xl:text-xl">No upcoming shows scheduled at this time. Check back soon!</p>
+                    <div className="bg-gray border border-gray-800 rounded-lg p-6 sm:p-8 3xl:p-12 text-center">
+                        <p className="text-3xl 3xl:text-4xl 4xl:text-5xl font-bold text-text-muted mb-2 sm:mb-4">TBD</p>
+                        <p className="text-text-secondary text-sm sm:text-base 3xl:text-lg 4xl:text-xl">No upcoming shows scheduled at this time. Check back soon!</p>
                     </div>
                 ) : (
                     /* Show Listings */
@@ -42,13 +42,13 @@ export default async function ShowsPage() {
 
                     {/* Booking? */}
                     <div className="mt-12 p-8 text-center rounded-sm mx-auto">
-                        <h3 className="text-lg md:text-xl lg:text-2xl 3xl:text-2xl 4xl:text-3xl font-bold uppercase tracking-widest text-text-primary mb-4">
+                        <h3 className="text-lg 3xl:text-xl 4xl:text-2xl font-bold uppercase tracking-widest text-text-primary mb-4">
                             Want to book Long Autumn for your venue?
                         </h3>
 
                         <a
                             href="/contact"
-                            className="inline-block border-2 border-brutal-red px-8 py-3 uppercase tracking-widest font-semibold text-brutal-red hover:bg-brutal-red hover:text-black transition-all duration-300 text-sm md:text-base 3xl:text-lg"
+                            className="inline-block border-2 border-brutal-red px-8 py-3 uppercase tracking-widest font-semibold text-brutal-red hover:bg-brutal-red hover:text-black transition-all duration-300 text-sm 3xl:text-base 4xl:text-lg"
                         >
                             Booking Inquiry
                         </a>

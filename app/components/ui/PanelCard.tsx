@@ -44,7 +44,7 @@ export function PanelCard({
             <div className={`absolute inset-0 bg-brutal-red/10 backdrop-blur-lg z-10 ${
               noBorderMobile ? 'rounded-none md:rounded-t-lg border-0 md:border-b-2 md:border-brutal-red/50' : 'rounded-t-lg border-brutal-red/50 border-b-2'
             }`} />
-            <h2 className="relative z-20 p-4 md:py-6 px-8 text-xl md:text-2xl lg:text-3xl 2xl:text-3xl 3xl:text-4xl 4xl:text-4xl text-text-primary text-center tracking-wider uppercase">
+            <h2 className="relative z-20 p-4 md:py-6 px-8 text-xl md:text-2xl 3xl:text-3xl 4xl:text-4xl text-text-primary text-center tracking-wider uppercase">
               {title}
             </h2>
           </div>

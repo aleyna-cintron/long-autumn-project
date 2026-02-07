@@ -14,64 +14,60 @@ export default async function EPAndShowsShowcase() {
   const nextShows = upcomingShows.slice(0, 2)
 
   return (
-    <section className="w-full bg-transparent py-20 px-4 sm:px-8 md:px-16 lg:px-20">
-      <div className="max-w-5xl mx-auto px-2 sm:px-4 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 gap-8 md:min-h-150">
-
+    <section className="w-full bg-transparent py-20 px-4 md:px-16 lg:px-20">
+      <div className="max-w-5xl mx-auto sm:px-2 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 gap-8 md:min-h-150"><div>
           {/* Latest EP */}
-          <div>
-            
-            <PanelCard title="New EP - Listen Now">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <PanelCard title="New EP - Listen Now">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
-      <PanelCard
-        title={latestEP.title}
-        background
-        noBorderMobile
-      >
-        <div className="py-12 px-8 flex items-center justify-center">
-          <RotatingAlbumArt ep={latestEP} />
-        </div>
-      </PanelCard>
-
-      <div className="flex flex-col gap-3 px-4 lg:px-0 pb-4 lg:pb-0">
-        <Button
-          href="https://open.spotify.com/artist/4o9s60Nr1QgG7FGLUQakzu"
-          label="Listen on Spotify"
-          icon={FaSpotify}
-          variant="dark"
-          external
-        />
-        <Button
-          href="https://music.apple.com/us/artist/long-autumn/1481105151"
-          label="Apple Music"
-          icon={FaApple}
-          variant="dark"
-          external
-        />
-        <Button
-          href="https://www.youtube.com/@LongAutumn"
-          label="YouTube"
-          icon={FaYoutube}
-          variant="dark"
-          external
-        />
-        <Button
-          href="https://music.amazon.com/artists/B07YCQK97T/long-autumn"
-          label="Amazon Music"
-          icon={FaAmazon}
-          variant="dark"
-          external
-        />
-        <Button
-          href="/music"
-          label="Listen Here"
-          icon={Headphones}
-          variant="dark"
-        />
-      </div>
-    </div>
-  </PanelCard>
+              <PanelCard
+                title={latestEP.title}
+                background
+                noBorderMobile
+              >
+                <div className="py-12 flex items-center justify-center">
+                  <RotatingAlbumArt ep={latestEP} />
+                </div>
+              </PanelCard>
+              <div className="flex flex-col gap-3 px-4 lg:px-0 pb-4 lg:pb-0">
+                <Button
+                  href="https://open.spotify.com/artist/4o9s60Nr1QgG7FGLUQakzu"
+                  label="Listen on Spotify"
+                  icon={FaSpotify}
+                  variant="dark"
+                  external
+                />
+                <Button
+                  href="https://music.apple.com/us/artist/long-autumn/1481105151"
+                  label="Apple Music"
+                  icon={FaApple}
+                  variant="dark"
+                  external
+                />
+                <Button
+                  href="https://www.youtube.com/@LongAutumn"
+                  label="YouTube"
+                  icon={FaYoutube}
+                  variant="dark"
+                  external
+                />
+                <Button
+                  href="https://music.amazon.com/artists/B07YCQK97T/long-autumn"
+                  label="Amazon Music"
+                  icon={FaAmazon}
+                  variant="dark"
+                  external
+                />
+                <Button
+                  href="/music"
+                  label="Listen Here"
+                  icon={Headphones}
+                  variant="dark"
+                />
+              </div>
+          </div>
+        </PanelCard>
           </div>
           {/* Catch Us Live */}
           <PanelCard title="Catch Us Live" fillParent={true}>

@@ -13,7 +13,7 @@ export default function RotatingAlbumArt({ ep }: RotatingAlbumArtProps) {
         <img
           src={ep.coverArt}
           alt={`${ep.title} front`}
-          className="w-full h-full object-cover"
+          className="w-90% h-90% object-cover"
         />
       }
       back={

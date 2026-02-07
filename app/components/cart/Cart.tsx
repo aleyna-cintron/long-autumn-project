@@ -98,7 +98,7 @@ export default function Cart() {
                 <div key={item.id} className="py-6 first:pt-0 last:pb-0 hover:bg-brutal-red/5 transition-colors -mx-8 px-8">
                   <div className="flex gap-6">
                     {/* Product Image */}
-                    <div className="flex-shrink-0">
+                    <div className="shrink-0">
                       <div className="w-32 h-32 bg-black rounded-sm border-2 border-brutal-red/20 overflow-hidden flex items-center justify-center">
                         <img
                           src={getProductImage(item.id)}

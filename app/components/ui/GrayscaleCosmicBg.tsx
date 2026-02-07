@@ -3,7 +3,7 @@ export default function GrayscaleCosmicBg(){
         <div
             className="absolute inset-0 rounded-lg"
             style={{
-                backgroundImage: `url("/cosmic-bg.jpeg")`,
+                backgroundImage: `url("/cosmic-bg.webp")`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 filter: 'grayscale(100%)',

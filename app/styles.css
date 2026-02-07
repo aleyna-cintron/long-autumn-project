@@ -136,8 +136,13 @@
 
 @theme inline {
   /* Custom breakpoints for larger screens */
-  --breakpoint-3xl: 1920px;
-  --breakpoint-4xl: 2400px;
+  --breakpoint-3xl: 120rem; /* 1920px */
+  --breakpoint-4xl: 150rem; /* 2400px */
+
+  --max-w-8xl: 88rem;  /* 1408px */
+  --max-w-9xl: 96rem;  /* 1536px */
+  --max-w-10xl: 104rem; /* 1664px */
+  --max-w-11xl: 112rem; /* 1792px */
 
   /* Design System Colors */
   /* Background */

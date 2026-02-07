@@ -19,7 +19,7 @@ export default async function ProductsPage() {
         subtitle="Support the band and rep Long Autumn"
       />
       {/* Featured Item Section */}
-      <section className="px-4 sm:px-6 md:px-12 lg:px-20 xl:px-40 2xl:px-120 mt-20 md:mt-24 lg:mt-32 mb-10 md:mb-20">
+      <section className="px-4 sm:px-6 md:px-12 lg:px-20 2xl:px-50 4xl:px-100 mt-20 md:mt-24 lg:mt-32 mb-10 md:mb-20">
         <div className="w-full">
           {!product ? (
             <PanelCard title="Featured Item">

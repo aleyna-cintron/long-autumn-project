@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Truck } from 'lucide-react'
 import AddToCartButton from '../cart/AddToCartButton'
@@ -25,6 +25,10 @@ export default function PurchaseCard({
   const router = useRouter()
   const [quantity, setQuantity] = useState(1)
   const [isLoading, setIsLoading] = useState(false)
+
+  useEffect(() => {
+    setQuantity(1)
+  }, [selectedSize])
 
   const handleBuyNow = async () => {
     if (!priceId) return

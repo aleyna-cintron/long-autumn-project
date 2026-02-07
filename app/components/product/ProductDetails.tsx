@@ -1,13 +1,11 @@
 'use client'
 
 import { useState } from 'react'
-import { Sparkles } from 'lucide-react'
 import { Product } from '@/types/product-data'
 import ProductGallery from './ProductGallery'
 import ProductInfo from './ProductInfo'
 import SizeSelector from './SizeSelector'
 import PurchaseCard from './PurchaseCard'
-import Collapsible from '../ui/Collapsible'
 
 interface ProductDetailsProps {
   product: Product

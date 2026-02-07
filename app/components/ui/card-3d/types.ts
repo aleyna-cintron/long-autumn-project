@@ -1,5 +1,3 @@
-
-
 export interface BandMemberCardData {
   id: string;
   name: string;

@@ -30,6 +30,7 @@ export async function GET(
       id: session.id,
       payment_status: session.payment_status,
       status: session.status,
+      created: session.created,
       customer_email: session.customer_details?.email ?? null,
       amount_total: session.amount_total,
       currency: session.currency,

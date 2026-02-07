@@ -20,6 +20,7 @@ type SessionData = {
   id: string
   payment_status: string
   status: string
+  created: number
   customer_email: string | null
   amount_total: number | null
   currency: string | null
@@ -32,6 +33,16 @@ function formatCurrency(cents: number, currency: string = 'usd'): string {
     currency,
   }).format(cents / 100)
 }
+
+function formatDate(unix: number): string {
+  return new Date(unix * 1000).toLocaleDateString('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+  })
+}
+
+const STALE_THRESHOLD_MS = 60 * 60 * 1000 // 1 hour
 
 function SuccessContent() {
   const searchParams = useSearchParams()
@@ -128,24 +139,34 @@ function SuccessContent() {
   }
 
   // --- SUCCESS ---
+  const isStale = Date.now() - session.created * 1000 > STALE_THRESHOLD_MS
+
   return (
     <>
-      <PanelCard title="Order Confirmed">
+      <PanelCard title={isStale ? 'Order Receipt' : 'Order Confirmed'}>
         <div className="p-4 md:p-0">
           {/* Success icon + headline */}
           <div className="text-center mb-8 md:mb-10">
             <CheckCircle className="mx-auto h-16 w-16 md:h-20 md:w-20 text-green-500 mb-6" />
             <h3 className="text-2xl md:text-3xl text-foreground uppercase tracking-wider mb-3">
-              Thank You For Your Support
+              {isStale ? 'Order Placed Successfully' : 'Thank You For Your Support'}
             </h3>
-            <p className="text-muted-foreground max-w-lg mx-auto">
-              Your order has been received and is being processed.
-              Every purchase directly helps Long Autumn keep making music.
-            </p>
+            {isStale ? (
+              <p className="text-muted-foreground max-w-lg mx-auto">
+                This order was placed on{' '}
+                <span className="text-foreground">{formatDate(session.created)}</span>.
+                Below is your order receipt for reference.
+              </p>
+            ) : (
+              <p className="text-muted-foreground max-w-lg mx-auto">
+                Your order has been received and is being processed.
+                Every purchase directly helps Long Autumn keep making music.
+              </p>
+            )}
             {session.customer_email && (
               <p className="text-muted-foreground/70 text-sm mt-3 flex items-center justify-center gap-2">
                 <Mail size={14} />
-                A receipt has been sent to{' '}
+                {isStale ? 'A receipt was sent to' : 'A receipt has been sent to'}{' '}
                 <span className="text-foreground">{session.customer_email}</span>
               </p>
             )}
@@ -202,51 +223,53 @@ function SuccessContent() {
         </div>
       </PanelCard>
 
-      {/* What happens next */}
-      <div className="mt-8">
-        <PanelCard title="What Happens Next">
-          <div className="p-4 md:p-0">
-            <div className="grid md:grid-cols-3 gap-6">
-              {([
-                {
-                  icon: Mail,
-                  step: '01',
-                  title: 'Confirmation Email',
-                  body: 'You will receive an email receipt from Stripe with your full order details.',
-                },
-                {
-                  icon: Package,
-                  step: '02',
-                  title: 'Order Fulfillment',
-                  body: 'We will pack your order with care. Most orders ship within 3-5 business days.',
-                },
-                {
-                  icon: Music,
-                  step: '03',
-                  title: 'Rock On',
-                  body: 'Rep Long Autumn at the next show. Tag us on Instagram -- we love seeing our gear in the wild.',
-                },
-              ] as const).map(({ icon: Icon, step, title, body }) => (
-                <div
-                  key={step}
-                  className="text-center p-6 bg-muted/20 rounded-sm border border-border"
-                >
-                  <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-brutal-red/20 flex items-center justify-center">
-                    <Icon className="w-6 h-6 text-brutal-red" />
+      {/* What happens next — only show for fresh orders */}
+      {!isStale && (
+        <div className="mt-8">
+          <PanelCard title="What Happens Next">
+            <div className="p-4 md:p-0">
+              <div className="grid md:grid-cols-3 gap-6">
+                {([
+                  {
+                    icon: Mail,
+                    step: '01',
+                    title: 'Confirmation Email',
+                    body: 'You will receive an email receipt from Stripe with your full order details.',
+                  },
+                  {
+                    icon: Package,
+                    step: '02',
+                    title: 'Order Fulfillment',
+                    body: 'We will pack your order with care. Most orders ship within 3-5 business days.',
+                  },
+                  {
+                    icon: Music,
+                    step: '03',
+                    title: 'Rock On',
+                    body: 'Rep Long Autumn at the next show. Tag us on Instagram -- we love seeing our gear in the wild.',
+                  },
+                ] as const).map(({ icon: Icon, step, title, body }) => (
+                  <div
+                    key={step}
+                    className="text-center p-6 bg-muted/20 rounded-sm border border-border"
+                  >
+                    <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-brutal-red/20 flex items-center justify-center">
+                      <Icon className="w-6 h-6 text-brutal-red" />
+                    </div>
+                    <span className="text-xs text-brutal-red uppercase tracking-widest">
+                      Step {step}
+                    </span>
+                    <h3 className="text-lg text-foreground mt-2 mb-2 uppercase tracking-wide">
+                      {title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm">{body}</p>
                   </div>
-                  <span className="text-xs text-brutal-red uppercase tracking-widest">
-                    Step {step}
-                  </span>
-                  <h3 className="text-lg text-foreground mt-2 mb-2 uppercase tracking-wide">
-                    {title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm">{body}</p>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        </PanelCard>
-      </div>
+          </PanelCard>
+        </div>
+      )}
 
       {/* CTAs */}
       <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">

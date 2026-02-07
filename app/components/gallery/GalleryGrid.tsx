@@ -28,10 +28,10 @@ export default function Gallery() {
                 />
                 
                 {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
                 
-                {/* Caption - visible on hover */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                {/* Caption - static on mobile, hover on desktop */}
+                <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-0 lg:translate-y-full lg:group-hover:translate-y-0 transition-transform duration-300">
                   <p className="text-foreground font-semibold tracking-wide uppercase text-sm">
                     {image.caption}
                   </p>

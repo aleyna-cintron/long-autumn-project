@@ -29,11 +29,11 @@ export default function FanGallery({
     <section className="py-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <PanelCard title="Long Autumn in the Wild">
-          <p className="text-muted-foreground text-center mb-8">
+          <p className="text-muted-foreground text-center p-4 sm:p-0 sm:mb-8">
             Fans repping Long Autumn at shows and beyond
           </p>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8 p-4 sm:p-0">
             {displayPhotos.map((photo) => (
               <div
                 key={photo.src}

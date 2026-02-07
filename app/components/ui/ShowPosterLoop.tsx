@@ -32,7 +32,7 @@ export default function ShowPosterLoop({ posters, height = 400, speed = 40, dire
         direction={direction}
         logoHeight={logoHeight}
         gap={40}
-        hoverSpeed={0}
+        // hoverSpeed={0}
         scaleOnHover
         fadeOut
         fadeOutColor="#0B0B0D"

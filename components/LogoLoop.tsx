@@ -39,7 +39,6 @@ interface LogoLoopProps {
   width?: number | string;
   logoHeight?: number;
   gap?: number;
-  pauseOnHover?: boolean;
   hoverSpeed?: number;
   fadeOut?: boolean;
   fadeOutColor?: string;
@@ -114,7 +113,6 @@ const useAnimationLoop = (
   targetVelocity: number,
   seqWidth: number,
   seqHeight: number,
-  isHovered: boolean,
   hoverSpeed: number | undefined,
   isVertical: boolean
 ) => {
@@ -145,7 +143,7 @@ const useAnimationLoop = (
       const deltaTime = Math.max(0, timestamp - lastTimestampRef.current) / 1000;
       lastTimestampRef.current = timestamp;
 
-      const target = isHovered && hoverSpeed !== undefined ? hoverSpeed : targetVelocity;
+      const target = hoverSpeed !== undefined ? hoverSpeed : targetVelocity;
 
       const easingFactor = 1 - Math.exp(-deltaTime / ANIMATION_CONFIG.SMOOTH_TAU);
       velocityRef.current += (target - velocityRef.current) * easingFactor;
@@ -173,7 +171,7 @@ const useAnimationLoop = (
       }
       lastTimestampRef.current = null;
     };
-  }, [targetVelocity, seqWidth, seqHeight, isHovered, hoverSpeed, isVertical, trackRef]);
+  }, [targetVelocity, seqWidth, seqHeight, hoverSpeed, isVertical, trackRef]);
 };
 
 export const LogoLoop = memo(
@@ -184,7 +182,6 @@ export const LogoLoop = memo(
     width = '100%',
     logoHeight = 28,
     gap = 32,
-    pauseOnHover,
     hoverSpeed,
     fadeOut = false,
     fadeOutColor,
@@ -201,14 +198,10 @@ export const LogoLoop = memo(
     const [seqWidth, setSeqWidth] = useState(0);
     const [seqHeight, setSeqHeight] = useState(0);
     const [copyCount, setCopyCount] = useState(ANIMATION_CONFIG.MIN_COPIES);
-    const [isHovered, setIsHovered] = useState(false);
 
     const effectiveHoverSpeed = useMemo(() => {
-      if (hoverSpeed !== undefined) return hoverSpeed;
-      if (pauseOnHover === true) return 0;
-      if (pauseOnHover === false) return undefined;
-      return 0;
-    }, [hoverSpeed, pauseOnHover]);
+      return hoverSpeed;
+    }, [hoverSpeed]);
 
     const isVertical = direction === 'up' || direction === 'down';
 
@@ -253,7 +246,7 @@ export const LogoLoop = memo(
 
     useImageLoader(seqRef, updateDimensions, [logos, gap, logoHeight, isVertical]);
 
-    useAnimationLoop(trackRef, targetVelocity, seqWidth, seqHeight, isHovered, effectiveHoverSpeed, isVertical);
+    useAnimationLoop(trackRef, targetVelocity, seqWidth, seqHeight, effectiveHoverSpeed, isVertical);
 
     const cssVariables = useMemo(
       () => ({
@@ -277,13 +270,6 @@ export const LogoLoop = memo(
           .join(' '),
       [isVertical, fadeOut, scaleOnHover, className]
     );
-
-    const handleMouseEnter = useCallback(() => {
-      if (effectiveHoverSpeed !== undefined) setIsHovered(true);
-    }, [effectiveHoverSpeed]);
-    const handleMouseLeave = useCallback(() => {
-      if (effectiveHoverSpeed !== undefined) setIsHovered(false);
-    }, [effectiveHoverSpeed]);
 
     const renderLogoItem = useCallback(
       (item: LogoItem, key: string) => {
@@ -366,7 +352,7 @@ export const LogoLoop = memo(
 
     return (
       <div ref={containerRef} className={rootClassName} style={containerStyle as CSSProperties} role="region" aria-label={ariaLabel}>
-        <div className="logoloop__track" ref={trackRef} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        <div className="logoloop__track" ref={trackRef}>
           {logoLists}
         </div>
       </div>

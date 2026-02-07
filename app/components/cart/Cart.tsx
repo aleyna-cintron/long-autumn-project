@@ -26,10 +26,7 @@ export default function Cart() {
   const decrementItem = useCartStore(state => state.decrementItem)
 
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0)
-  const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0)
-  const shipping = subtotal > 0 ? 5.99 : 0
-  const tax = subtotal * 0.08
-  const grandTotal = subtotal + shipping + tax
+  const total = items.reduce((sum, item) => sum + item.price * item.quantity, 0)
 
   async function handleCheckout() {
     const res = await fetch('/api/checkout-session', {
@@ -181,28 +178,22 @@ export default function Cart() {
                 {/* Subtotal */}
                 <div className="flex justify-between text-muted-foreground uppercase tracking-wider mt-2">
                   <span>Subtotal ({totalItems} {totalItems === 1 ? 'item' : 'items'})</span>
-                  <span>${subtotal.toFixed(2)}</span>
+                  <span>${total.toFixed(2)}</span>
                 </div>
 
-                {/* Shipping */}
+                {/* Shipping & Tax included */}
                 <div className="flex justify-between text-muted-foreground uppercase tracking-wider">
                   <span className="flex items-center gap-2">
                     <Package size={16} />
-                    Shipping
+                    Shipping & Tax
                   </span>
-                  <span>${shipping.toFixed(2)}</span>
-                </div>
-
-                {/* Tax */}
-                <div className="flex justify-between text-muted-foreground uppercase tracking-wider">
-                  <span>Est. Tax</span>
-                  <span>${tax.toFixed(2)}</span>
+                  <span>Included</span>
                 </div>
 
                 <div className="border-t-2 border-brutal-red/30 pt-4 mt-4">
                   <div className="flex justify-between text-foreground text-xl uppercase tracking-wider">
                     <span>Total</span>
-                    <span className="text-brutal-red">${grandTotal.toFixed(2)}</span>
+                    <span className="text-brutal-red">${total.toFixed(2)}</span>
                   </div>
                 </div>
 

@@ -10,8 +10,8 @@ export default function OurStory() {
           <div className="grid grid-cols-2 gap-4 2xl:gap-6 3xl:gap-8">
             <div className="relative overflow-hidden rounded aspect-square">
               <Image
-                src="/three.jpg"
-                alt="Private Property Sign"
+                src="/johnny-sitting.webp"
+                alt="Johnny Mark sitting"
                 fill
                 sizes="(max-width: 1024px) 50vw, 25vw"
                 className="object-cover"
@@ -20,8 +20,8 @@ export default function OurStory() {
             </div>
             <div className="relative overflow-hidden rounded aspect-square">
               <Image
-                src="/two.jpg"
-                alt="Basketball Hoop"
+                src="/jam-on-stage.webp"
+                alt="Jam Templeton on stage"
                 fill
                 sizes="(max-width: 1024px) 50vw, 25vw"
                 className="object-cover"
@@ -30,8 +30,8 @@ export default function OurStory() {
             </div>
             <div className="relative col-span-2 overflow-hidden rounded aspect-video">
               <Image
-                src="/one.jpg"
-                alt="Band by the water"
+                src="/conors-drums.webp"
+                alt="Conor Moran's drums with Long Autumn logo"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"

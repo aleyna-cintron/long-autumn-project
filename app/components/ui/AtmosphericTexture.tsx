@@ -4,7 +4,7 @@ export function AtmosphericTexture() {
       <div
         className="fixed inset-0 animate-cosmic-drift"
         style={{
-          backgroundImage: 'url("/cosmic-bg.jpeg")',
+          backgroundImage: 'url("/cosmic-bg.webp")',
           backgroundSize: '120%',
           backgroundPosition: 'center',
           zIndex: -20,

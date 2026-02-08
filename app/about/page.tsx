@@ -20,7 +20,7 @@ export default function AboutPage() {
       <section className="px-8 md:px-16 lg:px-20 3xl:px-32 py-16 md:py-20 w-full">
         <div className="w-full max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl 2xl:max-w-6xl 3xl:max-w-350 4xl:max-w-400 mx-auto">
           <Image
-            src="/la-running.jpg"
+            src="/la-running.webp"
             alt="Long Autumn band running"
             width={1600}
             height={900}

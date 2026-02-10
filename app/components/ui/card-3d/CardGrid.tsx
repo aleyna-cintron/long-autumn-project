@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import Card from "./Card";
-import { ReactLenis } from "lenis/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -82,6 +81,9 @@ const CardGridInternal = ({ cards, config, renderFront, renderBack, containerCla
           clickCleanups.push(() => card.removeEventListener("click", handleTap));
         });
 
+        // Track card states so we only set pointerEvents on transitions, not every frame
+        const cardStates: ("waiting" | "active" | "exited")[] = new Array(cardElements.length).fill("waiting");
+
         // Flip through cards one at a time
         cardElements.forEach((card, index) => {
           const frontEl = card.querySelector(".flipCardFront");
@@ -95,14 +97,18 @@ const CardGridInternal = ({ cards, config, renderFront, renderBack, containerCla
             trigger: cardsSection,
             start: "top top",
             end: () => `+=${mobileScrollHeight}`,
-            scrub: 0.3,
+            scrub: 0.6,
             id: `mobile-flip-${index}`,
             onUpdate: (self) => {
               const progress = self.progress;
 
               if (progress >= cardStart && progress < cardEnd) {
                 const localProgress = (progress - cardStart) / segmentSize;
-                gsap.set(card, { pointerEvents: "auto" });
+
+                if (cardStates[index] !== "active") {
+                  cardStates[index] = "active";
+                  gsap.set(card, { pointerEvents: "auto" });
+                }
 
                 if (localProgress < 0.5) {
                   // First half: flip the card
@@ -124,14 +130,20 @@ const CardGridInternal = ({ cards, config, renderFront, renderBack, containerCla
                   });
                 }
               } else if (progress >= cardEnd) {
-                // Card has exited — let taps pass through to the card below
-                card.setAttribute("data-tapped", "false");
-                gsap.set(card, { opacity: 0, y: -150, pointerEvents: "none" });
+                if (cardStates[index] !== "exited") {
+                  // Card has exited — let taps pass through to the card below
+                  cardStates[index] = "exited";
+                  card.setAttribute("data-tapped", "false");
+                  gsap.set(card, { opacity: 0, y: -150, pointerEvents: "none" });
+                }
               } else {
-                // Card hasn't started yet - reset
-                gsap.set(card, { opacity: 1, y: 0, pointerEvents: "auto" });
-                if (frontEl) gsap.set(frontEl, { rotateY: 0 });
-                if (backEl) gsap.set(backEl, { rotateY: 180 });
+                if (cardStates[index] !== "waiting") {
+                  // Card hasn't started yet - reset
+                  cardStates[index] = "waiting";
+                  gsap.set(card, { opacity: 1, y: 0, pointerEvents: "auto" });
+                  if (frontEl) gsap.set(frontEl, { rotateY: 0 });
+                  if (backEl) gsap.set(backEl, { rotateY: 180 });
+                }
               }
             },
           });
@@ -168,7 +180,7 @@ const CardGridInternal = ({ cards, config, renderFront, renderBack, containerCla
               trigger: cardsSection,
               start: "top top",
               end: () => `+=${window.innerHeight}`,
-              scrub: 0.5,
+              scrub: 0.8,
               id: `spread-${index}`,
             },
           });
@@ -187,7 +199,7 @@ const CardGridInternal = ({ cards, config, renderFront, renderBack, containerCla
             trigger: cardsSection,
             start: "top top",
             end: () => `+=${totalScrollHeight}`,
-            scrub: 1,
+            scrub: 1.2,
             id: `rotate-flip-${index}`,
             onUpdate: (self) => {
               const progress = self.progress;
@@ -283,20 +295,17 @@ const CardGrid = ({ cards, config, mobileOrder, renderFront, renderBack, contain
     : cards;
 
   return (
-    <ReactLenis root>
-      {/* Key forces remount when switching between mobile/desktop */}
-      <CardGridInternal
-        key={isMobile ? "mobile" : "desktop"}
-        cards={orderedCards}
-        config={mergedConfig}
-        renderFront={renderFront}
-        renderBack={renderBack}
-        containerClassName={containerClassName}
-        cardClassName={cardClassName}
-        header={header}
-        isMobile={isMobile}
-      />
-    </ReactLenis>
+    <CardGridInternal
+      key={isMobile ? "mobile" : "desktop"}
+      cards={orderedCards}
+      config={mergedConfig}
+      renderFront={renderFront}
+      renderBack={renderBack}
+      containerClassName={containerClassName}
+      cardClassName={cardClassName}
+      header={header}
+      isMobile={isMobile}
+    />
   );
 };
 

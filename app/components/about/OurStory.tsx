@@ -3,11 +3,11 @@ import { PanelCard } from "../ui/PanelCard";
 
 export default function OurStory() {
   return (
-    <PanelCard title="Our Story" className="max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl 2xl:max-w-6xl 3xl:max-w-350 4xl:max-w-400 mx-auto">
+    <PanelCard title="Our Story" className="max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl 2xl:max-w-5xl 3xl:max-w-6xl 4xl:max-w-400 mx-auto">
       <div className="p-4 md:p-0">
         {/* Images - Float right on lg+ */}
-        <div className="lg:float-right lg:w-1/2 lg:ml-8 2xl:ml-12 3xl:ml-16 mb-8 lg:mb-4">
-          <div className="grid grid-cols-2 gap-4 2xl:gap-6 3xl:gap-8">
+        <div className="lg:float-right lg:w-1/2 lg:ml-8 2xl:ml-10 3xl:ml-12 mb-8 lg:mb-4">
+          <div className="grid grid-cols-2 gap-4 2xl:gap-4 3xl:gap-6">
             <div className="relative overflow-hidden rounded aspect-square">
               <Image
                 src="/johnny-sitting.webp"
@@ -42,7 +42,7 @@ export default function OurStory() {
         </div>
 
         {/* Bio - Text flows around images */}
-        <div className="space-y-6 2xl:space-y-8 text-foreground leading-relaxed text-base md:text-base lg:text-lg 2xl:text-lg 3xl:text-xl 4xl:text-xl">
+        <div className="space-y-6 2xl:space-y-4 3xl:space-y-5 4xl:space-y-6 text-foreground leading-relaxed text-base md:text-base lg:text-lg 2xl:text-sm 3xl:text-base 4xl:text-xl">
           <p>
             Long Autumn was formed in late 2019, when lead singer Johnny Mark, bassist Tim Donovan, and guitarist Nick Harvey started playing together in a small, junk-filled garage in Acton, Massachusetts. It was cold af in that garage, but that didn&apos;t deter Conor Moran from joining up on the drums. The four played a few shows but decided that they wanted to complete their sound as a five-piece. Guitarist and backing vocalist Jam Templeton joined in January of 2020 after he discovered the band by spontaneously tagging along with the band&apos;s photographer for a photo shoot.
           </p>

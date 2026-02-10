@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { Mail, Instagram } from 'lucide-react';
+import Link from 'next/link';
+import { Mail, Instagram, FileText } from 'lucide-react';
 import { SiLinktree } from 'react-icons/si';
 import ContactForm from "../components/ui/ContactForm";
 import { PanelCard } from "../components/ui/PanelCard";
@@ -88,6 +89,22 @@ export default function ContactPage() {
                                         <SiLinktree className="mr-3 shrink-0 w-5 h-5 3xl:w-6 3xl:h-6" />
                                         linktr.ee/longautumn
                                     </a>
+                                </div>
+                            </PanelCard>
+
+                            {/* EPK Link */}
+                            <PanelCard title="Press Kit">
+                                <div className="p-4 sm:p-0">
+                                    <p className="text-text-secondary mb-4 leading-relaxed text-base md:text-base lg:text-lg xl:text-sm 2xl:text-sm 3xl:text-base 4xl:text-xl">
+                                        Venue owners, booking agents, and press — check out our electronic press kit.
+                                    </p>
+                                    <Link
+                                        href="/epk"
+                                        className="flex items-center text-text-secondary hover:text-brutal-red transition-colors p-4 bg-muted/30 rounded-sm border border-border hover:border-brutal-red text-base md:text-base lg:text-lg 3xl:text-lg 4xl:text-xl"
+                                    >
+                                        <FileText className="mr-3 shrink-0 w-5 h-5 3xl:w-6 3xl:h-6" />
+                                        View Electronic Press Kit
+                                    </Link>
                                 </div>
                             </PanelCard>
                         </div>

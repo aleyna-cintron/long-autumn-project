@@ -132,7 +132,7 @@ const renderBack = (card: BandMemberCardData) => {
               <div className="flex-1 bg-black/60 border border-purple-800/50 rounded p-3 mb-2 overflow-y-auto">
                 <div className="space-y-2">
                   {entries.map((entry, idx) => (
-                    <div key={idx} className="text-base leading-snug">
+                    <div key={idx} className="text-xs 3xl:text-base leading-snug">
                       <span className={`font-bold ${getKeyColor(entry.key)}`}>{entry.key}:</span>
                       <span className="text-text-primary ml-1.5">{entry.value}</span>
                     </div>
@@ -140,7 +140,7 @@ const renderBack = (card: BandMemberCardData) => {
                 </div>
                 {quote && (
                   <div className="mt-3 pt-2 border-t border-purple-800/30">
-                    <p className="text-base italic text-brutal-red/80">{quote}</p>
+                    <p className="text-xs 3xl:text-base italic text-brutal-red/80">{quote}</p>
                   </div>
                 )}
               </div>

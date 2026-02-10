@@ -264,7 +264,7 @@ const CardGridInternal = ({ cards, config, renderFront, renderBack, containerCla
   );
 };
 
-const CardGrid = ({ cards, config, renderFront, renderBack, containerClassName, cardClassName, header}: CardGridProps) => {
+const CardGrid = ({ cards, config, mobileOrder, renderFront, renderBack, containerClassName, cardClassName, header}: CardGridProps) => {
   const mergedConfig = { ...DEFAULT_CONFIG, ...config };
   const [isMobile, setIsMobile] = useState(false);
 
@@ -278,12 +278,16 @@ const CardGrid = ({ cards, config, renderFront, renderBack, containerClassName, 
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+  const orderedCards = isMobile && mobileOrder
+    ? mobileOrder.map(i => cards[i])
+    : cards;
+
   return (
     <ReactLenis root>
       {/* Key forces remount when switching between mobile/desktop */}
       <CardGridInternal
         key={isMobile ? "mobile" : "desktop"}
-        cards={cards}
+        cards={orderedCards}
         config={mergedConfig}
         renderFront={renderFront}
         renderBack={renderBack}

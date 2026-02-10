@@ -163,6 +163,7 @@ export default function BandMembersSection() {
   return (
     <CardGrid
       cards={cardData}
+      mobileOrder={[2, 3, 1, 0, 4]}
       config={{
         positions: [10, 30, 50, 70, 90],
         rotations: [-12, -6, 0, 6, 12],

@@ -20,6 +20,7 @@ export interface CardGridConfig {
 export interface CardGridProps {
   cards: BandMemberCardData[];
   config?: Partial<CardGridConfig>;
+  mobileOrder?: number[];
   renderFront: (card: BandMemberCardData) => React.ReactNode;
   renderBack: (card: BandMemberCardData) => React.ReactNode;
   containerClassName?: string;

@@ -8,6 +8,7 @@ import { PanelCard } from '../components/ui/PanelCard';
 import { EP } from '@/types/music-data';
 import DiscographyServer from '../components/music/Discography';
 import CatchUsLive from '../components/music/CatchUsLive';
+import SubscribeSection from '../components/ui/SubscribeSection';
 
 export default function MusicPage() {
   const initialEP: EP =
@@ -64,6 +65,7 @@ export default function MusicPage() {
       <CatchUsLive
         states={['NH', 'MA', 'ME', 'VT', 'RI']}
       />
+      <SubscribeSection />
     </main>
   );
 }

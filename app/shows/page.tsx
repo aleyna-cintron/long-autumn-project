@@ -4,6 +4,7 @@ import PastShowsList from '../components/shows/PastShowsList';
 import { PanelCard } from '../components/ui/PanelCard';
 import PageHero from '../components/ui/PageHeader';
 import ShowPosterLoop from '../components/ui/ShowPosterLoop';
+import SubscribeSection from '../components/ui/SubscribeSection';
 import { showPosters } from '@/data/showPosters';
 
 export default async function ShowsPage() {
@@ -65,6 +66,7 @@ export default async function ShowsPage() {
                     </PanelCard>
                 </div>
             </section>
+            <SubscribeSection />
             <ShowPosterLoop posters={showPosters} direction = "right" ></ShowPosterLoop>
         </div>
     );

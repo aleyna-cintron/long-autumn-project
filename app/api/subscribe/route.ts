@@ -4,6 +4,32 @@ const KIT_API_KEY = process.env.KIT_API_KEY!
 const KIT_FORM_ID = process.env.KIT_FORM_ID!
 const KIT_BASE = 'https://api.kit.com/v4'
 
+const kitHeaders = {
+  'Content-Type': 'application/json',
+  'X-Kit-Api-Key': KIT_API_KEY,
+} as const
+
+async function kitFetch(endpoint: string, body: Record<string, unknown>) {
+  const res = await fetch(`${KIT_BASE}${endpoint}`, {
+    method: 'POST',
+    headers: kitHeaders,
+    body: JSON.stringify(body),
+  })
+
+  if (!res.ok) {
+    const data = await res.json().catch(() => ({}))
+    throw new KitError(data.message || `Kit API error at ${endpoint}`, res.status)
+  }
+
+  return res.json()
+}
+
+class KitError extends Error {
+  constructor(message: string, public status: number) {
+    super(message)
+  }
+}
+
 export async function POST(req: NextRequest) {
   try {
     const { email } = await req.json()
@@ -12,47 +38,16 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Email is required' }, { status: 400 })
     }
 
-    // Step 1: Create (or upsert) the subscriber
-    const subscriberRes = await fetch(`${KIT_BASE}/subscribers`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Kit-Api-Key': KIT_API_KEY,
-      },
-      body: JSON.stringify({ email_address: email }),
-    })
+    const payload = { email_address: email }
 
-    if (!subscriberRes.ok) {
-      const body = await subscriberRes.json().catch(() => ({}))
-      return NextResponse.json(
-        { error: body.message || 'Failed to create subscriber' },
-        { status: subscriberRes.status }
-      )
-    }
-
-    // Step 2: Add subscriber to the form
-    const formRes = await fetch(`${KIT_BASE}/forms/${KIT_FORM_ID}/subscribers`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Kit-Api-Key': KIT_API_KEY,
-      },
-      body: JSON.stringify({ email_address: email }),
-    })
-
-    if (!formRes.ok) {
-      const body = await formRes.json().catch(() => ({}))
-      return NextResponse.json(
-        { error: body.message || 'Failed to add to form' },
-        { status: formRes.status }
-      )
-    }
+    await kitFetch('/subscribers', payload)
+    await kitFetch(`/forms/${KIT_FORM_ID}/subscribers`, payload)
 
     return NextResponse.json({ success: true })
-  } catch {
-    return NextResponse.json(
-      { error: 'Something went wrong' },
-      { status: 500 }
-    )
+  } catch (err) {
+    if (err instanceof KitError) {
+      return NextResponse.json({ error: err.message }, { status: err.status })
+    }
+    return NextResponse.json({ error: 'Something went wrong' }, { status: 500 })
   }
 }

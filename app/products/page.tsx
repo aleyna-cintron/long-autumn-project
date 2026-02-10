@@ -3,6 +3,7 @@ import { PanelCard } from "../components/ui/PanelCard";
 import ProductDetails from "../components/product/ProductDetails";
 import PageHero from "../components/ui/PageHeader";
 import ConnectSection from "../components/product/ConnectSection";
+import SubscribeSection from "../components/ui/SubscribeSection";
 import { products } from "@/data/product";
 import { soldOutItems } from "@/data/soldOutItems";
 import RotatingFlipCard from "../components/ui/RotatingFlipCard";
@@ -80,6 +81,7 @@ export default async function ProductsPage() {
           </div>
         </section>
       )}
+      <SubscribeSection />
       <ConnectSection />
     </div>
   );

@@ -47,6 +47,7 @@ const CardGridInternal = ({ cards, config, renderFront, renderBack, containerCla
       const positions = config.positions;
       const rotations = config.rotations;
       const cardsSection = container.current?.querySelector(".cards-section");
+      let clickCleanups: (() => void)[] = [];
 
       if (!cardsSection) return;
 
@@ -71,6 +72,16 @@ const CardGridInternal = ({ cards, config, renderFront, renderBack, containerCla
           });
         });
 
+        // Tap-to-flip: toggle data attribute, CSS handles the rotation on .flipCardInner
+        cardElements.forEach((card) => {
+          const handleTap = () => {
+            const isTapped = card.getAttribute("data-tapped") === "true";
+            card.setAttribute("data-tapped", isTapped ? "false" : "true");
+          };
+          card.addEventListener("click", handleTap);
+          clickCleanups.push(() => card.removeEventListener("click", handleTap));
+        });
+
         // Flip through cards one at a time
         cardElements.forEach((card, index) => {
           const frontEl = card.querySelector(".flipCardFront");
@@ -91,6 +102,7 @@ const CardGridInternal = ({ cards, config, renderFront, renderBack, containerCla
 
               if (progress >= cardStart && progress < cardEnd) {
                 const localProgress = (progress - cardStart) / segmentSize;
+                gsap.set(card, { pointerEvents: "auto" });
 
                 if (localProgress < 0.5) {
                   // First half: flip the card
@@ -112,11 +124,12 @@ const CardGridInternal = ({ cards, config, renderFront, renderBack, containerCla
                   });
                 }
               } else if (progress >= cardEnd) {
-                // Card has exited
-                gsap.set(card, { opacity: 0, y: -150 });
+                // Card has exited — let taps pass through to the card below
+                card.setAttribute("data-tapped", "false");
+                gsap.set(card, { opacity: 0, y: -150, pointerEvents: "none" });
               } else {
                 // Card hasn't started yet - reset
-                gsap.set(card, { opacity: 1, y: 0 });
+                gsap.set(card, { opacity: 1, y: 0, pointerEvents: "auto" });
                 if (frontEl) gsap.set(frontEl, { rotateY: 0 });
                 if (backEl) gsap.set(backEl, { rotateY: 180 });
               }
@@ -215,6 +228,7 @@ const CardGridInternal = ({ cards, config, renderFront, renderBack, containerCla
 
       // Cleanup function
       return () => {
+        clickCleanups?.forEach(cleanup => cleanup());
         ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       };
     },

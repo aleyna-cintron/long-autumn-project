@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useCartStore } from "../../store/cart-store-provider"
 import { PanelCard } from "../ui/PanelCard"
-import { ShoppingBag, Package, Minus, Plus, Trash2, ArrowLeft } from 'lucide-react'
+import { ShoppingBag, Package, Minus, Plus, Trash2, ArrowLeft, Lock } from 'lucide-react'
 import { products } from '@/data/product'
 
 // Helper to get product image from cart item id
@@ -92,67 +92,66 @@ export default function Cart() {
             </div>
             <div className="divide-y divide-brutal-red/20 p-4 md:p-0">
               {items.map((item) => (
-                <div key={item.id} className="py-6 first:pt-0 last:pb-0 hover:bg-brutal-red/5 transition-colors -mx-8 px-8">
-                  <div className="flex gap-6">
+                <div key={item.id} className="py-6 first:pt-0 last:pb-0 hover:bg-brutal-red/5 transition-colors md:-mx-8 md:px-8">
+                  <div className="flex gap-3 md:gap-6">
                     {/* Product Image */}
                     <div className="shrink-0">
-                      <div className="w-32 h-32 bg-black rounded-sm border-2 border-brutal-red/20 overflow-hidden flex items-center justify-center">
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-32 md:h-32 bg-black rounded-sm border-2 border-brutal-red/20 overflow-hidden flex items-center justify-center">
                         <img
                           src={getProductImage(item.id)}
                           alt={item.name}
-                          className="w-full h-full object-contain p-4"
+                          className="w-full h-full object-cover"
                         />
                       </div>
                     </div>
 
                     {/* Product Details */}
-                    <div className="flex-1 flex flex-col justify-between">
-                      <div>
-                        <h3 className="text-xl text-foreground uppercase tracking-wide mb-2">
-                          {item.name}
-                        </h3>
-                        <div className="flex items-center gap-4 text-sm text-muted-foreground uppercase tracking-wider">
-                          <span className="border border-brutal-red/30 px-3 py-1 rounded-sm">
+                    <div className="flex-1 min-w-0 flex flex-col justify-between">
+                      <div className="flex items-start justify-between gap-2">
+                        <div className="min-w-0">
+                          <h3 className="text-sm sm:text-base md:text-xl text-foreground uppercase tracking-wide mb-1 md:mb-2 truncate">
+                            {item.name}
+                          </h3>
+                          <span className="inline-block border border-brutal-red/30 px-2 py-0.5 md:px-3 md:py-1 rounded-sm text-xs md:text-sm text-muted-foreground uppercase tracking-wider">
                             Size: {getSize(item.id)}
                           </span>
                         </div>
+                        <button
+                          onClick={() => removeItem(item.id)}
+                          className="shrink-0 p-1.5 md:p-2 text-muted-foreground hover:text-brutal-red hover:bg-brutal-red/10 transition-all rounded-sm"
+                          aria-label="Remove item"
+                        >
+                          <Trash2 size={16} className="md:hidden" />
+                          <Trash2 size={20} className="hidden md:block" />
+                        </button>
                       </div>
 
-                      <div className="flex items-center justify-between mt-4">
+                      <div className="flex items-center justify-between mt-2 md:mt-4">
                         {/* Quantity Controls */}
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-1 md:gap-2">
                           <button
                             onClick={() => handleQuantityChange(item, -1)}
-                            className="p-2 border-2 border-brutal-red/30 hover:bg-brutal-red hover:text-background hover:border-brutal-red transition-all rounded-sm"
+                            className="p-1 sm:p-1.5 md:p-2 border-2 border-brutal-red/30 hover:bg-brutal-red hover:text-background hover:border-brutal-red transition-all rounded-sm"
                             aria-label="Decrease quantity"
                           >
-                            <Minus size={16} />
+                            <Minus size={14} />
                           </button>
-                          <span className="w-12 text-center text-foreground uppercase tracking-wider">
+                          <span className="w-8 md:w-12 text-center text-foreground tracking-wider text-sm md:text-base">
                             {item.quantity}
                           </span>
                           <button
                             onClick={() => handleQuantityChange(item, 1)}
-                            className="p-2 border-2 border-brutal-red/30 hover:bg-brutal-red hover:text-background hover:border-brutal-red transition-all rounded-sm"
+                            className="p-1 sm:p-1.5 md:p-2 border-2 border-brutal-red/30 hover:bg-brutal-red hover:text-background hover:border-brutal-red transition-all rounded-sm"
                             aria-label="Increase quantity"
                           >
-                            <Plus size={16} />
+                            <Plus size={14} />
                           </button>
                         </div>
 
                         {/* Price */}
-                        <div className="flex items-center md:gap-6">
-                          <span className="text-xl text-foreground uppercase tracking-wider">
-                            ${(item.price * item.quantity).toFixed(2)}
-                          </span>
-                          <button
-                            onClick={() => removeItem(item.id)}
-                            className="p-2 text-muted-foreground hover:text-brutal-red hover:bg-brutal-red/10 transition-all rounded-sm"
-                            aria-label="Remove item"
-                          >
-                            <Trash2 size={20} />
-                          </button>
-                        </div>
+                        <span className="text-sm sm:text-base md:text-xl text-foreground uppercase tracking-wider">
+                          ${(item.price * item.quantity).toFixed(2)}
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -200,13 +199,14 @@ export default function Cart() {
                 {/* Checkout Button */}
                 <button
                   onClick={handleCheckout}
-                  className="w-full mt-6 py-4 bg-brutal-red hover:bg-brutal-red/80 text-background border-2 border-brutal-red rounded-sm uppercase tracking-widest transition-all duration-300 hover:scale-105"
+                  className="w-full mt-6 py-4 bg-brutal-red hover:bg-brutal-red/80 text-background border-2 border-brutal-red rounded-sm uppercase tracking-widest transition-all duration-300 md:hover:scale-105 flex items-center justify-center gap-2"
                 >
-                  Proceed to Checkout
+                  <Lock size={16} />
+                  Checkout via Stripe
                 </button>
 
                 {/* Trust Badges */}
-                <div className="mt-6 pt-6 border-t border-brutal-red/20 flex flex-row md:flex-col gap-6 mb-2 md:mb-0">
+                <div className="mt-6 pt-6 border-t border-brutal-red/20 flex flex-col md:flex-row lg:flex-col gap-4 md:gap-4 lg:gap-6 mb-2 md:mb-0">
                   <div className="flex items-start gap-3 text-sm text-muted-foreground flex-1">
                     <Package className="shrink-0 h-5 w-5 text-brutal-red mt-0.5" />
                     <div>
@@ -216,10 +216,10 @@ export default function Cart() {
                   </div>
 
                   <div className="flex items-start gap-3 text-sm text-muted-foreground flex-1">
-                    <ShoppingBag className="shrink-0 h-5 w-5 text-brutal-red mt-0.5" />
+                    <Lock className="shrink-0 h-5 w-5 text-brutal-red mt-0.5" />
                     <div>
                       <p className="uppercase tracking-wider mb-1">Secure Checkout</p>
-                      <p className="text-xs opacity-80">Your info is protected</p>
+                      <p className="text-xs opacity-80">Payments processed by Stripe</p>
                     </div>
                   </div>
                 </div>

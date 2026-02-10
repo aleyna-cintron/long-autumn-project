@@ -36,11 +36,58 @@ const courierPrime = Courier_Prime({
 });
 
 export const metadata: Metadata = {
-  title: "Long Autumn",
-  description: "Alt-rock from Manchester, NH / Boston, MA",
+  metadataBase: new URL("https://longautumnmusic.com"),
+  title: {
+    default: "Long Autumn | Indie Rock Band from Boston, MA & Manchester, NH",
+    template: "%s | Long Autumn",
+  },
+  description:
+    "Long Autumn is an independent five-piece indie rock band from Boston, MA and Manchester, NH. Born in a freezing garage in Acton, MA, the band blends influences from The Neighbourhood to Slipknot into an ethereal, ecoindustrial sound that's entirely their own. Stream music, see live shows, and shop official merch.",
+  keywords: [
+    "Long Autumn",
+    "Long Autumn band",
+    "indie rock Boston",
+    "indie band Manchester NH",
+    "independent band Boston",
+    "New England indie rock",
+    "DIY band Boston",
+    "Long Autumn music",
+    "Long Autumn merch",
+    "Long Autumn live shows",
+    "ecoindustrial",
+    "ethereal indie rock",
+    "garage band Boston",
+    "underground rock New England",
+  ],
+  authors: [{ name: "Long Autumn" }],
+  creator: "Long Autumn",
   icons: {
     icon: "/LA_Logo_Clean_White.png",
     apple: "/LA_Logo_Clean_White.png",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: "Long Autumn",
+    title: "Long Autumn | Indie Rock Band from Boston, MA & Manchester, NH",
+    description:
+      "Independent five-piece indie rock band with an ethereal, ecoindustrial sound. Born in a garage, built on the road. Stream music, see live shows, and shop official gear.",
+    images: [{ url: "/LA_Logo_Clean_White.png", width: 800, height: 600, alt: "Long Autumn logo" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Long Autumn | Indie Rock from Boston & Manchester",
+    description:
+      "Independent five-piece indie rock from New England. Born in a garage, built on the road.",
+    images: ["/LA_Logo_Clean_White.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+  },
+  alternates: {
+    canonical: "https://longautumnmusic.com",
   },
 };
 

@@ -1,8 +1,32 @@
+import type { Metadata } from 'next';
 import { Mail, Instagram } from 'lucide-react';
 import { SiLinktree } from 'react-icons/si';
 import ContactForm from "../components/ui/ContactForm";
 import { PanelCard } from "../components/ui/PanelCard";
 import PageHeader from '../components/ui/PageHeader';
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description:
+    "Get in touch with Long Autumn — booking inquiries, press requests, collaborations, or just to say hello. Independent indie rock band available for shows within a 4-hour radius of Boston. Email longautumnband@gmail.com or use the contact form.",
+  keywords: [
+    "contact Long Autumn",
+    "book Long Autumn",
+    "Long Autumn booking",
+    "Long Autumn email",
+    "Long Autumn press",
+    "hire indie band Boston",
+    "book indie band Manchester NH",
+    "Long Autumn Instagram",
+    "indie band for hire New England",
+  ],
+  openGraph: {
+    title: "Contact — Long Autumn",
+    description:
+      "Bookings, press inquiries, or just to say hello. Reach out to Long Autumn.",
+  },
+  alternates: { canonical: "https://longautumnmusic.com/contact" },
+};
 
 export default function ContactPage() {
     return (

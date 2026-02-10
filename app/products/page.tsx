@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { PanelCard } from "../components/ui/PanelCard";
 import ProductDetails from "../components/product/ProductDetails";
@@ -7,6 +8,31 @@ import SubscribeSection from "../components/ui/SubscribeSection";
 import { products } from "@/data/product";
 import { soldOutItems } from "@/data/soldOutItems";
 import RotatingFlipCard from "../components/ui/RotatingFlipCard";
+
+export const metadata: Metadata = {
+  title: "Official Merch",
+  description:
+    "Shop official Long Autumn merchandise — limited-run tees, apparel, and gear designed by the band. Every purchase directly supports an independent artist. Secure checkout via Stripe with free returns.",
+  keywords: [
+    "Long Autumn merch",
+    "Long Autumn merchandise",
+    "Long Autumn t-shirt",
+    "Long Autumn tee",
+    "indie band merch",
+    "Long Autumn official gear",
+    "Long Autumn shop",
+    "independent band merchandise",
+    "support indie music",
+    "DIY band merch Boston",
+  ],
+  openGraph: {
+    title: "Official Merch — Long Autumn",
+    description:
+      "Limited-run tees and gear. Every purchase directly supports an independent band.",
+    images: [{ url: "/merch/long-autumn-shirt-front.jpg", width: 800, height: 800, alt: "Long Autumn tee shirt" }],
+  },
+  alternates: { canonical: "https://longautumnmusic.com/products" },
+};
 
 const product = products[0];
 

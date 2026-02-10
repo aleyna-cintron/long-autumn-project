@@ -1,6 +1,28 @@
+import type { Metadata } from "next";
 import GalleryGrid from "../components/gallery/GalleryGrid";
 import Quote from "../components/gallery/Quote";
 import PageHeader from "../components/ui/PageHeader";
+
+export const metadata: Metadata = {
+  title: "Gallery",
+  description:
+    "Photos of Long Autumn — live performances, behind-the-scenes moments, and life on the road. Browse the gallery from the independent indie rock band based in Boston, MA and Manchester, NH.",
+  keywords: [
+    "Long Autumn photos",
+    "Long Autumn gallery",
+    "Long Autumn live photos",
+    "Long Autumn band photos",
+    "indie band gallery",
+    "Long Autumn concert photography",
+    "indie rock live photos",
+  ],
+  openGraph: {
+    title: "Gallery — Long Autumn",
+    description:
+      "Moments from the road, the stage, and everything in between.",
+  },
+  alternates: { canonical: "https://longautumnmusic.com/gallery" },
+};
 
 export default function Gallery() {
   return (

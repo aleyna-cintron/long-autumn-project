@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { getUpcomingShows, getPastShows } from '../lib/shows';
 import ShowCard from '../components/shows/ShowCard';
 import PastShowsList from '../components/shows/PastShowsList';
@@ -6,6 +7,31 @@ import PageHero from '../components/ui/PageHeader';
 import ShowPosterLoop from '../components/ui/ShowPosterLoop';
 import SubscribeSection from '../components/ui/SubscribeSection';
 import { showPosters } from '@/data/showPosters';
+
+export const metadata: Metadata = {
+  title: "Live Shows",
+  description:
+    "See Long Autumn live — upcoming shows and past performances across New England. Raw energy, cinematic atmosphere, unforgettable nights. The independent indie rock band plays venues within a 4-hour radius of Boston. Book Long Autumn for your venue.",
+  keywords: [
+    "Long Autumn live",
+    "Long Autumn concerts",
+    "Long Autumn shows",
+    "Long Autumn tour dates",
+    "indie concerts Boston",
+    "live music Manchester NH",
+    "New England indie shows",
+    "book Long Autumn",
+    "Long Autumn upcoming shows",
+    "indie band live Boston",
+    "DIY shows New England",
+  ],
+  openGraph: {
+    title: "Live Shows — Long Autumn",
+    description:
+      "Raw energy, cinematic atmosphere. See upcoming shows and book Long Autumn for your venue.",
+  },
+  alternates: { canonical: "https://longautumnmusic.com/shows" },
+};
 
 export default async function ShowsPage() {
     // Server-side data fetching

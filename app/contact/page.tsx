@@ -35,7 +35,7 @@ export default function ContactPage() {
                                         href="mailto:contact@longautumn.com"
                                         className="hover:text-brutal-red transition-colors break-all"
                                     >
-                                        contact@longautumn.com
+                                        longautumnband@gmail.com
                                     </a>
                                 </div>
                             </PanelCard>

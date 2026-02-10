@@ -40,9 +40,9 @@ export default function ContactForm() {
   }
 
   return (
-    <form ref={formRef} action={handleSubmit} className="space-y-6 p-4 sm:p-0">
+    <form ref={formRef} action={handleSubmit} className="space-y-6 xl:space-y-3 2xl:space-y-2.5 3xl:space-y-3 4xl:space-y-6 p-4 sm:p-0">
       <div>
-        <label htmlFor="name" className="block text-foreground mb-2 uppercase tracking-wide">
+        <label htmlFor="name" className="block text-foreground mb-2 xl:mb-1 2xl:mb-1 3xl:mb-1 4xl:mb-2 uppercase tracking-wide">
           Name
         </label>
         <input
@@ -50,12 +50,12 @@ export default function ContactForm() {
           name="name"
           type="text"
           placeholder="Your name"
-          className="w-full px-4 py-3 bg-background border-2 border-border rounded-sm text-foreground placeholder:text-muted-foreground focus:border-brutal-red focus:outline-none transition-colors"
+          className="w-full px-4 py-3 xl:py-2 2xl:py-2 3xl:py-2 4xl:py-3 bg-background border-2 border-border rounded-sm text-foreground placeholder:text-muted-foreground focus:border-brutal-red focus:outline-none transition-colors"
         />
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-foreground mb-2 uppercase tracking-wide">
+        <label htmlFor="email" className="block text-foreground mb-2 xl:mb-1 2xl:mb-1 3xl:mb-1 4xl:mb-2 uppercase tracking-wide">
           Email
         </label>
         <input
@@ -63,12 +63,12 @@ export default function ContactForm() {
           name="email"
           type="email"
           placeholder="your.email@example.com"
-          className="w-full px-4 py-3 bg-background border-2 border-border rounded-sm text-foreground placeholder:text-muted-foreground focus:border-brutal-red focus:outline-none transition-colors"
+          className="w-full px-4 py-3 xl:py-2 2xl:py-2 3xl:py-2 4xl:py-3 bg-background border-2 border-border rounded-sm text-foreground placeholder:text-muted-foreground focus:border-brutal-red focus:outline-none transition-colors"
         />
       </div>
 
       <div>
-        <label htmlFor="subject" className="block text-foreground mb-2 uppercase tracking-wide">
+        <label htmlFor="subject" className="block text-foreground mb-2 xl:mb-1 2xl:mb-1 3xl:mb-1 4xl:mb-2 uppercase tracking-wide">
           Subject
         </label>
         <input
@@ -76,12 +76,12 @@ export default function ContactForm() {
           name="subject"
           type="text"
           placeholder="What's this about?"
-          className="w-full px-4 py-3 bg-background border-2 border-border rounded-sm text-foreground placeholder:text-muted-foreground focus:border-brutal-red focus:outline-none transition-colors"
+          className="w-full px-4 py-3 xl:py-2 2xl:py-2 3xl:py-2 4xl:py-3 bg-background border-2 border-border rounded-sm text-foreground placeholder:text-muted-foreground focus:border-brutal-red focus:outline-none transition-colors"
         />
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-foreground mb-2 uppercase tracking-wide">
+        <label htmlFor="message" className="block text-foreground mb-2 xl:mb-1 2xl:mb-1 3xl:mb-1 4xl:mb-2 uppercase tracking-wide">
           Message
         </label>
         <textarea
@@ -89,7 +89,7 @@ export default function ContactForm() {
           name="message"
           rows={6}
           placeholder="Tell us more..."
-          className="w-full px-4 py-3 bg-background border-2 border-border rounded-sm text-foreground placeholder:text-muted-foreground focus:border-brutal-red focus:outline-none transition-colors resize-none"
+          className="w-full px-4 py-3 xl:py-2 2xl:py-2 3xl:py-2 4xl:py-3 bg-background border-2 border-border rounded-sm text-foreground placeholder:text-muted-foreground focus:border-brutal-red focus:outline-none transition-colors resize-none xl:max-h-24 2xl:max-h-24 3xl:max-h-28 4xl:max-h-none"
         />
       </div>
 

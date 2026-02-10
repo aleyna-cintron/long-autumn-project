@@ -6,13 +6,13 @@ import PageHeader from '../components/ui/PageHeader';
 
 export default function ContactPage() {
     return (
-        <div className="w-full min-h-screen text-text-primary md:pt-20 lg:pt-24 pb-20">
-            <PageHeader title='Get In Touch' subtitle='Bookings, press inquiries, or just to say hello'></PageHeader>
+        <div className="w-full min-h-screen text-text-primary md:pt-20 lg:pt-24 xl:pt-16 2xl:pt-12 3xl:pt-16 pb-20 xl:pb-8 2xl:pb-4 3xl:pb-8">
+            <PageHeader title='Get In Touch' subtitle='Bookings, press inquiries, or just to say hello' className="xl:pt-20 xl:pb-10 2xl:pt-16 2xl:pb-6 3xl:pt-20 3xl:pb-10"></PageHeader>
 
             {/* Contact Form & Info Section */}
-            <section className="py-12 lg:py-16 2xl:py-12 3xl:py-16">
-                <div className="max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl 2xl:max-w-6xl 3xl:max-w-350 4xl:max-w-400 mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid md:grid-cols-2 gap-6 lg:gap-8 3xl:gap-10">
+            <section className="py-12 lg:py-16 xl:py-6 2xl:py-4 3xl:py-6">
+                <div className="max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-4xl 2xl:max-w-5xl 3xl:max-w-6xl 4xl:max-w-400 mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="grid md:grid-cols-2 gap-6 lg:gap-8 xl:gap-6 2xl:gap-5 3xl:gap-6">
                         {/* Contact Form */}
                         <div className="flex flex-col">
                             <PanelCard title="Send Us a Message" fillParent>
@@ -21,10 +21,10 @@ export default function ContactPage() {
                         </div>
 
                         {/* Contact Info */}
-                        <div className="space-y-6 lg:space-y-6 2xl:space-y-4 3xl:space-y-6 ">
+                        <div className="space-y-6 lg:space-y-6 xl:space-y-4 2xl:space-y-3 3xl:space-y-4 ">
                             {/* All Inquiries */}
                             <PanelCard title="All Inquiries">
-                                <p className="text-text-secondary mb-6 leading-relaxed text-base md:text-base lg:text-lg 3xl:text-lg 4xl:text-xl p-4 sm:p-0">
+                                <p className="text-text-secondary mb-6 xl:mb-4 2xl:mb-3 3xl:mb-4 leading-relaxed text-base md:text-base lg:text-lg xl:text-sm 2xl:text-sm 3xl:text-base 4xl:text-xl p-4 sm:p-0">
                                     Booking requests, collaborations, general questions, or just want to say hello?
                                     Reach out to us — we play within a 4-hour radius of Boston and are always
                                     looking for new opportunities.
@@ -42,7 +42,7 @@ export default function ContactPage() {
 
                             {/* Follow Us */}
                             <PanelCard title="Follow Us">
-                                <p className="text-text-secondary mb-6 leading-relaxed text-base md:text-base lg:text-lg 3xl:text-lg 4xl:text-xl p-4 sm:p-0">
+                                <p className="text-text-secondary mb-6 xl:mb-4 2xl:mb-3 3xl:mb-4 leading-relaxed text-base md:text-base lg:text-lg xl:text-sm 2xl:text-sm 3xl:text-base 4xl:text-xl p-4 sm:p-0">
                                     Stay connected and catch our latest updates, show announcements, and behind-the-scenes content.
                                 </p>
                                 <div className="space-y-3 p-4 sm:p-0">

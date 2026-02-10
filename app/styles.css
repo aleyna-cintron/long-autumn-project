@@ -246,7 +246,7 @@
     animation: atmosphericBreath 25s ease-in-out infinite alternate;
   }
 
-  /* Color bleed and bloom layer */
+  /* Color bleed and bloom layer — disabled on mobile/tablet for performance */
   body::after {
     content: '';
     position: fixed;
@@ -261,6 +261,12 @@
       radial-gradient(circle 300px at 50% 90%, rgba(59, 130, 246, 0.05) 0%, transparent 60%);
     animation: colorBleed 30s ease-in-out infinite;
     filter: blur(60px);
+  }
+
+  @media (max-width: 1024px) {
+    body::after {
+      display: none;
+    }
   }
 
   /* VHS grain and noise overlay */

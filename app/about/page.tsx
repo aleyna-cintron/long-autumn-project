@@ -2,6 +2,8 @@
 import OurStory from '../components/about/OurStory';
 import BandMembersSection from '../components/about/BandMembersSection';
 import Image from 'next/image';
+import Link from 'next/link';
+import { FileText } from 'lucide-react';
 
 export default function AboutPage() {
   return (
@@ -27,6 +29,30 @@ export default function AboutPage() {
             priority
             className="w-full h-auto rounded-lg 3xl:rounded-xl shadow-2xl"
           />
+        </div>
+      </section>
+
+      {/* Booking & Press CTA */}
+      <section className="pb-20 px-8">
+        <div className="max-w-xl mx-auto bg-black/60 backdrop-blur-sm border border-white/10 rounded-sm p-8 text-center">
+          <h3 className="text-lg md:text-xl font-bold uppercase tracking-widest text-text-primary mb-6">
+            Booking &amp; Press
+          </h3>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              href="/contact"
+              className="w-full sm:w-auto text-center px-8 py-3 border-2 border-brutal-red uppercase tracking-widest font-semibold text-brutal-red hover:bg-brutal-red hover:text-black transition-all duration-300 text-sm md:text-base"
+            >
+              Booking Inquiry
+            </Link>
+            <Link
+              href="/epk"
+              className="w-full sm:w-auto text-center inline-flex items-center justify-center gap-3 px-8 py-3 border-2 border-white/30 uppercase tracking-widest font-semibold text-text-secondary hover:border-brutal-red hover:text-brutal-red transition-all duration-300 text-sm md:text-base"
+            >
+              <FileText className="w-4 h-4" />
+              Press Kit
+            </Link>
+          </div>
         </div>
       </section>
     </div>

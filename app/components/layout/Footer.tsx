@@ -74,8 +74,18 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Links */}
+        <div className="mt-8 pt-8 border-t border-white/10 flex items-center justify-center gap-6 text-sm">
+          <Link href="/epk" className="text-text-secondary hover:text-brutal-red transition-colors">
+            Press Kit
+          </Link>
+          <Link href="/contact" className="text-text-secondary hover:text-brutal-red transition-colors">
+            Contact
+          </Link>
+        </div>
+
         {/* Copyright */}
-        <div className="mt-8 pt-8 border-t border-white/10 text-center text-text-secondary">
+        <div className="mt-6 pt-6 border-t border-white/10 text-center text-text-secondary">
           <p className="font-body text-sm">
             &copy; {new Date().getFullYear()} Long Autumn. All rights reserved.
           </p>

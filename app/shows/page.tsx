@@ -51,35 +51,44 @@ export default async function ShowsPage() {
             <section>
                 <div className="max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl 2xl:max-w-5xl 3xl:max-w-300 4xl:max-w-350 mx-auto px-4">
                     <PanelCard title="Upcoming Shows">
+                        <div className="p-4 md:p-0">
+                            {upcomingShows.length === 0 ? (
+                                /* TBD Message */
+                                <div className="bg-gray border border-gray-800 rounded-lg p-6 sm:p-8 3xl:p-12 text-center">
+                                    <p className="text-3xl 3xl:text-4xl 4xl:text-5xl font-bold text-text-muted mb-2 sm:mb-4">TBD</p>
+                                    <p className="text-text-secondary text-sm sm:text-base 3xl:text-lg 4xl:text-xl">No upcoming shows scheduled at this time. Check back soon!</p>
+                                </div>
+                            ) : (
+                                /* Show Listings */
+                                <div className="space-y-4 sm:space-y-6">
+                                    {upcomingShows.map((event) => (
+                                        <ShowCard key={event.id} event={event} />
+                                    ))}
+                                </div>
+                            )}
 
-                {upcomingShows.length === 0 ? (
-                    /* TBD Message */
-                    <div className="bg-gray border border-gray-800 rounded-lg p-6 sm:p-8 3xl:p-12 text-center">
-                        <p className="text-3xl 3xl:text-4xl 4xl:text-5xl font-bold text-text-muted mb-2 sm:mb-4">TBD</p>
-                        <p className="text-text-secondary text-sm sm:text-base 3xl:text-lg 4xl:text-xl">No upcoming shows scheduled at this time. Check back soon!</p>
-                    </div>
-                ) : (
-                    /* Show Listings */
-                    <div className="space-y-4 sm:space-y-6">
-                        {upcomingShows.map((event) => (
-                            <ShowCard key={event.id} event={event} />
-                        ))}
-                    </div>
-                    )}
+                            {/* Booking? */}
+                            <div className="mt-12 p-8 text-center rounded-sm mx-auto">
+                                <h3 className="text-lg 3xl:text-xl 4xl:text-2xl font-bold uppercase tracking-widest text-text-primary mb-4">
+                                    Want to book Long Autumn for your venue?
+                                </h3>
 
-                    {/* Booking? */}
-                    <div className="mt-12 p-8 text-center rounded-sm mx-auto">
-                        <h3 className="text-lg 3xl:text-xl 4xl:text-2xl font-bold uppercase tracking-widest text-text-primary mb-4">
-                            Want to book Long Autumn for your venue?
-                        </h3>
-
-                        <a
-                            href="/contact"
-                            className="inline-block border-2 border-brutal-red px-8 py-3 uppercase tracking-widest font-semibold text-brutal-red hover:bg-brutal-red hover:text-black transition-all duration-300 text-sm 3xl:text-base 4xl:text-lg"
-                        >
-                            Booking Inquiry
-                        </a>
-                    </div>
+                                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
+                                    <a
+                                        href="/contact"
+                                        className="w-full sm:w-auto text-center border-2 border-brutal-red px-8 py-3 uppercase tracking-widest font-semibold text-brutal-red hover:bg-brutal-red hover:text-black transition-all duration-300 text-sm 3xl:text-base 4xl:text-lg"
+                                    >
+                                        Booking Inquiry
+                                    </a>
+                                    <a
+                                        href="/epk"
+                                        className="w-full sm:w-auto text-center border-2 border-white/30 px-8 py-3 uppercase tracking-widest font-semibold text-text-secondary hover:border-brutal-red hover:text-brutal-red transition-all duration-300 text-sm 3xl:text-base 4xl:text-lg"
+                                    >
+                                        Press Kit
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </PanelCard>
                 </div>
             </section>

@@ -580,3 +580,46 @@ html {
     @apply bg-background text-foreground;
   }
 }
+
+/* Print styles for EPK PDF export */
+@media print {
+  body,
+  body::before,
+  html::before,
+  html::after {
+    background: white !important;
+    animation: none !important;
+    opacity: 0 !important;
+  }
+
+  body {
+    opacity: 1 !important;
+    color: black !important;
+  }
+
+  .print\:hidden {
+    display: none !important;
+  }
+
+  nav,
+  footer {
+    display: none !important;
+  }
+
+  * {
+    color: black !important;
+    border-color: #ddd !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+
+  section {
+    page-break-inside: avoid;
+  }
+}

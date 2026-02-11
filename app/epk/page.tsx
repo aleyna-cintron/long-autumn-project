@@ -5,16 +5,21 @@ import { PanelCard } from "../components/ui/PanelCard";
 import PageHeader from "../components/ui/PageHeader";
 import { Button } from "../components/ui/Button";
 import EpkTrackPlayer from "../components/epk/EpkTrackPlayer";
+import EpkDownloadButtons from "../components/epk/EpkDownloadButtons";
 import type { EpkTrack } from "../components/epk/EpkTrackPlayer";
 import { allEPs } from "@/data/eps";
 
+// Ordered to balance CSS column heights:
+// Col 1: landscape (0.67h) + portrait (1.33h) = 2.0h
+// Col 2: square (1.0h) + landscape (0.8h) = 1.8h
+// Col 3: landscape (0.75h) + landscape (0.8h) = 1.55h
 const pressPhotos = [
-  { webp: "/epk/band-portrait-1.webp", jpg: "/epk/band-portrait-1.jpg", caption: "Band Portrait" },
-  { webp: "/epk/band-portrait-2.webp", jpg: "/epk/band-portrait-2.jpg", caption: "Band Portrait" },
-  { webp: "/epk/band-live-1.webp", jpg: "/epk/band-live-1.jpg", caption: "Live Performance" },
-  { webp: "/epk/band-live-2.webp", jpg: "/epk/band-live-2.jpg", caption: "Live Performance" },
-  { webp: "/epk/jam-templeton-live.webp", jpg: "/epk/jam-templeton-live.jpg", caption: "Jam Templeton" },
-  { webp: "/epk/nick-harvey-live.webp", jpg: "/epk/nick-harvey-live.jpg", caption: "Nick Harvey" },
+  { webp: "/epk/band-portrait-1.webp", jpg: "/epk/band-portrait-1.jpg", caption: "Band Portrait", w: 5397, h: 3598 },
+  { webp: "/epk/band-portrait-2.webp", jpg: "/epk/band-portrait-2.jpg", caption: "Band Portrait", w: 3541, h: 3541 },
+  { webp: "/epk/band-live-1.webp", jpg: "/epk/band-live-1.jpg", caption: "Live Performance", w: 2016, h: 1512 },
+  { webp: "/epk/band-live-2.webp", jpg: "/epk/band-live-2.jpg", caption: "Live Performance", w: 3024, h: 4032 },
+  { webp: "/epk/jam-templeton-live.webp", jpg: "/epk/jam-templeton-live.jpg", caption: "Jam Templeton", w: 2048, h: 1638 },
+  { webp: "/epk/nick-harvey-live.webp", jpg: "/epk/nick-harvey-live.jpg", caption: "Nick Harvey", w: 1024, h: 819 },
 ];
 
 const featuredTracks: EpkTrack[] = [
@@ -103,6 +108,14 @@ export default function EpkPage() {
                   </div>
                 ))}
               </div>
+
+              {/* Download Buttons */}
+              <div className="print:hidden">
+                <EpkDownloadButtons
+                  photos={pressPhotos.map((p) => ({ url: p.jpg, filename: p.jpg.split("/").pop()! }))}
+                  tracks={featuredTracks.map((t) => ({ url: t.src, filename: `${t.title} - Long Autumn.mp3` }))}
+                />
+              </div>
             </div>
           </PanelCard>
         </section>
@@ -114,14 +127,15 @@ export default function EpkPage() {
               <p className="text-text-secondary text-sm md:text-base mb-6">
                 High-resolution press photos available for download. Click the download icon on any image for the full-resolution JPG.
               </p>
-              <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+              <div className="columns-2 lg:columns-3 gap-4 md:gap-6">
                 {pressPhotos.map((photo) => (
-                  <div key={photo.jpg} className="group relative aspect-[4/3] rounded-lg overflow-hidden">
+                  <div key={photo.jpg} className="break-inside-avoid mb-4 md:mb-6 group relative rounded-lg overflow-hidden">
                     <Image
                       src={photo.webp}
                       alt={`Long Autumn - ${photo.caption}`}
-                      fill
-                      className="object-cover transition-transform duration-300 md:group-hover:scale-105"
+                      width={photo.w}
+                      height={photo.h}
+                      className="w-full h-auto transition-transform duration-300 md:group-hover:scale-105"
                       sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                     />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300" />

@@ -30,6 +30,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "files.stripe.com",
       },
+      {
+        protocol: "https",
+        hostname: "img.youtube.com",
+      },
     ],
     formats: ["image/avif", "image/webp"],
   },

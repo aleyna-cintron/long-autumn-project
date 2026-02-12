@@ -45,6 +45,7 @@ export default function NavBar() {
                 alt="Long Autumn Logo"
                 width={400}
                 height={133}
+                sizes="120px"
                 className="h-6 w-auto"
               />
             </Link>
@@ -88,6 +89,7 @@ export default function NavBar() {
                   alt="Long Autumn Logo"
                   width={400}
                   height={133}
+                  sizes="200px"
                   className="w-[200px] h-auto"
                 />
               </Link>

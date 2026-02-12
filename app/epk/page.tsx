@@ -67,28 +67,28 @@ export default function EpkPage() {
                 <div className="flex items-center gap-2 md:gap-3 p-2.5 md:p-3 bg-muted/30 rounded-sm border border-border">
                   <Music className="w-4 h-4 md:w-5 md:h-5 text-brutal-red shrink-0" />
                   <div className="min-w-0">
-                    <p className="text-[10px] md:text-xs text-gray-500 uppercase tracking-wider">Genre</p>
+                    <p className="text-[10px] md:text-xs text-gray-400 uppercase tracking-wider">Genre</p>
                     <p className="text-xs md:text-sm text-text-primary font-medium">Indie Rock</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 md:gap-3 p-2.5 md:p-3 bg-muted/30 rounded-sm border border-border">
                   <MapPin className="w-4 h-4 md:w-5 md:h-5 text-brutal-red shrink-0" />
                   <div className="min-w-0">
-                    <p className="text-[10px] md:text-xs text-gray-500 uppercase tracking-wider">Location</p>
+                    <p className="text-[10px] md:text-xs text-gray-400 uppercase tracking-wider">Location</p>
                     <p className="text-xs md:text-sm text-text-primary font-medium">Boston & Manchester</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 md:gap-3 p-2.5 md:p-3 bg-muted/30 rounded-sm border border-border">
                   <Calendar className="w-4 h-4 md:w-5 md:h-5 text-brutal-red shrink-0" />
                   <div className="min-w-0">
-                    <p className="text-[10px] md:text-xs text-gray-500 uppercase tracking-wider">Formed</p>
+                    <p className="text-[10px] md:text-xs text-gray-400 uppercase tracking-wider">Formed</p>
                     <p className="text-xs md:text-sm text-text-primary font-medium">2019</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 md:gap-3 p-2.5 md:p-3 bg-muted/30 rounded-sm border border-border">
                   <Users className="w-4 h-4 md:w-5 md:h-5 text-brutal-red shrink-0" />
                   <div className="min-w-0">
-                    <p className="text-[10px] md:text-xs text-gray-500 uppercase tracking-wider">Members</p>
+                    <p className="text-[10px] md:text-xs text-gray-400 uppercase tracking-wider">Members</p>
                     <p className="text-xs md:text-sm text-text-primary font-medium">5-piece</p>
                   </div>
                 </div>
@@ -104,14 +104,14 @@ export default function EpkPage() {
                     }`}
                   >
                     <span className="text-text-primary font-medium text-sm md:text-base">{member.name}</span>
-                    <span className="text-gray-500 text-xs sm:text-sm">{member.role}</span>
+                    <span className="text-gray-400 text-xs sm:text-sm">{member.role}</span>
                   </div>
                 ))}
               </div>
 
               {/* Press Highlights */}
               <div className="space-y-2">
-                <p className="text-xs md:text-sm text-gray-500 uppercase tracking-wider font-medium">Press Highlights</p>
+                <p className="text-xs md:text-sm text-gray-400 uppercase tracking-wider font-medium">Press Highlights</p>
                 <div className="space-y-2">
                   <div className="flex items-start gap-3 p-3 bg-muted/30 rounded-sm border border-border">
                     <Radio className="w-4 h-4 md:w-5 md:h-5 text-brutal-red shrink-0 mt-0.5" />
@@ -202,7 +202,7 @@ export default function EpkPage() {
                     </div>
                     <div className="text-center">
                       <p className="text-sm font-medium text-text-primary">{ep.title}</p>
-                      <p className="text-xs text-gray-500">{ep.year}</p>
+                      <p className="text-xs text-gray-400">{ep.year}</p>
                     </div>
                   </div>
                 ))}
@@ -235,7 +235,7 @@ export default function EpkPage() {
                 <div className="flex items-center gap-3 p-4 bg-muted/30 rounded-sm border border-border">
                   <Mail className="w-5 h-5 text-brutal-red shrink-0" />
                   <div>
-                    <p className="text-xs text-gray-500 uppercase tracking-wider">Email</p>
+                    <p className="text-xs text-gray-400 uppercase tracking-wider">Email</p>
                     <a href="mailto:longautumnband@gmail.com" className="text-sm text-text-primary hover:text-brutal-red transition-colors">
                       longautumnband@gmail.com
                     </a>
@@ -244,7 +244,7 @@ export default function EpkPage() {
                 <div className="flex items-center gap-3 p-4 bg-muted/30 rounded-sm border border-border">
                   <MapPin className="w-5 h-5 text-brutal-red shrink-0" />
                   <div>
-                    <p className="text-xs text-gray-500 uppercase tracking-wider">Booking Radius</p>
+                    <p className="text-xs text-gray-400 uppercase tracking-wider">Booking Radius</p>
                     <p className="text-sm text-text-primary">Within 4 hours of Boston</p>
                   </div>
                 </div>

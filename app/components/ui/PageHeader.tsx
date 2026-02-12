@@ -59,7 +59,7 @@ export default function PageHero({
             <>
               <div className="w-20 h-px bg-linear-to-r from-transparent via-accent/35 to-transparent" />
 
-              <p className="text-base md:text-lg text-muted-foreground/80 uppercase tracking-widest max-w-xl">
+              <p className="text-base md:text-lg text-muted-foreground uppercase tracking-widest max-w-xl">
                 {subtitle}
               </p>
             </>

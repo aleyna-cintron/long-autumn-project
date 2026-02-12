@@ -134,6 +134,7 @@ export default function FeaturedEPPlayer({ ep }: FeaturedEPPlayerProps) {
                   src={epCoverArt}
                   alt={ep.title}
                   fill
+                  sizes="(max-width: 768px) 80px, 160px"
                   className="object-cover"
                 />
               </div>
@@ -147,6 +148,7 @@ export default function FeaturedEPPlayer({ ep }: FeaturedEPPlayerProps) {
                 src={epCoverArt}
                 alt={`${ep.title} cover`}
                 fill
+                sizes="(max-width: 640px) 168px, (max-width: 768px) 208px, (max-width: 1024px) 352px, 384px"
                 className="object-cover"
               />
 
@@ -185,6 +187,7 @@ export default function FeaturedEPPlayer({ ep }: FeaturedEPPlayerProps) {
                 <div className="flex items-center gap-2 md:gap-4">
                   <button
                     onClick={togglePlay}
+                    aria-label={isPlaying ? 'Pause' : 'Play'}
                     className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-brutal-red hover:bg-red-700 flex items-center justify-center transition-colors flex-shrink-0"
                   >
                     {isPlaying ? <Pause size={14} className="md:hidden" fill="white" /> : <Play size={14} className="md:hidden ml-0.5" fill="white" />}
@@ -194,13 +197,14 @@ export default function FeaturedEPPlayer({ ep }: FeaturedEPPlayerProps) {
                     <p className="text-xs md:text-sm uppercase tracking-widest text-brutal-red font-bold mb-1">Now Playing</p>
                     <div className="flex items-center gap-2">
                       <p className="font-semibold text-white truncate text-sm md:text-base">{currentTrack.title}</p>
-                      <span className="text-gray-500 text-xs md:text-sm">
+                      <span className="text-gray-400 text-xs md:text-sm">
                         {formatTime(currentTime)} / {formatTime(duration)}
                       </span>
                     </div>
                   </div>
                   <button
                     onClick={() => setShowVolume(!showVolume)}
+                    aria-label="Toggle volume control"
                     className="p-1.5 md:p-2 text-gray-400 hover:text-white transition-colors"
                   >
                     <Volume2 size={16} className="md:hidden" />
@@ -250,7 +254,7 @@ export default function FeaturedEPPlayer({ ep }: FeaturedEPPlayerProps) {
                   }`}
                 >
                   <div className="flex items-center gap-2 md:gap-4">
-                    <span className={`font-mono text-sm md:text-lg w-6 md:w-8 ${currentTrack.title === track.title ? 'text-brutal-red' : 'text-gray-500'}`}>
+                    <span className={`font-mono text-sm md:text-lg w-6 md:w-8 ${currentTrack.title === track.title ? 'text-brutal-red' : 'text-gray-400'}`}>
                       {String(index + 1).padStart(2, '0')}
                     </span>
                     <span className={`text-sm md:text-lg font-medium ${currentTrack.title === track.title ? 'text-white' : 'text-gray-300'}`}>
@@ -258,7 +262,7 @@ export default function FeaturedEPPlayer({ ep }: FeaturedEPPlayerProps) {
                     </span>
                   </div>
                   <div className="flex items-center gap-2 md:gap-4">
-                    <span className="text-gray-500 text-xs md:text-base">{track.duration}</span>
+                    <span className="text-gray-400 text-xs md:text-base">{track.duration}</span>
                     {currentTrack.title === track.title && (
                       isPlaying
                         ? <Pause size={14} className="text-brutal-red md:hidden" fill="currentColor" />

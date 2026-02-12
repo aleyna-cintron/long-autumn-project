@@ -24,6 +24,7 @@ export default function Gallery() {
                 <img
                   src={image.url}
                   alt={image.caption}
+                  loading="lazy"
                   className="w-full h-auto transition-all duration-500"
                 />
                 
@@ -48,8 +49,9 @@ export default function Gallery() {
           className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4"
           onClick={() => setLightboxImage(null)}
         >
-          <button 
+          <button
             className="absolute top-8 right-8 text-foreground hover:text-accent transition-colors z-10"
+            aria-label="Close lightbox"
             onClick={(e) => {
               e.stopPropagation();
               setLightboxImage(null);

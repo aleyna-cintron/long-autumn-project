@@ -50,6 +50,7 @@ export default function FanGallery({
                   <img
                     src={photo.src}
                     alt={photo.alt ?? 'Fan wearing Long Autumn merch'}
+                    loading="lazy"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -76,6 +77,7 @@ export default function FanGallery({
         >
           <button
             className="absolute top-8 right-8 text-foreground hover:text-accent transition-colors z-10"
+            aria-label="Close lightbox"
             onClick={(e) => {
               e.stopPropagation();
               setLightboxImage(null);

@@ -49,6 +49,7 @@ export default function Footer() {
                 alt="Long Autumn"
                 width={400}
                 height={133}
+                sizes="100px"
                 className="h-4 w-auto mb-2"
               />
             </Link>

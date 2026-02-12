@@ -93,11 +93,13 @@ export default function EpkTrackPlayer({ tracks }: EpkTrackPlayerProps) {
                 src={currentTrack.coverArt}
                 alt={currentTrack.epName}
                 fill
+                sizes="48px"
                 className="object-cover"
               />
             </div>
             <button
               onClick={togglePlay}
+              aria-label={isPlaying ? 'Pause' : 'Play'}
               className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-brutal-red hover:bg-red-700 flex items-center justify-center transition-colors flex-shrink-0"
             >
               {isPlaying
@@ -109,7 +111,7 @@ export default function EpkTrackPlayer({ tracks }: EpkTrackPlayerProps) {
               <p className="text-xs uppercase tracking-widest text-brutal-red font-bold mb-0.5">Now Playing</p>
               <div className="flex items-center gap-2">
                 <p className="font-semibold text-white truncate text-sm md:text-base">{currentTrack.title}</p>
-                <span className="text-gray-500 text-xs whitespace-nowrap">
+                <span className="text-gray-400 text-xs whitespace-nowrap">
                   {formatTime(currentTime)} / {formatTime(duration)}
                 </span>
               </div>
@@ -146,6 +148,7 @@ export default function EpkTrackPlayer({ tracks }: EpkTrackPlayerProps) {
                   src={track.coverArt}
                   alt={track.epName}
                   fill
+                  sizes="40px"
                   className="object-cover"
                 />
               </div>
@@ -153,11 +156,11 @@ export default function EpkTrackPlayer({ tracks }: EpkTrackPlayerProps) {
                 <p className={`text-sm md:text-base font-medium truncate ${currentTrack.title === track.title ? 'text-white' : 'text-gray-300'}`}>
                   {track.title}
                 </p>
-                <p className="text-xs text-gray-500">{track.epName} ({track.epYear})</p>
+                <p className="text-xs text-gray-400">{track.epName} ({track.epYear})</p>
               </div>
             </button>
             <div className="flex items-center gap-2 md:gap-3 shrink-0 ml-2">
-              <span className="text-gray-500 text-xs md:text-sm">{track.duration}</span>
+              <span className="text-gray-400 text-xs md:text-sm">{track.duration}</span>
               {currentTrack.title === track.title && (
                 isPlaying
                   ? <Pause size={14} className="text-brutal-red" fill="currentColor" />
@@ -167,7 +170,7 @@ export default function EpkTrackPlayer({ tracks }: EpkTrackPlayerProps) {
                 href={track.src}
                 download
                 onClick={(e) => e.stopPropagation()}
-                className="p-1.5 text-gray-500 hover:text-brutal-red transition-colors"
+                className="p-1.5 text-gray-400 hover:text-brutal-red transition-colors"
                 aria-label={`Download ${track.title}`}
               >
                 <Download size={14} />

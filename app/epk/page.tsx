@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Download, Mail, MapPin, Calendar, Music, Users } from "lucide-react";
+import { Download, Mail, MapPin, Calendar, Music, Users, Radio } from "lucide-react";
 import { SiSpotify, SiApplemusic, SiInstagram, SiYoutube, SiFacebook } from "react-icons/si";
 import { PanelCard } from "../components/ui/PanelCard";
 import PageHeader from "../components/ui/PageHeader";
@@ -107,6 +107,25 @@ export default function EpkPage() {
                     <span className="text-gray-500 text-xs sm:text-sm">{member.role}</span>
                   </div>
                 ))}
+              </div>
+
+              {/* Press Highlights */}
+              <div className="space-y-2">
+                <p className="text-xs md:text-sm text-gray-500 uppercase tracking-wider font-medium">Press Highlights</p>
+                <div className="space-y-2">
+                  <div className="flex items-start gap-3 p-3 bg-muted/30 rounded-sm border border-border">
+                    <Radio className="w-4 h-4 md:w-5 md:h-5 text-brutal-red shrink-0 mt-0.5" />
+                    <p className="text-sm text-text-secondary">
+                      <span className="text-text-primary font-medium">&quot;Surf Munk&quot;</span> featured on 92.5 The River&apos;s Homegrown Music Showcase (2024)
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3 p-3 bg-muted/30 rounded-sm border border-border">
+                    <Radio className="w-4 h-4 md:w-5 md:h-5 text-brutal-red shrink-0 mt-0.5" />
+                    <p className="text-sm text-text-secondary">
+                      <span className="text-text-primary font-medium">&quot;I Can Get Used to This&quot;</span> featured on 92.5 The River&apos;s Homegrown Music Showcase &mdash; Best of 2020
+                    </p>
+                  </div>
+                </div>
               </div>
 
               {/* Download Buttons */}

@@ -30,6 +30,8 @@ export default function Gallery() {
                   height={800} // approximate ratio — doesn’t need to be exact
                   sizes="(max-width: 1024px) 100vw, 33vw"
                   className="w-full h-auto transition-all duration-500"
+                  loading={index === 0 ? "eager" : "lazy"}
+                  priority={index === 0}
                 />
                 
                 {/* Gradient overlay */}

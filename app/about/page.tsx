@@ -1,4 +1,3 @@
-"use client";
 import OurStory from '../components/about/OurStory';
 import BandMembersSection from '../components/about/BandMembersSection';
 import Image from 'next/image';

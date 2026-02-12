@@ -9,10 +9,6 @@ import EpkDownloadButtons from "../components/epk/EpkDownloadButtons";
 import type { EpkTrack } from "../components/epk/EpkTrackPlayer";
 import { allEPs } from "@/data/eps";
 
-// Ordered to balance CSS column heights:
-// Col 1: landscape (0.67h) + portrait (1.33h) = 2.0h
-// Col 2: square (1.0h) + landscape (0.8h) = 1.8h
-// Col 3: landscape (0.75h) + landscape (0.8h) = 1.55h
 const pressPhotos = [
   { webp: "/epk/band-portrait-1.webp", jpg: "/epk/band-portrait-1.jpg", caption: "Band Portrait", w: 5397, h: 3598 },
   { webp: "/epk/band-portrait-2.webp", jpg: "/epk/band-portrait-2.jpg", caption: "Band Portrait", w: 3541, h: 3541 },

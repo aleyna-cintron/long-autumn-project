@@ -1,4 +1,6 @@
 'use client';
+
+import Image from "next/image";
 import { useState } from "react";
 import { X } from 'lucide-react';
 import { galleryImages } from '@/data/galleryImages';
@@ -21,10 +23,12 @@ export default function Gallery() {
                 className="relative group cursor-pointer overflow-hidden bg-black border-2 border-white/10 hover:border-accent transition-all rounded-lg mb-4 break-inside-avoid"
                 onClick={() => setLightboxImage(image.url)}
               >
-                <img
+                <Image
                   src={image.url}
                   alt={image.caption}
-                  loading="lazy"
+                  width={1200}
+                  height={800} // approximate ratio — doesn’t need to be exact
+                  sizes="(max-width: 1024px) 100vw, 33vw"
                   className="w-full h-auto transition-all duration-500"
                 />
                 
@@ -46,7 +50,7 @@ export default function Gallery() {
       {/* Lightbox */}
       {lightboxImage && (
         <div 
-          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4"
+          className="fixed inset-0 z-9999 bg-black/95 flex items-center justify-center p-4"
           onClick={() => setLightboxImage(null)}
         >
           <button

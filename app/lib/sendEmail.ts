@@ -6,7 +6,7 @@ export type EmailResult = {
   message: string;
 };
 
-export async function sendEmail(prevState: EmailResult | null, formData: FormData): Promise<EmailResult> {
+export async function sendEmail(_prevState: EmailResult | null, formData: FormData): Promise<EmailResult> {
   const name = formData.get('name') as string | null
   const email = formData.get('email') as string | null
   const subject = formData.get('subject') as string | null
@@ -19,7 +19,6 @@ export async function sendEmail(prevState: EmailResult | null, formData: FormDat
 
   // Check if email credentials are configured
   if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
-    console.log("Email credentials not configured. Form data received:", { name, email, subject, message });
     return { success: true, message: "Message received! We'll get back to you soon." };
   }
 

@@ -29,5 +29,11 @@ export const metadata: Metadata = {
 };
 
 export default function MusicLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      {/* Preload the LCP image — always the latest EP on initial load */}
+      <link rel="preload" as="image" href="/EPart/fading.webp" fetchPriority="high" />
+      {children}
+    </>
+  );
 }

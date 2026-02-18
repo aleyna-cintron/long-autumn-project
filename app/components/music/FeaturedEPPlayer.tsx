@@ -282,44 +282,13 @@ export default function FeaturedEPPlayer({ ep }: FeaturedEPPlayerProps) {
             <audio
               ref={audioRef}
               src={currentTrack.src}
+              preload="none"
               onEnded={() => setIsPlaying(false)}
             />
               </div>
           </PanelCard>
 
-      <style jsx>{`
-        .animate-spin-slow {
-          animation: spin 8s linear infinite;
-        }
-
-        @keyframes spin {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
-        }
-
-        .slider::-webkit-slider-thumb {
-          appearance: none;
-          width: 12px;
-          height: 12px;
-          border-radius: 50%;
-          background: #e63946;
-          cursor: pointer;
-        }
-
-        .slider::-moz-range-thumb {
-          width: 12px;
-          height: 12px;
-          border-radius: 50%;
-          background: #e63946;
-          cursor: pointer;
-          border: none;
-        }
-      `}</style>
-      </div>
+</div>
     </>
   );
 }

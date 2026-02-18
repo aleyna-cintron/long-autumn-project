@@ -572,6 +572,35 @@ html {
   animation: cosmic-drift 60s ease-in-out infinite;
 }
 
+/* FeaturedEPPlayer — vinyl sleeve spin */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+/* FeaturedEPPlayer — custom range slider thumb */
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #e63946;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #e63946;
+  cursor: pointer;
+  border: none;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

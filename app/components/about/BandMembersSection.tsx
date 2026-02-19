@@ -1,7 +1,12 @@
 'use client'
 
 import { bandMembers } from '../../../types/bandMembers';
-import CardGrid from '../ui/card-3d/CardGrid';
+import dynamic from 'next/dynamic';
+
+const CardGrid = dynamic(() => import('../ui/card-3d/CardGrid'), {
+  ssr: false,
+  loading: () => <div style={{ minHeight: 600 }} />,
+});
 import { BandMemberCardData } from '../ui/card-3d/types';
 import ShinyText from '@/components/ShinyText';
 

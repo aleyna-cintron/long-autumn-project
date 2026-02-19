@@ -1,7 +1,7 @@
 import { allEPs } from '../../../data/eps'
 import { getUpcomingShows, formatShowDateTime } from '../../lib/shows'
 import { Calendar, Clock, MapPin, Headphones, Ticket, Mail } from 'lucide-react'
-import { FaSpotify, FaApple, FaAmazon, FaYoutube } from 'react-icons/fa'
+import { SpotifyIcon, AppleMusicIcon, AmazonMusicIcon, YouTubeIcon } from '../ui/BrandIcons'
 
 const statesWePlay = ['NH', 'MA', 'ME', 'VT', 'CT', 'NY'];
 import RotatingAlbumArt from './RotatingAlbumArt'
@@ -34,28 +34,28 @@ export default async function EPAndShowsShowcase() {
                 <Button
                   href="https://open.spotify.com/artist/4o9s60Nr1QgG7FGLUQakzu"
                   label="Listen on Spotify"
-                  icon={FaSpotify}
+                  icon={SpotifyIcon}
                   variant="dark"
                   external
                 />
                 <Button
                   href="https://music.apple.com/us/artist/long-autumn/1481105151"
                   label="Apple Music"
-                  icon={FaApple}
+                  icon={AppleMusicIcon}
                   variant="dark"
                   external
                 />
                 <Button
                   href="https://www.youtube.com/@LongAutumn"
                   label="YouTube"
-                  icon={FaYoutube}
+                  icon={YouTubeIcon}
                   variant="dark"
                   external
                 />
                 <Button
                   href="https://music.amazon.com/artists/B07YCQK97T/long-autumn"
                   label="Amazon Music"
-                  icon={FaAmazon}
+                  icon={AmazonMusicIcon}
                   variant="dark"
                   external
                 />

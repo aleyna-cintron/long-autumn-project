@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Instagram, Facebook, Twitter, Youtube } from "lucide-react";
-import { FaSpotify, FaApple } from "react-icons/fa";
+import { SpotifyIcon, AppleMusicIcon } from "../ui/BrandIcons";
 
 export default function Footer() {
   const socialLinks = [
@@ -13,12 +13,12 @@ export default function Footer() {
     {
       name: "Spotify",
       href: "https://open.spotify.com/artist/3WChl0j61LISLXZn9X9Skm",
-      icon: FaSpotify,
+      icon: SpotifyIcon,
     },
     {
       name: "Apple Music",
       href: "https://music.apple.com/us/artist/long-autumn/1481105151",
-      icon: FaApple,
+      icon: AppleMusicIcon,
     },
     {
       name: "Facebook",

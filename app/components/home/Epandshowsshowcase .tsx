@@ -18,7 +18,7 @@ export default async function EPAndShowsShowcase() {
       <div className="max-w-5xl mx-auto sm:px-2 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 gap-8 md:min-h-150"><div>
           {/* Latest EP */}
-          <PanelCard title="New EP - Listen Now">
+          <PanelCard title="New EP - Coming Soon">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
               <PanelCard

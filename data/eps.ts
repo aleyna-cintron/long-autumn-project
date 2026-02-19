@@ -60,7 +60,7 @@ export const happyHour: EP = {
 export const fading: EP = {
   id: "fading",
   title: "Fading",
-  year: 2025,
+  year: 2026,
   coverArt: "/EPart/fading.webp",
   backsideArt: "/EPart/fading-backside.webp",
   isLatest: true,

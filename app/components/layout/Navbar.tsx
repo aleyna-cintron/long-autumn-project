@@ -19,6 +19,7 @@ export default function NavBar() {
     { name: 'SHOWS', href: '/shows' },
     { name: 'MERCH', href: '/products' },
     { name: 'GALLERY', href: '/gallery' },
+    { name: 'EPK', href: '/epk' },
     { name: 'CONTACT', href: '/contact' },
   ]
 

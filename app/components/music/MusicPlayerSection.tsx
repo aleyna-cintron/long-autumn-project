@@ -1,17 +1,16 @@
 'use client';
-
+import Image from 'next/image';
 import { useRef, useState } from 'react';
 import { EP } from '@/types/music-data';
+import { allEPs } from '@/data/eps';
 import { PanelCard } from '../ui/PanelCard';
 import FeaturedEPPlayer from './FeaturedEPPlayer';
 import Discography from './Discography';
 
-interface Props {
-  initialEP: EP;
-}
 
-export default function MusicPlayerSection({ initialEP }: Props) {
-  const [selectedEP, setSelectedEP] = useState<EP>(initialEP);
+export default function MusicPlayerSection() {
+  const defaultEP: EP = allEPs.find(ep => ep.isLatest) ?? allEPs[0];
+  const [selectedEP, setSelectedEP] = useState<EP>(defaultEP);
   const nowPlayingRef = useRef<HTMLElement>(null);
 
   const handleSelectEP = (ep: EP) => {
@@ -29,15 +28,16 @@ export default function MusicPlayerSection({ initialEP }: Props) {
           {/* CSS background-image: avoids next/image fill complications with blur filters.
               filter inline style guarantees blur+saturate+brightness compose as one declaration.
               scale-110 via transform pushes edges outside overflow-hidden so blur falloff is clipped. */}
-          <div
-            className="absolute inset-0 scale-110"
-            style={{
-              backgroundImage: `url(${selectedEP.coverArt ?? '/placeholder-cover.jpg'})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              filter: 'blur(24px) saturate(0.5) brightness(0.75)',
-            }}
-          />
+          <div className="absolute inset-0 scale-110">
+            <Image
+              src={selectedEP.coverArt ?? '/placeholder-cover.jpg'}
+              alt={`${selectedEP.title} background`}
+              fill
+              priority={false}
+              sizes="100vw"
+              className="object-cover blur-xl brightness-75 saturate-50"
+            />
+          </div>
           <div className="absolute inset-0 bg-black/50" />
         </div>
 

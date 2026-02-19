@@ -283,6 +283,7 @@ export default function FeaturedEPPlayer({ ep }: FeaturedEPPlayerProps) {
 
             {/* Hidden Audio Element */}
             <audio
+              key={currentTrack.src}
               ref={audioRef}
               src={currentTrack.src}
               preload="none"

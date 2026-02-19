@@ -135,6 +135,7 @@ export default function FeaturedEPPlayer({ ep }: FeaturedEPPlayerProps) {
                   alt={ep.title}
                   fill
                   sizes="(max-width: 768px) 80px, 160px"
+                  quality={60}
                   className="object-cover"
                 />
               </div>
@@ -144,11 +145,13 @@ export default function FeaturedEPPlayer({ ep }: FeaturedEPPlayerProps) {
           {/* Album Cover Sleeve - stays in place */}
           <div className="absolute inset-0 z-10">
             <div className="relative w-full h-full rounded-lg overflow-hidden shadow-2xl bg-black">
+              {/* Main album sleeve — this is the LCP candidate, quality={85} for sharpness */}
               <Image
                 src={epCoverArt}
                 alt={`${ep.title} cover`}
                 fill
                 sizes="(max-width: 640px) 168px, (max-width: 768px) 208px, (max-width: 1024px) 352px, 384px"
+                quality={85}
                 className="object-cover"
               />
 

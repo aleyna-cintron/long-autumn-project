@@ -61,6 +61,15 @@ const nextConfig: NextConfig = {
       },
     ],
     formats: ["image/avif", "image/webp"],
+    // Restrict generated breakpoints — removes unnecessary 2048/3840 variants.
+    // Largest image on this site is a blurred full-bleed background (~1200px max useful).
+    deviceSizes: [640, 828, 1080, 1200, 1920],
+    // Sizes used when the `sizes` prop is set (non-fill images or fill with explicit sizes).
+    // Matches actual usage: vinyl label (80/160), vinyl disc (256), player sleeve (384).
+    imageSizes: [80, 160, 256, 384],
+    // Cache optimized images for 30 days on Vercel's CDN.
+    // Album art never changes — default 60s is wasteful.
+    minimumCacheTTL: 2592000,
   },
   async headers() {
     return [

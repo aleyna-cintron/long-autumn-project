@@ -42,6 +42,7 @@ export default function VinylRecord({ ep, isSelected, onSelect }: VinylProps) {
             alt={ep.title}
             fill
             sizes="(max-width: 640px) 288px, (max-width: 1024px) 256px, 400px"
+            quality={75}
             className="object-cover"
           />
 

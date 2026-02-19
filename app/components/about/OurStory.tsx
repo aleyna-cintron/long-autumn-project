@@ -15,7 +15,7 @@ export default function OurStory() {
                 fill
                 sizes="(max-width: 1024px) 50vw, 25vw"
                 className="object-cover"
-                quality={100}
+                quality={85}
               />
             </div>
             <div className="relative overflow-hidden rounded aspect-square">
@@ -25,7 +25,7 @@ export default function OurStory() {
                 fill
                 sizes="(max-width: 1024px) 50vw, 25vw"
                 className="object-cover"
-                quality={100}
+                quality={85}
               />
             </div>
             <div className="relative col-span-2 overflow-hidden rounded aspect-video">
@@ -35,7 +35,7 @@ export default function OurStory() {
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
-                quality={100}
+                quality={85}
               />
             </div>
           </div>

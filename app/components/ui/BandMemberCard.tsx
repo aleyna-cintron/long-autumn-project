@@ -23,12 +23,13 @@ export default function BandMemberCard({ name, role, imageUrl, bio }: BandMember
         </div>
         {/* Image with enhanced border and shadow */}
         <div className="relative z-10 overflow-hidden rounded-lg border-2 border-white/20 shadow-2xl group-hover:border-brutal-red/50 transition-all duration-500 group-hover:shadow-brutal-red/30">
-          <Image 
-            src={imageUrl} 
+          <Image
+            src={imageUrl}
             alt={`${name}'s photo`}
             width={0}
             height={0}
-            // sizes="100vw
+            sizes="(max-width: 768px) 100vw, 50vw"
+            quality={80}
             className="rounded-lg grayscale object-cover w-full h-auto transition-all duration-700 group-hover:grayscale-0 group-hover:saturate-50 group-hover:scale-110"
           />
           {/* Dark gradient overlay - always visible at bottom */}
